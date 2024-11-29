@@ -13,8 +13,40 @@ const BannerMenu = () => {
         <div className={'app-1200 banner-menu'}>
             <div className="sidebar">
                 <ul className={'sidebar-categories'}>
-                    <li><p>Woman&#39;s Fashion</p><img src={'/DropDownLeft.png'}/></li>
-                    <li><p>Men&#39;s Fashion</p> <img src={'/DropDownLeft.png'}/></li>
+                    <li>
+                        <div className="dropend">
+                            <a className="nav-link dropdown-toggle" data-bs-toggle="dropdown"
+                               aria-expanded="false">
+                                <p>Woman&#39;s Fashion</p>
+
+                            </a>
+                            <ul className="dropdown-menu">
+                                <li>Tops</li>
+                                <li>Dresses</li>
+                                <li>Trousers</li>
+                                <li>Shirts</li>
+                                <li>T-Shirts</li>
+                                <li>Premium Fashion</li>
+                            </ul>
+                        </div>
+
+                    </li>
+                    <li>
+                        <div className="dropend">
+                            <a className="nav-link dropdown-toggle" data-bs-toggle="dropdown"
+                               aria-expanded="false">
+                                <p>Men&#39;s Fashion </p>
+
+                            </a>
+                            <ul className="dropdown-menu">
+
+                                <li>Trousers</li>
+                                <li>Shirts</li>
+                                <li>T-Shirts</li>
+                                <li>Premium Fashion</li>
+                            </ul>
+                        </div>
+                    </li>
                     <li><p>Electronics</p></li>
                     <li><p>Home & Lifestyle</p></li>
                     <li><p>Medicine</p></li>
@@ -24,7 +56,7 @@ const BannerMenu = () => {
                     <li><p>Health & Beauty</p></li>
                 </ul>
             </div>
-           <Carousel images={images}></Carousel>
+            <Carousel images={images}></Carousel>
         </div>
     );
 };

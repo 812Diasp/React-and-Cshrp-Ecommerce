@@ -1,0 +1,41 @@
+#root{
+--maincolor: #db4444;
+  --focusmaincolor: #a63535;
+  width: 100%;
+}
+.gray{
+  color: #808080;
+}
+.bold{
+  font-weight: bold;
+}
+p{
+  margin-bottom: 0;
+}
+*:focus {
+  outline: none;
+}
+.app-1200{
+  max-width: 1200px;
+  display: flex;
+  align-items: center;
+}
+.homepage{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+body {
+  margin: 0;
+  display: flex; /* Делаем body flex-контейнером */
+
+  justify-content: center; /* Центрируем по горизонтали */
+  align-items: center; /* Центрируем по вертикали (опционально) */
+}
+hr{
+  margin: 0px;
+}
+.app-container {
+  width: 1200px;
+  background-color: white;
+}

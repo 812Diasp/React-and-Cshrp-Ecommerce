@@ -1,0 +1,86 @@
+.flash-sale{
+  display: flex;
+  flex-direction: column;
+  width: fit-content;
+  margin-top: 15px;
+  margin-bottom: 15px;
+}
+.flash-sale-counter{
+  display: flex;
+  gap: 30px;
+
+}
+.today-sale-text{
+  color: var(--maincolor);
+}
+.rectangle-main-color{
+  width: 15px;
+  height: 40px;
+  background: var(--maincolor);
+}
+.flash-sale-counter{
+  width: fit-content;
+  margin-top: 15px;
+  display: inline-flex; /* Для выравнивания элементов */
+  align-items: flex-end;
+}
+.today-sale-text-container{
+  gap: 18px;
+   display: inline-flex; /* Для выравнивания элементов */
+   align-items: center; /* Для вертикального выравнивания */
+ }
+.sale-title{
+  width: fit-content;
+  height: fit-content;
+  margin: 0;
+
+}
+.rectangle {
+  width: 20px;
+  height: 40px; /* Высота приблизительно равна высоте текста */
+  background-color: var(--maincolor);
+  border-radius: 5px;
+  margin-right: 5px; /* Отступ между прямоугольником и текстом */
+}
+.D-H-M-S-nodes{
+  display: flex;
+  justify-content: space-between;
+  gap: 33px;
+  font-size: 12px;
+}
+.time-digit{
+  display: flex;
+  width: fit-content;
+  justify-content: center;
+  align-items: center;
+  align-content: center;
+
+  flex-direction: column;
+}
+.time-digit span{
+  width: fit-content;
+}
+.time-digit p{
+  font-weight: normal;
+  font-size: 11px;
+}
+.twodotclock{
+  color: var(--maincolor);
+  font-weight: normal;
+  font-size: 28px;
+  padding-top: 10px;
+  opacity: 0.8;
+}
+.DHMS-VAL{
+  gap: 5px;
+  height: 50px;
+  font-weight: bold;
+  font-size: 28px;
+  display: flex;
+  justify-content: space-between;
+}
+.DHMS-VAL span{
+  width: fit-content;
+  height: fit-content;
+}
+

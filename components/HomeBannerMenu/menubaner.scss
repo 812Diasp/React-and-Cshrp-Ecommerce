@@ -25,7 +25,7 @@
     }
   }
   li:hover{
-   color:  #db4444;
+   color:  var(--maincolor);
   }
 }
 .banner-menu{
@@ -60,7 +60,7 @@
   height: 344px;
 }
 .dot{
-  background: #db4444;
+  background: var(--maincolor);
   padding: 2px;
 }
 .pagination {

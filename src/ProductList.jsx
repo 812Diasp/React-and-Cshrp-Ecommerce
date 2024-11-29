@@ -26,7 +26,7 @@ function ProductList() {
 
     return (
         <div>
-            <h2>Product List</h2>
+            <h2></h2>
             <ul>
                 {products.map((product) => (
 

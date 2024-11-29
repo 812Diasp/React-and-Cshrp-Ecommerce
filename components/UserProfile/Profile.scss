@@ -1,0 +1,89 @@
+.location-active{
+  color: var(--maincolor);
+}
+.account-section{
+  display: flex;
+  gap: 60px
+}
+.account-section{
+  ul,li{
+    list-style: none;
+    text-decoration: none;
+    cursor: pointer;
+  }
+  font-size: 18px;
+}
+.column-account{
+  margin-top: 15px;
+}
+.account-category{
+  color: black;
+  font-weight: bold;
+}
+.location-notactive{
+  color: grey;
+}
+.location-stripe{
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+}
+.greet{
+  color: var(--maincolor);
+}
+.location-slash{
+  margin-left: 5px;
+  margin-right: 5px;
+  font-weight: bold;
+}
+.account-section{
+  margin-top: 20px;
+}
+.profile-container{
+  margin-top: 80px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.account-info-fields {
+  display: grid;
+  gap: 30px;
+  grid-template-columns: repeat(2, 1fr); /* Два столбца равной ширины */
+  grid-template-rows: repeat(2, 1fr);    /* Две строки равной высоты */
+
+}
+.account-edit-field{
+  padding: 10px;
+  font-size: 22px;
+}
+.account-field {
+  align-items: center;
+  justify-content: center;
+   /* Для визуализации */
+}
+.password-field{
+  width: 100%;
+}
+.text-editprofile{
+  align-self: flex-start;
+}
+.password-section{
+  margin-top: 20px;
+  text-align: left;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+.btn-confirm-changes{
+  align-self: flex-end;
+  justify-self: flex-end;
+}
+.edit-profile{
+  padding: 50px;
+  display: flex;
+
+  flex-direction: column;
+  width: 870px;
+  height: 630px;
+  box-shadow: rgba(0,0,0,0.05) 3px 2px 3px 3px;
+}

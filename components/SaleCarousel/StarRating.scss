@@ -1,0 +1,36 @@
+.star-rating {
+  display: flex;
+}
+
+.fas {
+  font-size: 24px; /* Размер звезд */
+  color: gray; /* Цвет пустых звезд */
+  margin-right: 2px; /* Расстояние между звездами */
+}
+
+.full-star {
+  color: gold; /* Цвет полных звезд */
+}
+
+.half-star {
+  color: gold; /* Цвет половины звезды */
+  text-shadow: 0 0 1px rgba(0,0,0,0.5); /* Немного тени для резкости */
+  mask: linear-gradient(to right, black 50%, transparent 50%);
+  /* Маска для создания половины звезды
+  -webkit-mask: linear-gradient(to right, black 50%, transparent 50%);*/
+}
+
+.empty-star {
+  color: gray; /* Цвет пустых звезд */
+}
+.star{
+  color: gold;
+}
+.star{
+  path{
+    fill: gold;
+    color: gold;
+  }
+  fill: gold;
+  color: gold;
+ }

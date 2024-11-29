@@ -9,7 +9,7 @@ const Carousel = ({ images }) => {
         const interval = setInterval(() => {
 
             setActiveIndex((prevIndex) => (prevIndex + 1) % images.length);
-        }, 5000); // Change to adjust auto-slide interval (milliseconds)
+        }, 4000); // Change to adjust auto-slide interval (milliseconds)
 
         return () => clearInterval(interval);
     }, [images.length]);
