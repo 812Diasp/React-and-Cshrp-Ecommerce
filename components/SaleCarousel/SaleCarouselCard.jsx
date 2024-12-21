@@ -57,7 +57,7 @@ const SaleCarouselCard = ({cardInfo,key}) => {
             <p className={'sale-product-price'} >
                 ${infoOfCard.currentPrice} <span className={'gray-sale-product-price'}>{infoOfCard.prevPrice}$</span>
             </p>
-            <StarRatingSaleCard rating={4.9}></StarRatingSaleCard>
+            <StarRatingSaleCard rating={3.5}></StarRatingSaleCard>
 
         </div>
     );

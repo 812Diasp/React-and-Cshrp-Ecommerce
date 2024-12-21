@@ -25,6 +25,9 @@ p{
   justify-content: center;
   align-items: center;
 }
+.homepage img,a{
+  cursor: pointer;
+}
 body {
   margin: 0;
   display: flex; /* Делаем body flex-контейнером */

@@ -1,0 +1,16 @@
+footer{
+
+  background-color: black;
+  color: white;
+  margin-top: 10px;
+}
+.text-muted{
+  color: #a6a6a6;
+}
+
+footer .nav-link{color: white;
+  opacity: 1;
+}
+footer .nav-link:hover{
+  color: var(--maincolor);
+}

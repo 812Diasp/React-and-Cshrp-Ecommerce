@@ -6,7 +6,7 @@ const BannerMenu = () => {
         "bannerIphone.png",
         "macbookPreorder.png",
         "asusbanner.jpg",
-        "videocard.png"
+        "https://indexiq.ru/storage/tiny/Xiaomi/14/XiaoMi-14-01.jpg"
     ];
 
     return (

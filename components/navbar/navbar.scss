@@ -106,7 +106,7 @@
 .nav-link{
   color: black;
 }
-.nav-link:hover{
+.nabpx .nav-link:hover{
   color: var(--maincolor);
 }
 .utilities{
@@ -149,7 +149,7 @@
     transform: rotate(20deg);
   }
 }
-.link-current{
+.nabpx .link-current{
   text-underline: darkgray single thick ;
 }
 

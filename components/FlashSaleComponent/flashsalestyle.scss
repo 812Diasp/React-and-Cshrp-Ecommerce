@@ -18,11 +18,30 @@
   height: 40px;
   background: var(--maincolor);
 }
+.flex-line{
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+}
+.today-sale-text{
+  font-size: 20px;
+}
 .flash-sale-counter{
   width: fit-content;
   margin-top: 15px;
   display: inline-flex; /* Для выравнивания элементов */
   align-items: flex-end;
+}
+.viewall{
+  margin-top: 15px;
+  display: flex;
+  justify-content:center;
+  text-align: center;
+}
+.view-all{
+  width: 300px;
+  font-size: 25px;
+
 }
 .today-sale-text-container{
   gap: 18px;
