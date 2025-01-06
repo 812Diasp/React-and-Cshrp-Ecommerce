@@ -1,0 +1,18 @@
+{
+  "welcome": "Welcome",
+  "greeting": "Hello, {{name}}!",
+  "button": "Click me",
+  "login":"Login",
+  "register": "Register",
+  "search-ph": "Search",
+  "chooseLang": "Choose language",
+  "home": "Home",
+  "about": "About",
+  "contact": "Contact",
+  "profile": "Profile",
+  "orders": "Orders & Deliveries",
+  "log out": "Log Out",
+  "top-sale": "Summer Sale And Free Express Delivery - UP TO 50% OFF! ",
+  "shopnow": "Buy now",
+  "login register": "Login / Register"
+}
