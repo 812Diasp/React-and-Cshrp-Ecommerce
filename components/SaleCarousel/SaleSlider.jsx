@@ -6,7 +6,7 @@ import "slick-carousel/slick/slick-theme.css";
 import './salecarousel.scss'
 import SaleCarouselCard from "./SaleCarouselCard.jsx";
 // eslint-disable-next-line react/prop-types
-function SaleSlider({saleProducts}) {
+function SaleSlider({products}) {
     const settings = {
         dots: false,
         infinite: true,
@@ -21,7 +21,7 @@ function SaleSlider({saleProducts}) {
     return (
         <Slider {...settings}>
                 {/* eslint-disable-next-line react/prop-types */}
-                {saleProducts.map((item,key) =>
+                {products.map((item,key) =>
                     <SaleCarouselCard key={key} cardInfo={item}></SaleCarouselCard>
                 )}
 

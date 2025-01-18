@@ -2,7 +2,7 @@ import {useEffect,useState} from 'react';
 import './Profile.scss'
 //location divided by / (f.example Home/Cart, Home/My Account, Account/My Account/Product/View Cart/Check Out
 // eslint-disable-next-line react/prop-types
-const LocationStripe = ({location}) => {
+const LocationStripe = ({location,isGreet}) => {
     let locationstr = location;
     const [locationHtml,setLocationHtml] = useState("")
     function createLocationNodeText(){
@@ -33,9 +33,9 @@ const LocationStripe = ({location}) => {
             <div className="location" dangerouslySetInnerHTML={{__html:locationHtml}}>
 
             </div>
-            <div className="greet">
+            {isGreet ? <div className="greet">
                 <p className={'greet'}>Hello Denis T.</p>
-            </div>
+            </div> : <p></p>}
 
 
         </div>

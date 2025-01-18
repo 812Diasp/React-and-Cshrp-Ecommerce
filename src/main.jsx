@@ -10,15 +10,17 @@ import Register from "../components/LoginRegister/Register.jsx";
 import {Provider} from "react-redux";
 import store from './store/store.js';
 import './i18n.js';
+import ProductDetails from "../components/SaleCarousel/ProductDetails.jsx";
 ReactDOM.createRoot(document.getElementById('root')).render(
     <Provider store={store}>
     <BrowserRouter>
         <TopStripe></TopStripe>
         <Navbar></Navbar>
         <Routes>
-            <Route path={'/profile'} element={<ProfilePage/>}></Route>
-            <Route path={'/'} element={<Homepage/>}></Route>
-            <Route path={'/register'} element={<Register/>}></Route>
+            <Route path="/products/:productId" element={<ProductDetails />} /> {/* страница товара */}
+            <Route path={'/profile'} element={<ProfilePage/>}></Route> {/* страница товара */}
+            <Route path={'/'} element={<Homepage/>}></Route> {/* Глвная страница с баннерами меню и распродажами */}
+            <Route path={'/register'} element={<Register/>}></Route> { /* Страница логина и регистрации */}
         </Routes>
         <Footer></Footer>
     </BrowserRouter>

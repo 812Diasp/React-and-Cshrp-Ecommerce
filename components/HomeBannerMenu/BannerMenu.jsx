@@ -1,6 +1,7 @@
-
 import './menubaner.scss'
 import Carousel from "../BannerMenuCarousel/Carousel.jsx";
+import {useTranslation} from "react-i18next";
+
 const BannerMenu = () => {
     const images = [
         "bannerIphone.png",
@@ -8,7 +9,8 @@ const BannerMenu = () => {
         "asusbanner.jpg",
         "https://indexiq.ru/storage/tiny/Xiaomi/14/XiaoMi-14-01.jpg"
     ];
-
+    let current_year = new Date().getFullYear();
+    const {t, i18n} = useTranslation();
     return (
         <div className={'app-1200 banner-menu'}>
             <div className="sidebar">
@@ -17,16 +19,13 @@ const BannerMenu = () => {
                         <div className="dropend">
                             <a className="nav-link dropdown-toggle" data-bs-toggle="dropdown"
                                aria-expanded="false">
-                                <p>Woman&#39;s Fashion</p>
-
+                                <p>{t("smartphone")}</p>
                             </a>
                             <ul className="dropdown-menu">
-                                <li>Tops</li>
-                                <li>Dresses</li>
-                                <li>Trousers</li>
-                                <li>Shirts</li>
-                                <li>T-Shirts</li>
-                                <li>Premium Fashion</li>
+                                <li>{t("catalog")}</li>
+                                <li>{t("top")}</li>
+                                <li>{t("budget")}</li>
+                                <li>New {current_year}</li>
                             </ul>
                         </div>
 
@@ -35,25 +34,20 @@ const BannerMenu = () => {
                         <div className="dropend">
                             <a className="nav-link dropdown-toggle" data-bs-toggle="dropdown"
                                aria-expanded="false">
-                                <p>Men&#39;s Fashion </p>
+                                <p>{t("computers")}</p>
 
                             </a>
                             <ul className="dropdown-menu">
 
-                                <li>Trousers</li>
-                                <li>Shirts</li>
-                                <li>T-Shirts</li>
-                                <li>Premium Fashion</li>
+                                <li>{t("ready")}</li>
+                                <li>{t("components")}</li>
                             </ul>
                         </div>
                     </li>
-                    <li><p>Electronics</p></li>
-                    <li><p>Home & Lifestyle</p></li>
-                    <li><p>Medicine</p></li>
-                    <li><p>Sports & Outdoor</p></li>
-                    <li><p>Baby&#39;s & Toys</p></li>
-                    <li><p>Groceries & Pets</p></li>
-                    <li><p>Health & Beauty</p></li>
+                    <li><p>{t("electronics")}</p></li>
+                    <li><p>{t("homehygiene")}</p></li>
+                    <li><p>{t("sound")}</p></li>
+                    <li><p>{t("interesting18+")}</p></li>
                 </ul>
             </div>
             <Carousel images={images}></Carousel>

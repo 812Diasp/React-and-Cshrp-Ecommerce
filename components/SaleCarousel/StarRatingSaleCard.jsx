@@ -6,7 +6,7 @@ import { fab } from '@fortawesome/free-brands-svg-icons'
 import { far } from '@fortawesome/free-regular-svg-icons'
 
 // eslint-disable-next-line react/prop-types
-const StarRatingSaleCard = ({rating}) => {
+const StarRatingSaleCard = ({rating,quantity}) => {
     library.add(fab, fas, far)
 
     // Добавляем стили 'solid'
@@ -28,7 +28,7 @@ const StarRatingSaleCard = ({rating}) => {
     }
 
     return (
-        <div className="star-rating ">{stars} <span className={'gray'}>(99)</span></div>
+        <div className="star-rating ">{stars} <span className={'gray'}>({quantity})</span></div>
     );
 };
 

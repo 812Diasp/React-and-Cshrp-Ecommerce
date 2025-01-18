@@ -1,0 +1,27 @@
+.product-details{
+  display: flex;
+  justify-content: space-evenly;
+}
+.side-detail-image{
+ align-items: center;
+  display: flex;
+
+  flex-direction: column;
+}
+.side-detail-textblock{
+  width: 400px
+}
+.delivery-node-item{
+  display: flex;
+  gap: 20px;
+  align-items: center;
+}
+.delivery-node{
+  border: 1px solid #a9a9a9;
+  border-radius: 19px;
+  padding: 10px;
+}
+.delivery-node-item-desc{
+  display: flex;
+  flex-direction: column;
+}

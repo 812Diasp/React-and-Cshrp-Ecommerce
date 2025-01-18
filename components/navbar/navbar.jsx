@@ -34,8 +34,8 @@ const Navbar = () => {
                             </Link>
                         </li>
                         <li>
-                            <Link to="/about" className="nav-link px-2 link-current">
-                                {t('about')}
+                            <Link to="/catalog" className="nav-link px-2 link-current">
+                                {t('catalog')}
                             </Link>
                         </li>
                         <li>

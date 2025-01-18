@@ -91,6 +91,7 @@
   display: flex;
   top: -280px;
   left: 225px;
+  width: fit-content;
   flex-direction: column;
 }
 .card-img-btn{
@@ -120,7 +121,11 @@
   padding: 10px;
   text-align: center;
 }
-
+.hover-text:hover{
+  background-color: var(--maincolor);
+  transition: 0.2s;
+  font-weight: bold;
+}
 .sale-card:hover .hover-overlay {
   height: 50px; /* Высота прямоугольника */
   opacity: 1;

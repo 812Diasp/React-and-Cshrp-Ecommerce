@@ -11,7 +11,7 @@ const ProfilePage = () => {
     }
     return (<div className={'profile-container'}>
             <div className={'app-container'}>
-                <LocationStripe location={"Home/My Account"}></LocationStripe>
+                <LocationStripe location={"Home/My Account"} isGreet={true}></LocationStripe>
 
                 <div className="account-section">
                     <div className="column-account">
