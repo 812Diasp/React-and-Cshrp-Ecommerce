@@ -11,6 +11,7 @@ import {Provider} from "react-redux";
 import store from './store/store.js';
 import './i18n.js';
 import ProductDetails from "../components/SaleCarousel/ProductDetails.jsx";
+import CartPage from "../components/CartPage/CartPage.jsx";
 ReactDOM.createRoot(document.getElementById('root')).render(
     <Provider store={store}>
     <BrowserRouter>
@@ -21,6 +22,7 @@ ReactDOM.createRoot(document.getElementById('root')).render(
             <Route path={'/profile'} element={<ProfilePage/>}></Route> {/* страница товара */}
             <Route path={'/'} element={<Homepage/>}></Route> {/* Глвная страница с баннерами меню и распродажами */}
             <Route path={'/register'} element={<Register/>}></Route> { /* Страница логина и регистрации */}
+            <Route path={'/cart'} element={<CartPage/>}></Route>
         </Routes>
         <Footer></Footer>
     </BrowserRouter>

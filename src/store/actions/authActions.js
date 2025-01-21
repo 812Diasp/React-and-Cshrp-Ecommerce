@@ -1,38 +1,34 @@
-import axios from 'axios'
-
-export const loginSuccess = (payload) => ({
-    type: 'LOGIN_SUCCESS',
-    payload
-});
-
-export const registerSuccess = (payload) => ({
-    type: 'REGISTER_SUCCESS',
-    payload
-});
-export const logOut = () => ({
-    type: 'LOGOUT',
-});
-export const loginUser = (username, password) => {
-    return async (dispatch) => {
-        try {
-            const response = await axios.post('http://localhost:5248/api/Auth/login', {username,password});
-
-            dispatch(loginSuccess({token: response.data.token,user:{username}}));
-            sessionStorage.setItem("token", response.data.token)
-        } catch (error) {
-            console.log(error)
-            // Обработка ошибки
-        }
+import axios from 'axios';
+import { loginSuccess, logout, registerSuccess, setAuth } from '../features/auth/authSlice.js';
+export const loginUser = (email, password) => async (dispatch) => {
+    try {
+        const response = await axios.post('http://localhost:5248/api/auth/login', { email, password });
+        const token = response.data.token;
+        const user = response.data.user;
+        sessionStorage.setItem('token', token);
+        dispatch(loginSuccess({ token: token, user: user }));
+        return user;
+    } catch (error) {
+        console.error("Login error:", error);
+        throw error;
     }
 };
-export const registerUser = (username,email, password) => {
-    return async (dispatch) => {
-        try {
-            const response = await axios.post('http://localhost:5248/api/Auth/register', {username,email, password});
-            dispatch(registerSuccess({user:{username, email}}));
-        } catch (error) {
-            console.log(error)
-            // Обработка ошибки
-        }
+
+export const registerUser = (username, email, password) => async (dispatch) => {
+    try {
+        const response = await axios.post('http://localhost:5248/api/auth/register', { username, email, password });
+        const user = response.data.user;
+        const token = response.data.token;
+        sessionStorage.setItem('token', token);
+        dispatch(registerSuccess({ user: user}));
+        return user;
+    } catch (error) {
+        console.error("Register error:", error);
+        throw error;
     }
+};
+
+export const logOut = () => (dispatch) => {
+    sessionStorage.removeItem("token")
+    dispatch(logout());
 };

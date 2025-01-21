@@ -1,6 +1,8 @@
 #root{
---maincolor: #db4444;
-  --focusmaincolor: #a63535;
+--maincolor: #0592f8;
+  --focusmaincolor: #0267af;
+  --buttonbackground: #147be1;
+
   width: 100%;
 }
 .gray{
@@ -45,4 +47,34 @@ hr{
 .app-container {
   width: 1200px;
   background-color: white;
+}
+.button-form-submit{
+  width: 100%;
+  color: white;
+  background: var(--maincolor);
+  border: none;
+  padding: 10px 20px;
+}
+.button-form-submit:hover{
+  background: #0060a4;
+}
+.button-form-submit-1{
+  width: 100%;
+  color: white;
+  background: var(--buttonbackground);
+  border: none;
+  padding: 10px 20px;
+}
+.button-form-submit-1:hover{
+  background: #0051ad;
+}
+.button-form-submit-1-clicked{
+  width: 100%;
+  color: white;
+  background: #0631b2;
+  border: none;
+  padding: 10px 20px;
+}
+.button-form-submit-1-clicked:hover{
+  background: #00afaf;
 }

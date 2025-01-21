@@ -1,14 +1,14 @@
 import './salecarousel.scss'
 import StarRatingSaleCard from "./StarRatingSaleCard.jsx";
-import {useEffect, useState} from "react";
+import {useEffect} from "react";
 import {useTranslation} from "react-i18next";
 import {Link} from "react-router-dom";
 // eslint-disable-next-line react/prop-types
 const SaleCarouselCard = ({ cardInfo, key }) => {
     const infoOfCard = cardInfo;
-    let saleAmount = 0.0;
+
     const { t, i18n } = useTranslation();
-    const [isSale, setIsSale] = useState(false);
+   // const [isSale, setIsSale] = useState(false);
 
 
     function colorRating() {
@@ -19,24 +19,10 @@ const SaleCarouselCard = ({ cardInfo, key }) => {
         }
     }
 
-    function relDiff() {
-        if (infoOfCard.discountedPrice == null) {
-            return t("buybadge");
-        } else {
-            const difference = infoOfCard.price - infoOfCard.discountedPrice;
-            const percentageDifference = (difference / infoOfCard.discountedPrice) * 100;
-            return percentageDifference.toFixed(0).toString() + "%";
-        }
-    }
-
-    saleAmount = relDiff();
-
     useEffect(() => {
         const timer = setTimeout(() => {
             colorRating();
         }, 10);
-
-        setIsSale(infoOfCard.discountedPrice != null);
 
 
         return () => clearTimeout(timer);
@@ -47,10 +33,10 @@ const SaleCarouselCard = ({ cardInfo, key }) => {
     return (
         <div className={'sale-card'} key={key}>
             {/* eslint-disable-next-line react/prop-types */}
-            <Link to={`/products/${cardInfo.id}`}>
+
             <div className="card-sale-image">
                 <img className={'card-image'} src={infoOfCard.image} alt={'saleCard'} width={'270px'} height={'250px'} />
-                <div><span className={'card-discont-badge'}>{saleAmount}</span></div>
+                <div><span className={'card-discont-badge'}>{infoOfCard.discountPercentage}%</span></div>
                 <div className="hover-overlay">
                     <div className="hover-text">
                         <p>{t("addcart")}</p>
@@ -61,17 +47,12 @@ const SaleCarouselCard = ({ cardInfo, key }) => {
                     <img src={'./FillEye.svg'} alt={'track'} />
                 </div>
             </div>
-
+            {/* eslint-disable-next-line react/prop-types */}
+            <Link to={`/products/${cardInfo.id}`} className={'color-text-link'}>
             <p className={'sale-product-title'}>{infoOfCard.name}</p>
             <p className={'sale-product-price'}>
-                {isSale ? (
-                    <>
-                        {infoOfCard.discountedPrice}$
-                        <span className={'gray-sale-product-price'}>{infoOfCard.price}$</span>
-                    </>
-                ) : (
-                    `${infoOfCard.price}$`
-                )}
+                {infoOfCard.price}$
+                <span className={'gray-sale-product-price'}>{infoOfCard.originalPrice}$</span>
             </p>
             <StarRatingSaleCard rating={infoOfCard.averageRating} quantity={infoOfCard.reviewCount}></StarRatingSaleCard>
             </Link>

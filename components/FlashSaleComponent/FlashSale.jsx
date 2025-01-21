@@ -23,6 +23,7 @@ const FlashSale = ({ HasCountdown, Text, DisplayTitle, Title, hasSlider, ViewAll
                     <Skeleton width="200px" height="300px" style={{marginRight: "10px", display: "inline-block"}}/>
                     <Skeleton width="200px" height="300px" style={{marginRight: "10px", display: "inline-block"}}/>
                     <Skeleton width="200px" height="300px" style={{marginRight: "10px", display: "inline-block"}}/>
+                    <Skeleton width="200px" height="300px" style={{marginRight: "10px", display: "inline-block"}}/>
                 </div>
                 <div className={'viewall'}>
                     {ViewAll ? <button className={'btn btn-danger view-all'}>View all</button> : ""}

@@ -15,6 +15,7 @@
   display: flex;
   gap: 20px;
   align-items: center;
+  padding: 10px;
 }
 .delivery-node{
   border: 1px solid #a9a9a9;
@@ -24,4 +25,19 @@
 .delivery-node-item-desc{
   display: flex;
   flex-direction: column;
+}
+.tags-container {
+  margin-top: 20px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 5px;
+  margin-bottom: 10px;
+}
+
+.product-tag {
+  background-color: #8ed2ff;
+  padding: 5px 10px;
+  text-transform: uppercase;
+  border-radius: 4px;
+  font-size: 0.9rem;
 }

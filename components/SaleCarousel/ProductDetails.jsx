@@ -1,15 +1,17 @@
-import React, { useState, useEffect } from 'react';
+import React, {useState, useEffect, useCallback} from 'react';
 import { useParams } from 'react-router-dom';
 import axios from 'axios';
 import LocationStripe from "../UserProfile/LocationStripe.jsx";
 import './productdetails.scss'
 import StarRatingSaleCard from "./StarRatingSaleCard.jsx";
 import {useTranslation} from "react-i18next";
+import AddCartComponent from "../BuyComponents/AddCartComponent.jsx";
 function ProductDetails() {
     const { productId } = useParams();
     const [product, setProduct] = useState(null);
     const [loading, setLoading] = useState(true)
-    const { t, i18n } = useTranslation();
+    const { t } = useTranslation();
+
     useEffect(() => {
         const fetchProduct = async () => {
             try {
@@ -35,7 +37,8 @@ function ProductDetails() {
     return (
         <div className={"container product-details"}>
             <div className={'side-detail-image'}>
-                <LocationStripe location={`Product/${product.category}/${product.name}`} isGreet={false}></LocationStripe>
+                <LocationStripe location={`Product/${product.category}/${product.name}`}
+                                isGreet={false}></LocationStripe>
                 <img width={400} height={500} src={product.image} alt={product.name}/>
             </div>
             <div className={'side-detail-textblock'}>
@@ -45,6 +48,12 @@ function ProductDetails() {
                 <h3>${product.discountedPrice ? product.discountedPrice : product.price}</h3>
                 <hr/>
                 <p><i>{product.description}</i></p>
+                <div className="tags-container">
+                    {product.tags && product.tags.map((tag, index) => (
+                        <span key={index} className="product-tag">{tag}</span>
+                    ))}
+                </div>
+                <AddCartComponent Product={product}></AddCartComponent>
                 <h2>{t("characteristics")}</h2>
                 <ul>
                     {product.characteristics &&
@@ -54,6 +63,7 @@ function ProductDetails() {
                             </li>
                         ))}
                 </ul>
+
                 <div className={'delivery-node'}>
                     <div className={'delivery-node-item'}>
                         <img width={40} height={40} src={'/icon-delivery.png'}/>
@@ -61,8 +71,8 @@ function ProductDetails() {
                             <h5>Free Delivery<br/>Fast delivery to your town post</h5>
 
                         </div>
-
                     </div>
+                    <hr/>
 
                     <div className={'delivery-node-item'}>
                         <img width={40} height={40} src={'/Icon-return.png'}/>

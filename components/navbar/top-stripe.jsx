@@ -24,23 +24,23 @@ const TopStripe = () => {
             {/*    <p id={'lang-change'}>English <img id={'lang-control'} alt={'>'} src={'DropDown.png'}/></p>*/}
             {/*</div>*/}
             <div className="dropdown">
-                <a className="link-warning link-offset-2 link-underline-opacity-25 link-underline-opacity-100-hover dropdown-toggle" href="#" role="button" id="dropdownMenuLink"
+                <a className="lang-choose-text link-offset-2 link-underline-opacity-25 link-underline-opacity-100-hover dropdown-toggle" href="#" role="button" id="dropdownMenuLink"
                    data-bs-toggle="dropdown" aria-expanded="false">
                     {t("chooseLang")}
                 </a>
 
                 <ul className="dropdown-menu" aria-labelledby="dropdownMenuLink">
                     <li className="dropdown-item">
-                        <button className="btn btn-info" onClick={() => handleChangeLanguage('en')}>English</button>
+                        <button className="button-form-submit-1" onClick={() => handleChangeLanguage('en')}>English</button>
                     </li>
                     <li className="dropdown-item">
-                        <button className="btn btn-info" onClick={() => handleChangeLanguage('ru')}>Русский</button>
+                        <button className="button-form-submit-1" onClick={() => handleChangeLanguage('ru')}>Русский</button>
                     </li>
                     <li className="dropdown-item">
-                        <button className="btn btn-info" onClick={() => handleChangeLanguage('de')}>Deutch</button>
+                        <button className="button-form-submit-1" onClick={() => handleChangeLanguage('de')}>Deutch</button>
                     </li>
                     <li className="dropdown-item">
-                        <button className="btn btn-info" onClick={() => handleChangeLanguage('kz')}>Казах</button>
+                        <button className="button-form-submit-1" onClick={() => handleChangeLanguage('kz')}>Казах</button>
                     </li>
                 </ul>
             </div>

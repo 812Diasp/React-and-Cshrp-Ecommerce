@@ -1,5 +1,5 @@
 import { combineReducers } from 'redux';
-import authReducer from './authReducer';
+import authReducer from '../features/auth/authSlice';
 import productReducer from './productReducer';
 import appReducer from "./appReducer";
 
