@@ -1,4 +1,4 @@
-import React, {useState, useEffect, useCallback} from 'react';
+import React, {useState, useEffect} from 'react';
 import { useParams } from 'react-router-dom';
 import axios from 'axios';
 import LocationStripe from "../UserProfile/LocationStripe.jsx";
@@ -66,7 +66,7 @@ function ProductDetails() {
 
                 <div className={'delivery-node'}>
                     <div className={'delivery-node-item'}>
-                        <img width={40} height={40} src={'/icon-delivery.png'}/>
+                        <img width={40} height={40} alt={'cart'} src={'/icon-delivery.png'}/>
                         <div className={'delivery-node-item-desc'}>
                             <h5>Free Delivery<br/>Fast delivery to your town post</h5>
 
@@ -75,7 +75,7 @@ function ProductDetails() {
                     <hr/>
 
                     <div className={'delivery-node-item'}>
-                        <img width={40} height={40} src={'/Icon-return.png'}/>
+                        <img alt={"return"} width={40} height={40} src={'/Icon-return.png'}/>
                         <div className={'delivery-node-item-desc'}>
                             <h5>Return <br/>Make return of your order</h5>
                         </div>
