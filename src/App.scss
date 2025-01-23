@@ -78,3 +78,9 @@ hr{
 .button-form-submit-1-clicked:hover{
   background: #00afaf;
 }
+.catalog-container{
+  display: flex;
+  gap: 15px;
+  flex-wrap: wrap;
+  justify-content: center;
+}

@@ -10,15 +10,7 @@ const AddCartComponent = ({ Product }) => {
     const [isAdded, setIsAdded] = useState(false);
     const { t } = useTranslation();
 
-    const fetchCsrfToken = useCallback(async () => {
-        try {
-            const response = await axios.get('http://localhost:5248/api/csrf', { withCredentials: true });
-            return response.data.token;
-        } catch (error) {
-            console.error("Error fetching CSRF token:", error);
-            throw error;
-        }
-    }, []);
+
 
     const handleIncrement = () => {
         setQuantity(quantity + 1);
@@ -29,7 +21,15 @@ const AddCartComponent = ({ Product }) => {
             setQuantity(quantity - 1);
         }
     };
-
+    const fetchCsrfToken = useCallback(async () => {
+        try {
+            const response = await axios.get('http://localhost:5248/api/csrf', { withCredentials: true });
+            return response.data.token;
+        } catch (error) {
+            console.error("Error fetching CSRF token:", error);
+            throw error;
+        }
+    }, []);
     const handleAddToCart = async () => {
         // eslint-disable-next-line react/prop-types
         const productId = Product.id;

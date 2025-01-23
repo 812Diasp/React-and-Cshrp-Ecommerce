@@ -26,7 +26,7 @@ const Register = () => {
                 dispatch(loginUser(data.email, data.password)) // Changed to email
                     .then((user) =>
                     {
-                        console.log(user)
+
                         if(user)
                         {
                             dispatch(setAuth({ isAuthenticated: true }));
@@ -36,8 +36,8 @@ const Register = () => {
                         }
                     })
                     .catch((error)=> {
-                        console.log(error);
-                        setError("Login failed, try again")
+                       // console.log(error);
+                        setError("Login failed, try again"+error.toString())
                     })
             } else {
                 dispatch(registerUser(data.username, data.email, data.password))

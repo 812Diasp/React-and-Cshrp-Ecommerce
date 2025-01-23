@@ -12,6 +12,7 @@ import store from './store/store.js';
 import './i18n.js';
 import ProductDetails from "../components/SaleCarousel/ProductDetails.jsx";
 import CartPage from "../components/CartPage/CartPage.jsx";
+import Catalog from "./Catalog.jsx";
 ReactDOM.createRoot(document.getElementById('root')).render(
     <Provider store={store}>
     <BrowserRouter>
@@ -20,9 +21,10 @@ ReactDOM.createRoot(document.getElementById('root')).render(
         <Routes>
             <Route path="/products/:productId" element={<ProductDetails />} /> {/* страница товара */}
             <Route path={'/profile'} element={<ProfilePage/>}></Route> {/* страница товара */}
-            <Route path={'/'} element={<Homepage/>}></Route> {/* Глвная страница с баннерами меню и распродажами */}
+            <Route path={'/'} element={<Homepage/>}></Route> {/* Главная страница с баннерами меню и распродажами */}
             <Route path={'/register'} element={<Register/>}></Route> { /* Страница логина и регистрации */}
-            <Route path={'/cart'} element={<CartPage/>}></Route>
+            <Route path={'/cart'} element={<CartPage/>}></Route>{ /* Страница корзины пользователя */}
+            <Route path={'/catalog'} element={<Catalog/>}></Route>{ /* Страница с множеством товаров в ряд */}
         </Routes>
         <Footer></Footer>
     </BrowserRouter>

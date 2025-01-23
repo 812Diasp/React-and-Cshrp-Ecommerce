@@ -8,7 +8,7 @@
 .cart-table th, .cart-table td {
   border-bottom: 1px solid #ddd;
   padding: 10px 10px;
-  text-align: left;
+
 }
 .cart-table thead th {
   border-bottom: 2px solid #333;
@@ -79,11 +79,15 @@
 .cart-table td {
   border: 1px solid #ddd;
   padding: 10px;
-  text-align: left;
-}
 
+}
+.cart-td-center{}
 .cart-table th {
-  background-color: #f2f2f2;
+  background-color: #0060a4;
+  color: white;
+}
+.cart-table tr {
+ font-size: 22px;
 }
 
 .cart-item-product {
@@ -150,7 +154,9 @@
   text-align: left;
   margin-bottom: 15px;
 }
-
+.cart-table-cell-center{
+  text-align: center;
+}
 .cart-total-item {
   display: flex;
   justify-content: space-between;

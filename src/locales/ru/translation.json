@@ -37,5 +37,15 @@
   "buybadge": "Нарасхват!",
   "currency": "₽",
   "characteristics": "Характеристики",
-  "added": "Добавлено"
+  "added": "Добавлено",
+  "product": "Товар",
+  "applycoupon": "Использовать код",
+  "couponcode": "Ваш Купон",
+  "price": "Цена",
+  "quantity": "Количество",
+  "subtotal": "Итого",
+  "carttotal": "Стоимость корзины",
+  "shipping": "Стоимость доставки",
+  "total": "Итог",
+  "tocheckout": "Оформить заказ"
 }

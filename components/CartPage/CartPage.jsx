@@ -4,7 +4,8 @@ import axios from 'axios';
 import './CartPage.scss'; // Import your CSS file
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faXmark, faCaretUp, faCaretDown } from '@fortawesome/free-solid-svg-icons';
-import {useNavigate} from "react-router-dom";
+import {Link, useNavigate} from "react-router-dom";
+import {useTranslation} from "react-i18next";
 const CartPage = () => {
     const [cartItems, setCartItems] = useState([]);
     const [loading, setLoading] = useState(true);
@@ -15,7 +16,7 @@ const CartPage = () => {
     const [bearerToken, setBearerToken] = useState(null);
     const navigate = useNavigate();
     const [totalPrice, setTotalPrice] = useState(0);
-
+    const { t } = useTranslation();
     const fetchCsrfToken = useCallback(async () => {
         try {
             const response = await axios.get('http://localhost:5248/api/csrf', { withCredentials: true });
@@ -204,10 +205,10 @@ const CartPage = () => {
             <table className="cart-table">
                 <thead>
                 <tr>
-                    <th>Product</th>
-                    <th>Price</th>
-                    <th>Quantity</th>
-                    <th>Subtotal</th>
+                    <th>{t("product")}</th>
+                    <th className={'cart-table-cell-center'}>{t("price")}</th>
+                    <th className={'cart-table-cell-center'}>{t("quantity")}</th>
+                    <th className={'cart-table-cell-center'}>{t("subtotal")}</th>
                 </tr>
                 </thead>
                 <tbody>
@@ -216,12 +217,12 @@ const CartPage = () => {
                         <td>
                             <div className={"cart-item-product"}>
                                 <FontAwesomeIcon onClick={() => handleRemoveItem(item.productId)} className={'cart-item-product-remove'} icon={faXmark}></FontAwesomeIcon>
-                                <img width={50} height={50} src={item.product.image} alt={item.product.name} />
-                                <span>{item.product.name}</span>
+                                <img width={64} height={64} src={item.product.image} alt={item.product.name} />
+                                <Link to={`/products/${item.product.id}`}><span>{item.product.name}</span></Link>
                             </div>
                         </td>
-                        <td>${item.product.discountedPrice ? item.product.discountedPrice : item.product.price}</td>
-                        <td>
+                        <td className={'cart-table-cell-center'}>${item.product.discountedPrice ? item.product.discountedPrice : item.product.price}</td>
+                        <td className={'cart-table-cell-center'}>
                             <div className="quantity-selector">
                                 <button className={"quantity-button"} onClick={() => handleQuantityChange(item.productId, -1)}>
                                     <FontAwesomeIcon icon={faCaretDown} />
@@ -235,31 +236,31 @@ const CartPage = () => {
                                 )}
                             </div>
                         </td>
-                        <td>${(quantities[item.productId] || item.quantity) * (item.product.discountedPrice ? item.product.discountedPrice : item.product.price)}</td>
+                        <td className={'cart-table-cell-center'}>${(quantities[item.productId] || item.quantity) * (item.product.discountedPrice ? item.product.discountedPrice : item.product.price)}</td>
                     </tr>
                 ))}
                 </tbody>
             </table>
             <div className="cart-footer-container">
                 <div className="coupon-container">
-                    <input className="coupon-input" type="text" placeholder="Coupon Code"/>
-                    <button className="button-form-submit">Apply Coupon</button>
+                    <input className="coupon-input" type="text" placeholder={t("couponcode")}/>
+                    <button className="button-form-submit">{t("applycoupon")}</button>
                 </div>
                 <div className="cart-total-container">
-                    <h3>Cart Total</h3>
+                    <h3>{t("carttotal")}</h3>
                     <div className="cart-total-item">
-                        <span className="cart-total-label">Subtotal:</span>
+                        <span className="cart-total-label">{t("subtotal")}:</span>
                         <span className="cart-total-value">${totalPrice}</span>
                     </div>
                     <div className="cart-total-item">
-                        <span className="cart-total-label">Shipping:</span>
+                        <span className="cart-total-label">{t("shipping")}:</span>
                         <span className="cart-total-value">Free</span>
                     </div>
                     <div className="cart-total-item">
-                        <span className="cart-total-label">Total:</span>
+                        <span className="cart-total-label">{t("total")}:</span>
                         <span className="cart-total-value">${totalPrice}</span>
                     </div>
-                    <button className={"button-form-submit"} onClick={handleUpdateCart}>Procees to checkout</button>
+                    <button className={"button-form-submit"} onClick={handleUpdateCart}>{t("tocheckout")}</button>
                 </div>
             </div>
         </div>

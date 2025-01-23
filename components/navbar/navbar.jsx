@@ -4,6 +4,7 @@ import { useSelector, useDispatch } from 'react-redux';
 import './navbar.scss';
 import { useTranslation } from 'react-i18next';
 import {  setAuth, logout } from '/src/store/features/auth/authSlice';
+import axios from "axios";
 const Navbar = () => {
     const isAuthenticated = useSelector((state) => state.auth.isAuthenticated);
     const dispatch = useDispatch();
@@ -12,13 +13,35 @@ const Navbar = () => {
     const language = useSelector((state) => state.app.language);
 
     useEffect(() => {
-        const token = sessionStorage.getItem('token');
-        if (token) {
-            // If token exists, dispatch action to update state
-            dispatch(setAuth({ isAuthenticated: true }));
-        } else {
-            dispatch(setAuth({ isAuthenticated: false }));
-        }
+        const checkAuthentication = async () => {
+            const token = sessionStorage.getItem('token');
+            if (token) {
+                try {
+                    const response = await axios.get('http://localhost:5248/api/users/me', {
+                        headers: {
+                            Authorization: `Bearer ${token}`,
+                        },
+                        withCredentials: true, // Очень важно для работы с куками
+                    });
+                    if (response.status === 200) {
+                        // Успешный запрос, пользователь авторизован
+                        dispatch(setAuth({ isAuthenticated: true, user: response.data })); // Pass user data
+                    } else {
+                        // Неуспешный запрос, пользователь не авторизован
+                        sessionStorage.removeItem('token'); // Удалить токен, если запрос не удался
+                        dispatch(setAuth({ isAuthenticated: false }));
+                    }
+                } catch (error) {
+                    console.error('Ошибка авторизации:', error);
+                    sessionStorage.removeItem('token'); // Удалить токен при ошибке
+                    dispatch(setAuth({ isAuthenticated: false }));
+                }
+            } else {
+                dispatch(setAuth({ isAuthenticated: false }));
+            }
+        };
+
+        checkAuthentication();
     }, [dispatch]);
 
     const handleLogout = () => {
@@ -59,36 +82,46 @@ const Navbar = () => {
                         <div className={'navbar-wishlist-cart'}>
 
                             {isAuthenticated ? (<>
-                                    <img className={'wishlist-icon'} src={'/Wishlist.png'} alt="Wishlist" />
-                                <Link to={'/cart'}><img className={'cart-icon'} src={'/CartBuy.png'} alt="Cart"/></Link>
-                                <div className="dropdown">
-                                    <img
-                                        data-bs-toggle="dropdown"
-                                        aria-expanded="false"
-                                        id="dropdownMenu2"
-                                        className={'dropdown-toggle'}
-                                        src={'/user.png'}
-                                        alt="User"
-                                    />
-                                    <ul className="dropdown-menu" aria-labelledby="dropdownMenu2">
-                                        <li>
-                                            <Link className="dropdown-item" to="/profile">
-                                                {t('profile')}
-                                            </Link>
-                                        </li>
-                                        <li>
-                                            <Link className="dropdown-item" to="/orders">
-                                                {t('orders')}
-                                            </Link>
-                                        </li>
-                                        <hr />
-                                        <li>
-                                            <button className="dropdown-item log-out" onClick={handleLogout}>
-                                                {t('log out')}
-                                            </button>
-                                        </li>
-                                    </ul>
-                                </div>
+                                    <img className={'wishlist-icon'} src={'/Wishlist.png'} alt="Wishlist"/>
+
+                                    <Link to={'/cart'}>
+                                    <button type="button" className="btn position-relative">
+                                       <img className={'cart-icon'} src={'/CartBuy.png'} alt="Cart"/>
+
+                                        <span className="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
+                                         18
+                                         <span className="visually-hidden">unread messages</span>
+                                        </span>
+                                    </button>
+                                    </Link>
+                                    <div className="dropdown">
+                                        <img
+                                            data-bs-toggle="dropdown"
+                                            aria-expanded="false"
+                                            id="dropdownMenu2"
+                                            className={'dropdown-toggle'}
+                                            src={'/user.png'}
+                                            alt="User"
+                                        />
+                                        <ul className="dropdown-menu" aria-labelledby="dropdownMenu2">
+                                            <li>
+                                                <Link className="dropdown-item" to="/profile">
+                                                    {t('profile')}
+                                                </Link>
+                                            </li>
+                                            <li>
+                                                <Link className="dropdown-item" to="/orders">
+                                                    {t('orders')}
+                                                </Link>
+                                            </li>
+                                            <hr/>
+                                            <li>
+                                                <button className="dropdown-item log-out" onClick={handleLogout}>
+                                                    {t('log out')}
+                                                </button>
+                                            </li>
+                                        </ul>
+                                    </div>
                                 </>
                             ) : (
                                 <Link to={'/register'}>

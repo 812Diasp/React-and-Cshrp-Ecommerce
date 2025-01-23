@@ -5,7 +5,7 @@
 .side-detail-image{
  align-items: center;
   display: flex;
-
+  justify-content: center;
   flex-direction: column;
 }
 .side-detail-textblock{
@@ -40,4 +40,9 @@
   text-transform: uppercase;
   border-radius: 4px;
   font-size: 0.9rem;
+}
+.related-product-container-1{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
 }

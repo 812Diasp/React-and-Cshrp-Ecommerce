@@ -37,7 +37,6 @@
 .slick-prev:hover{
   outline: var(--maincolor);
   color: var(--focusmaincolor);
-
 }
 .card-image{
   position: relative;
@@ -94,6 +93,16 @@
   width: fit-content;
   flex-direction: column;
 }
+.card-control-item{
+  margin-top: 10px;
+  background: white;
+  padding: 5px;
+  border-radius: 15px;
+}
+.card-control-item:hover{
+  fill: #ffffff;
+  background: #b0d8fa;
+}
 .card-img-btn{
   text-decoration: none;
   border: none;
@@ -126,6 +135,9 @@
   background-color: var(--maincolor);
   transition: 0.2s;
   font-weight: bold;
+}
+.hover-text-added{
+  background-color: #00afaf;
 }
 .sale-card:hover .hover-overlay {
   height: 50px; /* Высота прямоугольника */
