@@ -3,10 +3,13 @@
   justify-content: space-evenly;
 }
 .side-detail-image{
- align-items: center;
+
   display: flex;
-  justify-content: center;
+
   flex-direction: column;
+}
+.side-detail-image img{
+  margin-top: 50px;
 }
 .side-detail-textblock{
   width: 400px

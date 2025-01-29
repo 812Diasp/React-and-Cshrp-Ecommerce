@@ -10,6 +10,7 @@ const Navbar = () => {
     const dispatch = useDispatch();
     const navigate = useNavigate();
     const { t } = useTranslation();
+
     const language = useSelector((state) => state.app.language);
 
     useEffect(() => {
@@ -89,8 +90,8 @@ const Navbar = () => {
                                        <img className={'cart-icon'} src={'/CartBuy.png'} alt="Cart"/>
 
                                         <span className="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
-                                         18
-                                         <span className="visually-hidden">unread messages</span>
+                                       !!!
+                                         <span className="visually-hidden">products in cart</span>
                                         </span>
                                     </button>
                                     </Link>

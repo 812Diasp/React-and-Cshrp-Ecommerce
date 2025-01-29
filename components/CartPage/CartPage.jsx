@@ -6,6 +6,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faXmark, faCaretUp, faCaretDown } from '@fortawesome/free-solid-svg-icons';
 import {Link, useNavigate} from "react-router-dom";
 import {useTranslation} from "react-i18next";
+
 const CartPage = () => {
     const [cartItems, setCartItems] = useState([]);
     const [loading, setLoading] = useState(true);
@@ -183,20 +184,20 @@ const CartPage = () => {
     if (loading) {
         return <div className={"container mt-5"}>
             <LocationStripe location={"Home / Cart"} isGreet={false}></LocationStripe>
-            <p>Loading cart...</p>
+            <h2>Loading cart...</h2>
         </div>
     }
     if (error) {
         return <div className={"container mt-5"}>
             <LocationStripe location={"Home / Cart"} isGreet={false}></LocationStripe>
-            <p>{typeof error === 'string' ? error : "Error fetch cart."}</p>
+            <h2>{typeof error === 'string' ? error : "Error fetch cart."}</h2>
         </div>
     }
 
     if (cartItems.length === 0) {
         return <div className={"container mt-5"}>
             <LocationStripe location={"Home / Cart"} isGreet={false}></LocationStripe>
-            <p>Your cart is empty.</p>
+            <h2>Your cart is empty.</h2>
         </div>
     }
     return (

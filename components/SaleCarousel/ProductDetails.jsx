@@ -7,6 +7,8 @@ import StarRatingSaleCard from "./StarRatingSaleCard.jsx";
 import {useTranslation} from "react-i18next";
 import AddCartComponent from "../BuyComponents/AddCartComponent.jsx";
 import SaleCarouselCard from "./SaleCarouselCard.jsx";
+import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
+import ReviewContainer from "../ReviewComponent/ReviewContainer.jsx";
 
 function ProductDetails() {
     const { productId } = useParams();
@@ -14,6 +16,7 @@ function ProductDetails() {
     const [loading, setLoading] = useState(true)
     const { t } = useTranslation();
     const [relatedProducts, setRelProducts] = useState([])
+    const [reviews, setReviews] = useState([])
     function shuffleArray(array) {
         for (let i = array.length - 1; i > 0; i--) {
             const j = Math.floor(Math.random() * (i + 1));
@@ -32,13 +35,18 @@ function ProductDetails() {
             } catch(error) {
                 console.error("error fetching product:", error)
             } finally {
-                //т.к еще грузится fetchRelatedCategory
-                setLoading(false)
+               try {
+                   const reviewsResponse = await axios.get(`http://localhost:5248/api/products/${productId}/reviews`);
+                    setReviews(reviewsResponse.data)
+
+               }catch (e){
+                   console.log(e)
+               } finally {
+                   //когда все получили
+                   setLoading(false)
+               }
             }
         }
-
-
-        //fetchproduct() до fetchRelatedCategory()
         fetchProduct()
     },[productId])
 
@@ -57,7 +65,7 @@ function ProductDetails() {
             <div className={"container product-details"}>
                 <div className={'side-detail-image'}>
 
-                    <img width={400} height={300} src={product.image} alt={product.name}/>
+                    <img width={400} height={400} src={product.image} alt={product.name}/>
                 </div>
                 <div className={'side-detail-textblock'}>
                     <br/>
@@ -108,10 +116,14 @@ function ProductDetails() {
             <h3 className={'mt-5'}>Related Products</h3>
             <div className={'related-product-container-1'}>
 
-                {relatedProducts.map((item, key) =>
-                    <SaleCarouselCard key={key} cardInfo={item}></SaleCarouselCard>
+                {relatedProducts.map((item, index) =>
+                    <div key={index} className={'related-product-item'}>
+                        <SaleCarouselCard cardInfo={item}></SaleCarouselCard>
+                    </div>
+
                 )}
             </div>
+        <ReviewContainer Reviews={reviews} averageRating={product.averageRating}></ReviewContainer>
 
         </div>
     );

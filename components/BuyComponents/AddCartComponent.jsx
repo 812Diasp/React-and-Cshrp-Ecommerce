@@ -4,13 +4,13 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faHeart, faMinus, faPlus } from '@fortawesome/free-solid-svg-icons';
 import {useTranslation} from "react-i18next";
 import axios from "axios";
+
 // eslint-disable-next-line react/prop-types
 const AddCartComponent = ({ Product }) => {
     const [quantity, setQuantity] = useState(1);
     const [isAdded, setIsAdded] = useState(false);
+
     const { t } = useTranslation();
-
-
 
     const handleIncrement = () => {
         setQuantity(quantity + 1);
@@ -21,6 +21,7 @@ const AddCartComponent = ({ Product }) => {
             setQuantity(quantity - 1);
         }
     };
+
     const fetchCsrfToken = useCallback(async () => {
         try {
             const response = await axios.get('http://localhost:5248/api/csrf', { withCredentials: true });
@@ -30,6 +31,7 @@ const AddCartComponent = ({ Product }) => {
             throw error;
         }
     }, []);
+
     const handleAddToCart = async () => {
         // eslint-disable-next-line react/prop-types
         const productId = Product.id;
@@ -47,12 +49,13 @@ const AddCartComponent = ({ Product }) => {
                     withCredentials: true
                 }
             );
+
             setIsAdded(true);
-            console.log("Product added to cart");
         } catch (error) {
             console.error("error adding product to cart", error);
         }
     };
+
 
     return (
         <div className="add-cart-container">

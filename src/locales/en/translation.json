@@ -47,5 +47,6 @@
   "carttotal": "Cart total",
   "shipping": "Shipping cost",
   "total": "Total",
-  "tocheckout": "Checkout"
+  "tocheckout": "Checkout",
+  "avgrating":"Average product rating: "
 }
