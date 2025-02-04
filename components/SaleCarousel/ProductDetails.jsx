@@ -1,5 +1,6 @@
+// eslint-disable-next-line no-unused-vars
 import React, {useState, useEffect} from 'react';
-import { useParams } from 'react-router-dom';
+import {Link, useParams} from 'react-router-dom';
 import axios from 'axios';
 import LocationStripe from "../UserProfile/LocationStripe.jsx";
 import './productdetails.scss'
@@ -7,8 +8,8 @@ import StarRatingSaleCard from "./StarRatingSaleCard.jsx";
 import {useTranslation} from "react-i18next";
 import AddCartComponent from "../BuyComponents/AddCartComponent.jsx";
 import SaleCarouselCard from "./SaleCarouselCard.jsx";
-import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 import ReviewContainer from "../ReviewComponent/ReviewContainer.jsx";
+import {useSelector} from "react-redux";
 
 function ProductDetails() {
     const { productId } = useParams();
@@ -17,6 +18,7 @@ function ProductDetails() {
     const { t } = useTranslation();
     const [relatedProducts, setRelProducts] = useState([])
     const [reviews, setReviews] = useState([])
+    const isAuthenticated = useSelector((state) => state.auth.isAuthenticated);
     function shuffleArray(array) {
         for (let i = array.length - 1; i > 0; i--) {
             const j = Math.floor(Math.random() * (i + 1));
@@ -28,6 +30,7 @@ function ProductDetails() {
             try {
                 const response = await axios.get(`http://localhost:5248/api/products/${productId}`);
                 setProduct(response.data);
+
                 const responseRelatedProducts = await axios.get(`http://localhost:5248/api/products/related/${productId}`);
                 // Перемешиваем массив перед взятием среза
                 shuffleArray(responseRelatedProducts.data);
@@ -80,7 +83,11 @@ function ProductDetails() {
                             <span key={index} className="product-tag">{tag}</span>
                         ))}
                     </div>
-                    <AddCartComponent Product={product}></AddCartComponent>
+                    {isAuthenticated ?  <AddCartComponent Product={product}></AddCartComponent> : <Link to={'/register'}>
+                        <button className={'btn btn-danger mt-5 mb-5'}><h2>Зарегистрируйтесь или войдите для покупки!</h2>
+                        </button>
+                    </Link>}
+
                     <h2>{t("characteristics")}</h2>
                     <ul>
                         {product.characteristics &&
@@ -123,7 +130,7 @@ function ProductDetails() {
 
                 )}
             </div>
-        <ReviewContainer Reviews={reviews} averageRating={product.averageRating}></ReviewContainer>
+        <ReviewContainer Reviews={reviews} averageRating={product.averageRating} ProductId={productId}></ReviewContainer>
 
         </div>
     );

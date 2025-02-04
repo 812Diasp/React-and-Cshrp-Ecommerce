@@ -123,7 +123,8 @@ const Register = () => {
             sessionStorage.setItem('token', token);
             dispatch(setAuth({ isAuthenticated: true }));
             dispatch(reset());
-            navigate('/');
+            navigate('/', { replace: true });
+            window.location.reload();
             setLoading(false);
         } catch (err) {
             setError('Login confirm failed, try again.');

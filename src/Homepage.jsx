@@ -14,7 +14,7 @@ const HomePage = () => {
 
         const fetchSaleProducts = async () => {
             try {
-                const response = await axios.get('http://localhost:5248/api/products');
+                const response = await axios.get('http://localhost:5248/api/products', {withCredentials:true});
 
                 const productsWithDiscount = response.data.filter(
                     (product) => product.discountedPrice !== null && product.discountedPrice > 0

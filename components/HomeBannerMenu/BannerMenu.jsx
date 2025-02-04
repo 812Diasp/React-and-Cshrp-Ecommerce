@@ -5,12 +5,12 @@ import {useTranslation} from "react-i18next";
 const BannerMenu = () => {
     const images = [
         "bannerIphone.png",
-        "macbookPreorder.png",
-        "asusbanner.jpg",
+        "https://mir-s3-cdn-cf.behance.net/project_modules/1400/71622d80849069.5ced519ae4235.png",
+        "https://avatars.mds.yandex.net/i?id=2de975ebf8b171d2a7493dbd4d94cc42_l-4944748-images-thumbs&n=13",
         "https://indexiq.ru/storage/tiny/Xiaomi/14/XiaoMi-14-01.jpg"
     ];
     let current_year = new Date().getFullYear();
-    const {t, i18n} = useTranslation();
+    const {t} = useTranslation();
     return (
         <div className={'app-1200 banner-menu'}>
             <div className="sidebar">

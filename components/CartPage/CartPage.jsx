@@ -1,3 +1,4 @@
+// eslint-disable-next-line no-unused-vars
 import React, {useState, useEffect, useCallback} from 'react';
 import LocationStripe from "../UserProfile/LocationStripe.jsx";
 import axios from 'axios';
@@ -13,6 +14,7 @@ const CartPage = () => {
     const [error, setError] = useState(null);
     const [quantities, setQuantities] = useState({});
     const [updateError, setUpdateError] = useState({});
+    // eslint-disable-next-line no-unused-vars
     const [isUpdating, setIsUpdating] = useState(false);
     const [bearerToken, setBearerToken] = useState(null);
     const navigate = useNavigate();
@@ -118,9 +120,7 @@ const CartPage = () => {
             setError("error remove cart item");
         }
     };
-    const handleReturnToShop = () => {
-        navigate('/');
-    };
+
     const handleUpdateCart = async () => {
         if (!bearerToken) {
             setError("Bearer token not initialized");
@@ -160,6 +160,7 @@ const CartPage = () => {
                 })
             );
             setIsUpdating(false)
+            navigate("/orderpage")
         } catch (error) {
             console.error("error update cart", error);
             setIsUpdating(false)
@@ -182,26 +183,26 @@ const CartPage = () => {
     };
 
     if (loading) {
-        return <div className={"container mt-5"}>
+        return <div className={"container mt-5 cart-container"}>
             <LocationStripe location={"Home / Cart"} isGreet={false}></LocationStripe>
             <h2>Loading cart...</h2>
         </div>
     }
     if (error) {
-        return <div className={"container mt-5"}>
+        return <div className={"container mt-5 cart-container"}>
             <LocationStripe location={"Home / Cart"} isGreet={false}></LocationStripe>
             <h2>{typeof error === 'string' ? error : "Error fetch cart."}</h2>
         </div>
     }
 
     if (cartItems.length === 0) {
-        return <div className={"container mt-5"}>
+        return <div className={"container mt-5 cart-container"}>
             <LocationStripe location={"Home / Cart"} isGreet={false}></LocationStripe>
             <h2>Your cart is empty.</h2>
         </div>
     }
     return (
-        <div className={"container mt-5"}>
+        <div className={"container mt-5 cart-container"}>
             <LocationStripe location={"Home / Cart"} isGreet={false}></LocationStripe>
             <table className="cart-table">
                 <thead>

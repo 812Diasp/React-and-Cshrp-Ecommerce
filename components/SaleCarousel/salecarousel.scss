@@ -10,6 +10,13 @@
   font-size: 20px;
   margin-bottom: 40px;
 }
+.sale-card a{
+  color: white;
+  a:hover{
+    color: white;
+    text-decoration: none;
+  }
+}
 .slick-slider{
   max-width: 1200px;
   padding: 5px;
@@ -44,7 +51,7 @@
 }
 .sale-product-title{
   margin-top: 10px;
-  color: 1DA7FFFF;
+  color: var(--maincolor);
 }
 .sale-product-price{
   margin-top: 10px;
@@ -84,7 +91,7 @@
   border-radius: 0.5rem;
   color: white;
 }
-.card-controls{
+.card-controls {
   position: relative;
   z-index: 10;
   display: flex;
@@ -92,16 +99,19 @@
   left: 225px;
   width: fit-content;
   flex-direction: column;
-}
-.card-control-item{
-  margin-top: 10px;
-  background: white;
-  padding: 5px;
-  border-radius: 15px;
-}
-.card-control-item:hover{
-  fill: #ffffff;
-  background: #b0d8fa;
+  .card-control-item{
+    margin-top: 10px;
+    background: white;
+    padding: 5px;
+    border-radius: 15px;
+    cursor: pointer;
+    &.active{
+      color: #e7557f;
+    }
+    &.inactive{
+      color: #000000;
+    }
+  }
 }
 .card-img-btn{
   text-decoration: none;
@@ -132,9 +142,10 @@
   text-align: center;
 }
 .hover-text:hover{
-  background-color: var(--maincolor);
+  background-color: #121a48;
+
+  color: white;
   transition: 0.2s;
-  font-weight: bold;
 }
 .hover-text-added{
   background-color: #00afaf;
@@ -143,6 +154,7 @@
   height: 50px; /* Высота прямоугольника */
   opacity: 1;
 }
+
 
 
 
