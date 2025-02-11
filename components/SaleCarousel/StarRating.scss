@@ -1,5 +1,7 @@
 .star-rating {
   display: flex;
+--starcolor: #ffad33;
+  align-items: baseline;
 }
 
 .fas {
@@ -9,28 +11,28 @@
 }
 
 .full-star {
-  color: gold; /* Цвет полных звезд */
+  color: var(--starcolor); /* Цвет полных звезд */
 }
 
 .half-star {
-  color: gold; /* Цвет половины звезды */
+  color: var(--starcolor); /* Цвет половины звезды */
   text-shadow: 0 0 1px rgba(0,0,0,0.5); /* Немного тени для резкости */
   mask: linear-gradient(to right, black 50%, transparent 50%);
   /* Маска для создания половины звезды
   -webkit-mask: linear-gradient(to right, black 50%, transparent 50%);*/
 }
-
 .empty-star {
   color: gray; /* Цвет пустых звезд */
 }
 .star{
-  color: gold;
+  color: var(--starcolor);
 }
-.star{
-  path{
-    fill: gold;
-    color: gold;
-  }
-  fill: gold;
-  color: gold;
- }
+.star-rating .star{
+    path{
+      fill: var(--starcolor);
+      color: var(--starcolor);
+    }
+    fill: var(--starcolor);
+    color: var(--starcolor);
+
+}

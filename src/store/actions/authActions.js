@@ -1,18 +1,16 @@
 import axios from 'axios';
 import {
-
-    loginSuccess,
     logout,
-    registerSuccess,
     setUser,
     setFavorites,
     setTracking // Убедитесь, что этот импорт присутствует
 } from '../features/auth/authSlice.js';
+import {API_URL} from "../../Constants.js";
 
 // Логин пользователя
 export const loginUser = (email, password) => async (dispatch) => {
     try {
-        const response = await axios.post('http://localhost:5248/api/auth/login', { email, password });
+        const response = await axios.post(`${API_URL}/api/auth/login`, { email, password });
         const token = response.data.token;
         sessionStorage.setItem('token', token);
 
@@ -28,7 +26,7 @@ export const loginUser = (email, password) => async (dispatch) => {
 // Регистрация пользователя
 export const registerUser = (username, email, password) => async (dispatch) => {
     try {
-        const response = await axios.post('http://localhost:5248/api/auth/register', { username, email, password });
+        const response = await axios.post(`${API_URL}/api/auth/register`, { username, email, password });
         const token = response.data.token;
         sessionStorage.setItem('token', token);
 
@@ -47,7 +45,7 @@ export const fetchUser = () => async (dispatch) => {
         const token = sessionStorage.getItem('token');
         if (!token) return dispatch(setUser(null));
 
-        const response = await axios.get('http://localhost:5248/api/users/me', {
+        const response = await axios.get(`${API_URL}/api/users/me`, {
             headers: {
                 Authorization: `Bearer ${token}`
             }
@@ -67,18 +65,18 @@ export const logOut = () => (dispatch) => {
 };
 
 // Обновление списка избранного
-export const updateFavorites = (productId, isAdding) => async (dispatch, getState) => {
+export const updateFavorites = (productId) => async (dispatch, getState) => {
     try {
         const token = sessionStorage.getItem('token');
-        const csrfToken = await fetchCsrfToken();
+        // const csrfToken = await fetchCsrfToken();
 
         const response = await axios.post(
-            `http://localhost:5248/api/products/${productId}/favorites`,
+            `${API_URL}/api/products/${productId}/favorites`,
             {},
             {
                 headers: {
                     Authorization: `Bearer ${token}`,
-                    "X-CSRF-Token": csrfToken
+                    // "X-CSRF-Token": csrfToken
                 },
                 withCredentials: true
             }
@@ -96,18 +94,18 @@ export const updateFavorites = (productId, isAdding) => async (dispatch, getStat
 };
 
 // Обновление списка отслеживания
-export const updateTracking = (productId, isAdding) => async (dispatch, getState) => {
+export const updateTracking = (productId) => async (dispatch, getState) => {
     try {
         const token = sessionStorage.getItem('token');
-        const csrfToken = await fetchCsrfToken();
+        // const csrfToken = await fetchCsrfToken();
 
         const response = await axios.post(
-            `http://localhost:5248/api/products/${productId}/tracking`,
+            `${API_URL}/api/products/${productId}/tracking`,
             {},
             {
                 headers: {
                     Authorization: `Bearer ${token}`,
-                    "X-CSRF-Token": csrfToken
+                    // "X-CSRF-Token": csrfToken
                 },
                 withCredentials: true
             }
@@ -127,7 +125,7 @@ export const updateTracking = (productId, isAdding) => async (dispatch, getState
 // Получение CSRF-токена
 const fetchCsrfToken = async () => {
     try {
-        const response = await axios.get('http://localhost:5248/api/csrf', { withCredentials: true });
+        const response = await axios.get(`${API_URL}/api/csrf`, { withCredentials: true });
         return response.data.token;
     } catch (error) {
         console.error("Error fetching CSRF token:", error);

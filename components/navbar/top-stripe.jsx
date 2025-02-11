@@ -26,7 +26,7 @@ const TopStripe = () => {
             <div className="dropdown">
                 <a className="lang-choose-text link-offset-2 link-underline-opacity-25 link-underline-opacity-100-hover dropdown-toggle" href="#" role="button" id="dropdownMenuLink"
                    data-bs-toggle="dropdown" aria-expanded="false">
-                    {t("chooseLang")}
+                    Choose language (EN,DE,RU,KZ)
                 </a>
 
                 <ul className="dropdown-menu" aria-labelledby="dropdownMenuLink">

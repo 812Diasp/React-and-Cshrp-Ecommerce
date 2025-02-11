@@ -158,7 +158,54 @@
   text-underline: darkgray single thick ;
 }
 
+/* Для маленьких телефонов (портретный режим) */
+@media (max-width: 375px) {
 
+  .stripe-text{
+    font-size: 9px;
+  }
+}
+.navbar-logo img{
+  width: 200px;
+  height: 90px;
+}
+/* Для средних телефонов (портретный режим) */
+@media (min-width: 375px) and (max-width: 414px) {
+  .app-navbar-top{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  .stripe-text p{
+    font-size: 11px;
+    text-align: center;
+    margin-bottom: 20px;
+  }
+  .app-navbar-top{
+    height: fit-content;
+  }
+  .main-navbar-wrapper{
+    height: 40px;
+  }
+  .justify-content-center{
+    justify-content: flex-start;
+  }
+  .nav-link{
+    font-size: 14px;
+  }
+  .navbar-logo img{
+    width: 90px;
+    height: 40px;
+  }
+}
+
+/* Для больших телефонов (landscape режим) */
+@media (min-width: 414px) and (max-width: 844px) {
+  .stripe-text{
+    font-size: 14px;
+  }
+}
 
 
 

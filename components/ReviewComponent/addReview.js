@@ -1,5 +1,6 @@
 // addReview.js
 import makeApiRequest from './apiUtils';
+import {API_URL} from "../../src/Constants.js";
 
 const addReview = async (productId, reviewData) => {
     try {
@@ -7,13 +8,13 @@ const addReview = async (productId, reviewData) => {
         const token = sessionStorage.getItem('token');
         const response = await makeApiRequest({
             method: 'POST',
-            url: `http://localhost:5248/api/products/${productId}/reviews`,
+            url: `${API_URL}/api/products/${productId}/reviews`,
             data: reviewData, // <--- Проверьте что именно так.
             headers: {
                 Authorization: `Bearer ${token}`,
             },
             withCredentials: true,
-            csrfUrl: 'http://localhost:5248/api/csrf',
+            csrfUrl: `${API_URL}/api/csrf`,
         });
 
         console.log("Received response:", response);

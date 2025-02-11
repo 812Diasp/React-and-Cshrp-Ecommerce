@@ -8,14 +8,17 @@
 .quantity-selector {
   display: flex;
   align-items: center;
-  border: 1px solid #ccc;
   border-radius: 4px;
+}
+.quantity-button{
+  border: 1px solid #ccc;
 }
 .quantity-button{
   background-color: transparent;
   border: none;
   cursor: pointer;
   padding: 5px;
+  color: white;
 }
 
 .quantity-value {
@@ -28,7 +31,7 @@
   color: black;
   border: none;
   cursor: pointer;
-  border-radius: 4px;
+
 }
 
 .add-to-favorites-button {

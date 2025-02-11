@@ -1,0 +1,43 @@
+.navbar-searchbar {
+  position: relative; /* Родительский контейнер должен быть относительно позиционирован */
+}
+
+.search-results {
+  position: absolute;
+  top: 100%; /* Располагаем выпадающий список прямо под полем поиска */
+  left: 0;
+  background-color: white;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  max-height: 200px; /* Ограничиваем максимальную высоту */
+  overflow-y: auto; /* Добавляем прокрутку, если результатов много */
+  font-size: 16px;
+  width: 100%; /* Ширина должна соответствовать ширине поля поиска */
+  z-index: 1000;
+  min-height: 72px; /* Минимальная высота для одного результата */
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Добавляем тень для лучшего визуального разделения */
+}
+
+.search-result-item {
+  display: flex; /* Используем flexbox для размещения изображения и текста */
+  align-items: center; /* Выравниваем элементы по центру */
+  padding: 10px;
+  cursor: pointer;
+}
+
+.search-result-item:hover {
+  background-color: #f0f0f0;
+}
+
+.search-res-image {
+  width: 32px;
+  height: 32px;
+  margin-right: 10px; /* Отступ между изображением и текстом */
+}
+
+.search-res-name {
+  white-space: nowrap; /* Запрещаем перенос текста на новую строку */
+  overflow: hidden; /* Скрываем лишний текст */
+  text-overflow: ellipsis; /* Добавляем многоточие */
+  flex: 1; /* Разрешаем тексту занимать все доступное пространство */
+}

@@ -1,17 +1,17 @@
-import React, { useState, useEffect, useCallback, useMemo } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
-import { useTranslation } from 'react-i18next';
-import { Link } from 'react-router-dom';
+import React, {useState, useEffect, useCallback, useMemo} from 'react';
+import {useDispatch, useSelector} from 'react-redux';
+import {useTranslation} from 'react-i18next';
+import {Link} from 'react-router-dom';
 import axios from 'axios';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faHeart, faEye } from '@fortawesome/free-solid-svg-icons';
-import { setFavorites, setTracking } from '/src/store/features/auth/authSlice.js';
+import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
+import {faHeart, faEye} from '@fortawesome/free-solid-svg-icons';
 import StarRatingSaleCard from './StarRatingSaleCard';
 import PropTypes from "prop-types";
-
+import {API_URL} from "../../src/Constants.js";
+import {updateFavorites, updateTracking} from "../../src/store/actions/authActions.js";
 // eslint-disable-next-line react/prop-types
-const SaleCarouselCard = ({ cardInfo }) => {
-    const { t } = useTranslation();
+const SaleCarouselCard = ({cardInfo}) => {
+    const {t} = useTranslation();
 
     const dispatch = useDispatch();
     const user = useSelector((state) => state.auth.user);
@@ -26,24 +26,19 @@ const SaleCarouselCard = ({ cardInfo }) => {
     const [tempIsFavorite, setTempIsFavorite] = React.useState(isFavorite);
     const [tempIsTracking, setTempIsTracking] = React.useState(isTracking);
 
-    function colorRating() {
-        const allstars = document.querySelectorAll('.star');
-        for (let i = 0; i < allstars.length; i++) {
-            let elem = allstars[i].children[0];
-            elem.setAttribute('fill', '#ffad33');
-        }
-    }
+    // function colorRating() {
+    //     const allstars = document.querySelectorAll('.star');
+    //     for (let i = 0; i < allstars.length; i++) {
+    //         let elem = allstars[i].children[0];
+    //         elem.setAttribute('fill', '#ffad33');
+    //     }
+    // }
     // ОЧЕНЬ ВАЖНАЯ СТРОЧКА ДЛЯ ЦВЕТА ЗВЕЗДОЧЕК!!!!!!!
     useEffect(() => {
-
-        const timer = setTimeout(() => {
-            colorRating();
-        }, 10);
         if (isAuthenticated && user) {
             setTempIsFavorite(user?.favorites?.includes(cardInfo.id) || false);
             setTempIsTracking(user?.tracking?.includes(cardInfo.id) || false);
         }
-        return () => clearTimeout(timer);
     }, [isAuthenticated, user, cardInfo.id]);
     const handleAddToCart = async () => {
         // eslint-disable-next-line react/prop-types
@@ -52,7 +47,7 @@ const SaleCarouselCard = ({ cardInfo }) => {
         try {
             const csrfToken = await fetchCsrfToken();
             await axios.post(
-                `http://localhost:5248/api/users/cart/add/${productId}/1`,
+                `${API_URL}/api/users/cart/add/${productId}/1?color=${cardInfo.colors[0]}&variant=${cardInfo.variants ? cardInfo.variants[0] : ''}`,
                 {},
                 {
                     headers: {
@@ -73,7 +68,7 @@ const SaleCarouselCard = ({ cardInfo }) => {
     // Получение CSRF-токена
     const fetchCsrfToken = useCallback(async () => {
         try {
-            const response = await axios.get('http://localhost:5248/api/csrf', { withCredentials: true });
+            const response = await axios.get(`${API_URL}/api/csrf`, {withCredentials: true});
             return response.data.token;
         } catch (error) {
             console.error("Error fetching CSRF token:", error);
@@ -82,81 +77,53 @@ const SaleCarouselCard = ({ cardInfo }) => {
     }, []);
 
     // Обработчик переключения избранного
-    const handleToggleFavorite = useCallback(async () => {
-        if (!isAuthenticated || !user) return;
+    const handleToggleFavorite = useCallback(() => {
+        if (!isAuthenticated || !user) {
+            return;
+        }else{
+            setTempIsFavorite(!tempIsFavorite);
+
+            try {
+                // Вызываем thunk из Redux
+                dispatch(updateFavorites(cardInfo.id));
+            } catch (error) {
+                // Если запрос не удался, откатываем изменения
+                setTempIsFavorite(!tempIsFavorite);
+                console.error("Error toggling favorite", error);
+            }
+        }
 
         // Оптимистический подход: обновляем локальное состояние сразу
-        setTempIsFavorite(!tempIsFavorite);
 
-        try {
-            const token = sessionStorage.getItem('token');
-            const csrfToken = await fetchCsrfToken();
-
-            const response = await axios.post(
-                `http://localhost:5248/api/products/${cardInfo.id}/favorites`,
-                {},
-                {
-                    headers: {
-                        Authorization: `Bearer ${token}`,
-                        "X-CSRF-Token": csrfToken
-                    },
-                    withCredentials: true
-                }
-            );
-
-            // Обновляем глобальное состояние Redux
-            if (response.data.includes("removed")) {
-                dispatch(setFavorites(user.favorites.filter(id => id !== cardInfo.id)));
-            } else {
-                dispatch(setFavorites([...(user.favorites || []), cardInfo.id]));
-            }
-        } catch (error) {
-            // Если запрос не удался, откатываем изменения
-            setTempIsFavorite(!tempIsFavorite);
-            console.error("Error toggling favorite", error);
-        }
-    }, [isAuthenticated, user, cardInfo.id, tempIsFavorite]);
+    }, [isAuthenticated, user, cardInfo.id, tempIsFavorite, dispatch]);
 
     // Обработчик переключения отслеживания
-    const handleToggleTracking = useCallback(async () => {
-        if (!isAuthenticated || !user) return;
+    const handleToggleTracking = useCallback(() => {
+        if (!isAuthenticated || !user) {
+            return;
+        }else{
+            setTempIsTracking(!tempIsTracking);
+
+            try {
+                // Вызываем thunk из Redux
+                dispatch(updateTracking(cardInfo.id));
+            } catch (error) {
+                // Если запрос не удался, откатываем изменения
+                setTempIsTracking(!tempIsTracking);
+                console.error("Error toggling tracking", error);
+            }
+        }
 
         // Оптимистический подход: обновляем локальное состояние сразу
-        setTempIsTracking(!tempIsTracking);
 
-        try {
-            const token = sessionStorage.getItem('token');
-            const csrfToken = await fetchCsrfToken();
-
-            const response = await axios.post(
-                `http://localhost:5248/api/products/${cardInfo.id}/tracking`,
-                {},
-                {
-                    headers: {
-                        Authorization: `Bearer ${token}`,
-                        "X-CSRF-Token": csrfToken
-                    },
-                    withCredentials: true
-                }
-            );
-
-            // Обновляем глобальное состояние Redux
-            if (response.data.includes("removed")) {
-                dispatch(setTracking(user.tracking.filter(id => id !== cardInfo.id)));
-            } else {
-                dispatch(setTracking([...(user.tracking || []), cardInfo.id]));
-            }
-        } catch (error) {
-            // Если запрос не удался, откатываем изменения
-            setTempIsTracking(!tempIsTracking);
-            console.error("Error toggling tracking", error);
-        }
-    }, [isAuthenticated, user, cardInfo.id, tempIsTracking]);
+    }, [isAuthenticated, user, cardInfo.id, tempIsTracking, dispatch]);
     return (
         <div className={'sale-card'} key={cardInfo.id}>
             <div className="card-sale-image">
-                <img className={'card-image'} src={cardInfo.image} alt={'saleCard'} width={'270px'} height={'250px'}/>
-                <div><span className={'card-discont-badge'}>{cardInfo.discountPercentage}%</span></div>
+                <img className={'card-image'} src={cardInfo.mainImage} alt={'saleCard'} width={'270px'}
+                     height={'250px'}/>
+                <div><span className={'card-discont-badge'}>{Math.round(Number(cardInfo.discountPercentage))}%</span>
+                </div>
                 <div className="hover-overlay">
                     {isAuthenticated ? (
                         isAdded ? (
@@ -169,22 +136,26 @@ const SaleCarouselCard = ({ cardInfo }) => {
                             </div>
                         )
                     ) : (
-                        <div className="hover-text">
-                            <Link to={'/register'}>Войдите в аккаунт</Link>
+                        <div className="hover-text ">
+                            <Link to={'/register'} className={"hover-text-card"}>{t("registerToBuy")}</Link>
                         </div>
                     )}
                 </div>
                 <div className="card-controls">
-                    <FontAwesomeIcon
-                        className={`card-control-item ${tempIsTracking ? 'active' : 'inactive'}`}
-                        icon={faEye}
-                        onClick={handleToggleTracking}
-                    />
-                    <FontAwesomeIcon
-                        className={`card-control-item ${tempIsFavorite ? 'active' : 'inactive'}`}
-                        icon={faHeart}
-                        onClick={handleToggleFavorite}
-                    />
+                    <div>
+                        <FontAwesomeIcon
+                            className={`card-control-item ${tempIsTracking ? 'active' : 'inactive'}`}
+                            icon={faEye}
+                            onClick={handleToggleTracking}
+                        />
+                    </div>
+                    <div>
+                        <FontAwesomeIcon
+                            className={`card-control-item ${tempIsFavorite ? 'active' : 'inactive'}`}
+                            icon={faHeart}
+                            onClick={handleToggleFavorite}
+                        />
+                    </div>
                 </div>
             </div>
             <Link to={`/products/${cardInfo.id}`} className={'color-text-link'}>
@@ -193,22 +164,61 @@ const SaleCarouselCard = ({ cardInfo }) => {
                     {cardInfo.price}$
                     <span className={'gray-sale-product-price'}>{cardInfo.originalPrice}$</span>
                 </p>
-                <StarRatingSaleCard rating={cardInfo.averageRating} quantity={cardInfo.reviewCount}/>
             </Link>
+            <StarRatingSaleCard rating={cardInfo.averageRating} quantity={cardInfo.reviewCount}/>
+
+
         </div>
     );
 };
 SaleCarouselCard.propTypes = {
     cardInfo: PropTypes.shape({
-        id: PropTypes.oneOfType([PropTypes.string, PropTypes.number]).isRequired,
-        image: PropTypes.string.isRequired,
-        discountPercentage: PropTypes.number.isRequired,
+        id: PropTypes.string.isRequired,
+        brand: PropTypes.string,
+        category: PropTypes.string,
+        mainImage: PropTypes.string.isRequired,
+        additionalImages: PropTypes.arrayOf(PropTypes.string),
         name: PropTypes.string.isRequired,
+        description: PropTypes.string,
+        characteristics: PropTypes.object,
         price: PropTypes.number.isRequired,
         originalPrice: PropTypes.number.isRequired,
-        averageRating: PropTypes.number.isRequired,
-        reviewCount: PropTypes.number.isRequired,
-    }).isRequired,
-    // key: PropTypes.oneOfType([PropTypes.string, PropTypes.number]).isRequired,
+        discountPercentage: PropTypes.number.isRequired,
+        discountedPrice: PropTypes.number,
+        discountStartDate: PropTypes.string,
+        discountEndDate: PropTypes.string,
+        vatRate: PropTypes.number,
+        reviews: PropTypes.array,
+        reviewCount: PropTypes.number,
+        ratingCount: PropTypes.number,
+        fiveStarRatingCount: PropTypes.number,
+        fourStarRatingCount: PropTypes.number,
+        threeStarRatingCount: PropTypes.number,
+        twoStarRatingCount: PropTypes.number,
+        oneStarRatingCount: PropTypes.number,
+        averageRating: PropTypes.number,
+        stockQuantity: PropTypes.number,
+        weight: PropTypes.number,
+        dimensions: PropTypes.shape({
+            Length: PropTypes.number,
+            Width: PropTypes.number,
+            Height: PropTypes.number,
+            Unit: PropTypes.string
+        }),
+        tags: PropTypes.arrayOf(PropTypes.string),
+        isAvailable: PropTypes.bool,
+        createdAt: PropTypes.string,
+        updatedAt: PropTypes.string,
+        variants: PropTypes.array,
+        metaTitle: PropTypes.string,
+        metaDescription: PropTypes.string,
+        urlSlug: PropTypes.string,
+        manufacturer: PropTypes.string,
+        shippingCost: PropTypes.number,
+        vendor: PropTypes.string,
+        warrantyPeriod: PropTypes.string,
+        colors: PropTypes.arrayOf(PropTypes.string),
+        options: PropTypes.array
+    }).isRequired
 };
 export default SaleCarouselCard;

@@ -1,5 +1,4 @@
 import LocationStripe from "./LocationStripe.jsx";
-import {useState} from "react";
 
 const ProfilePage = () => {
     var _AccountSelectedCategory = "profile"

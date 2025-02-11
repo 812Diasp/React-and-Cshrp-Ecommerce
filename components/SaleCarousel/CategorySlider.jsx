@@ -1,6 +1,7 @@
 import React from 'react';
 import Slider from "react-slick";
 import CategoryCard from "./CategoryCard.jsx";
+import {useTranslation} from "react-i18next";
 
 // eslint-disable-next-line react/prop-types
 const CategorySlider = ({categories}) => {
@@ -15,7 +16,7 @@ const CategorySlider = ({categories}) => {
     //сдесь будут fetch даные для карточек
 
     return (
-        <div className="category-slider">
+        <div className="category-slider mb-5">
             <Slider {...settings}>
                 {/* eslint-disable-next-line react/prop-types */}
                 {categories.map((item,key) =>

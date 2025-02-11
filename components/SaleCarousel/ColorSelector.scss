@@ -1,0 +1,21 @@
+/* Основной класс для цветового круга */
+.color-circle {
+  width: 22px; /* Ширина круга */
+  height: 22px; /* Высота круга */
+  border-radius: 50%; /* Создает круглую форму */
+  cursor: pointer; /* Изменение курсора на "указатель" при наведении */
+  margin: 4px; /* Отступ между кругами */
+  border: 2px solid transparent; /* Прозрачная граница по умолчанию */
+  transition: border 0.3s ease; /* Плавный переход для эффекта рамки */
+  border: 1px solid grey;
+}
+.color-selector{
+  display: flex;
+  gap: 10px;
+}
+/* Класс для выделенного (выбранного) круга */
+.color-circle.selected {
+  border: 3px solid #00afaf;
+
+  box-shadow: 0 0 2px #00afaf; /* Дополнительный эффект тени для акцента */
+}

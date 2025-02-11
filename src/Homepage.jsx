@@ -5,6 +5,8 @@ import FlashSale from "../components/FlashSaleComponent/FlashSale.jsx";
 import CategorySlider from "../components/SaleCarousel/CategorySlider.jsx";
 import {useEffect, useState} from "react";
 import axios from "axios";
+import {useTranslation} from "react-i18next";
+import {API_URL} from "./Constants.js";
 const HomePage = () => {
     const [saleProducts, setSaleProducts] = useState([]);
     const [topProducts, setTopProducts] = useState([]);
@@ -14,7 +16,7 @@ const HomePage = () => {
 
         const fetchSaleProducts = async () => {
             try {
-                const response = await axios.get('http://localhost:5248/api/products', {withCredentials:true});
+                const response = await axios.get(`${API_URL}/api/products`, {withCredentials:true});
 
                 const productsWithDiscount = response.data.filter(
                     (product) => product.discountedPrice !== null && product.discountedPrice > 0
@@ -35,7 +37,7 @@ const HomePage = () => {
 
     let categories = [
         {
-            name:"Smartphone",
+            name:"Smartphones",
             image:"Category-CellPhone.svg"
         },
         {
@@ -43,7 +45,7 @@ const HomePage = () => {
             image:"Category-Computer.svg"
         },
         {
-            name:"Camera",
+            name:"Cameras",
             image:"Category-Camera.svg"
         },
         {
@@ -55,20 +57,21 @@ const HomePage = () => {
             image:"Category-Headphone.svg"
         },
         {
-            name:"SmartWatch",
+            name:"Wearables",
             image:"Category-SmartWatch.svg"
         },];
-
+    const { t } = useTranslation();
     return (
         <div className={'homepage'}>
             <div className={'app-container'}>
                 <BannerMenu></BannerMenu>
-                <FlashSale HasCountdown={true} products={saleProducts} hasSlider={true} Text={"Today`s"} loading={loading}></FlashSale>
+                <FlashSale HasCountdown={true} products={saleProducts} hasSlider={true} Text={t("todays")} loading={loading}></FlashSale>
 
                 {/*<ProductList/>*/}
-                <FlashSale HasCountdown={false} DisplayTitle={true} Title={"Browse By Category"} Text={"Categories"} products={saleProducts} hasSlider={false} loading={loading}></FlashSale>
+                <FlashSale HasCountdown={false} DisplayTitle={true} Title={t('browseByCategory')} Text={t("categories")} products={saleProducts} hasSlider={false} loading={loading}></FlashSale>
                 <CategorySlider categories={categories}></CategorySlider>
-                <FlashSale HasCountdown={false} DisplayTitle={true} hasSlider={true} Title={"Most rated products"} products={topProducts} ViewAll={true} Text={"This month"} loading={loading}></FlashSale>
+
+                <FlashSale HasCountdown={false} DisplayTitle={true} hasSlider={true} Title={t("mostRated")} products={topProducts} ViewAll={true} Text={t("thisMonth")} loading={loading}></FlashSale>
                 <img src={"/Frame 600.png"}></img>
             </div>
         </div>

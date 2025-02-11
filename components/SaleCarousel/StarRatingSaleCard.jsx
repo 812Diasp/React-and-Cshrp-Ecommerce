@@ -4,7 +4,7 @@ import { fas } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { fab } from '@fortawesome/free-brands-svg-icons'
 import { far } from '@fortawesome/free-regular-svg-icons'
-
+import  './StarRating.scss'
 // eslint-disable-next-line react/prop-types
 const StarRatingSaleCard = ({rating,quantity}) => {
     library.add(fab, fas, far)
@@ -15,20 +15,20 @@ const StarRatingSaleCard = ({rating,quantity}) => {
 
     const stars = [];
     for (let i = 0; i < fullStars; i++) {
-        stars.push(<FontAwesomeIcon className={'star'} icon={['fas', 'star']} key={i} fill={'gold'}/>);
+        stars.push(<FontAwesomeIcon className={'star'} icon={['fas', 'star']} key={i}/>);
     }
 
     if (fractionalStar > 0) {
         stars.push(
-            <FontAwesomeIcon icon={['fas','star-half-alt']} className={'star'} key={'fract'} fill={'gold'}/>);
+            <FontAwesomeIcon icon={['fas','star-half-alt']} className={'star'} key={'fract'} />);
     }
 
     for (let i = fullStars + (fractionalStar > 0 ? 1 : 0); i < 5; i++) {
-        stars.push(<FontAwesomeIcon className={'star'} icon={['far', 'star']} key={i} fill={'gold'}/>);
+        stars.push(<FontAwesomeIcon className={'star'} icon={['far', 'star']} key={i}/>);
     }
 
     return (
-        <div className="star-rating ">{stars} <span className={'gray'}>({quantity})</span></div>
+        <div className="star-rating">{stars}<span className={'gray'}>({quantity})</span></div>
     );
 };
 

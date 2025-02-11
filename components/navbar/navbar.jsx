@@ -1,24 +1,25 @@
 import React, {useEffect} from 'react';
-import { Link, useNavigate } from 'react-router-dom';
-import { useSelector, useDispatch } from 'react-redux';
+import {Link, useNavigate} from 'react-router-dom';
+import {useSelector, useDispatch} from 'react-redux';
 import './navbar.scss';
-import { useTranslation } from 'react-i18next';
-import {  setAuth, logout } from '/src/store/features/auth/authSlice';
+import {useTranslation} from 'react-i18next';
+import {setAuth, logout} from '/src/store/features/auth/authSlice';
 import axios from "axios";
+import SearchBar from "./SerachBar.jsx";
+import {API_URL} from "../../src/Constants.js";
+
 const Navbar = () => {
     const isAuthenticated = useSelector((state) => state.auth.isAuthenticated);
     const dispatch = useDispatch();
     const navigate = useNavigate();
-    const { t } = useTranslation();
-
-    const language = useSelector((state) => state.app.language);
-
+    const {t} = useTranslation();
+    useSelector((state) => state.app.language);
     useEffect(() => {
         const checkAuthentication = async () => {
             const token = sessionStorage.getItem('token');
             if (token) {
                 try {
-                    const response = await axios.get('http://localhost:5248/api/users/me', {
+                    const response = await axios.get(`${API_URL}/api/users/me`, {
                         headers: {
                             Authorization: `Bearer ${token}`,
                         },
@@ -26,19 +27,19 @@ const Navbar = () => {
                     });
                     if (response.status === 200) {
                         // Успешный запрос, пользователь авторизован
-                        dispatch(setAuth({ isAuthenticated: true, user: response.data })); // Pass user data
+                        dispatch(setAuth({isAuthenticated: true, user: response.data})); // Pass user data
                     } else {
                         // Неуспешный запрос, пользователь не авторизован
                         sessionStorage.removeItem('token'); // Удалить токен, если запрос не удался
-                        dispatch(setAuth({ isAuthenticated: false }));
+                        dispatch(setAuth({isAuthenticated: false}));
                     }
                 } catch (error) {
                     console.error('Ошибка авторизации:', error);
                     sessionStorage.removeItem('token'); // Удалить токен при ошибке
-                    dispatch(setAuth({ isAuthenticated: false }));
+                    dispatch(setAuth({isAuthenticated: false}));
                 }
             } else {
-                dispatch(setAuth({ isAuthenticated: false }));
+                dispatch(setAuth({isAuthenticated: false}));
             }
         };
 
@@ -50,13 +51,16 @@ const Navbar = () => {
         dispatch(logout());
         navigate('/');
     };
+    const handleGoCart = () => {
+        navigate('/cart')
 
+    };
     return (
         <div className={'nabpx'}>
             <div className={'main-navbar-wrapper'}>
                 <div className="main-navbar">
                     <div className="navbar-logo">
-                        <h2>CyberBaza</h2>
+                        <img src={'/APP_LOGO.png'}/>
                     </div>
                     <div id={'navigation-links'} className="nav col-12 col-md-auto mb-2 justify-content-center mb-md-0">
                         <li>
@@ -76,24 +80,18 @@ const Navbar = () => {
                         </li>
                     </div>
                     <div className={'utilities'}>
-                        <div className="navbar-searchbar">
-                            <input className="navbar-search" type="text" placeholder={t('search-ph')}/>
-                            <img src={'/search.png'} alt="Search" />
-                        </div>
+                        <SearchBar></SearchBar>
                         <div className={'navbar-wishlist-cart'}>
 
                             {isAuthenticated ? (<>
-                                    <img className={'wishlist-icon'} src={'/Wishlist.png'} alt="Wishlist"/>
+                                    <img className={'wishlist-icon'} src={'/Wishlist.png'} width={32} height={32}
+                                         alt="Wishlist"/>
 
                                     <Link to={'/cart'}>
-                                    <button type="button" className="btn position-relative">
-                                       <img className={'cart-icon'} src={'/CartBuy.png'} alt="Cart"/>
-
-                                        <span className="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
-                                       !!!
-                                         <span className="visually-hidden">products in cart</span>
-                                        </span>
-                                    </button>
+                                        <div onClick={handleGoCart}>
+                                            <img className={'cart-icon'} width={32} height={32} src={'/CartBuy.png'}
+                                                 alt="Cart"/>
+                                        </div>
                                     </Link>
                                     <div className="dropdown">
                                         <img

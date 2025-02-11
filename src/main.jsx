@@ -14,6 +14,7 @@ import ProductDetails from "../components/SaleCarousel/ProductDetails.jsx";
 import CartPage from "../components/CartPage/CartPage.jsx";
 import Catalog from "./Catalog.jsx";
 import OrderForm from "../components/OrderPage/OrderForm.jsx";
+import CategoryPage from "../components/categoryPage/CategoryPage.jsx";
 ReactDOM.createRoot(document.getElementById('root')).render(
     <Provider store={store}>
     <BrowserRouter>
@@ -27,6 +28,7 @@ ReactDOM.createRoot(document.getElementById('root')).render(
             <Route path={'/cart'} element={<CartPage/>}></Route>{ /* Страница корзины пользователя */}
             <Route path={'/catalog'} element={<Catalog/>}></Route>{ /* Страница с множеством товаров в ряд */}
             <Route path={'/orderpage'} element={<OrderForm/>}></Route>
+            <Route path={"/products/category/:category"} element={<CategoryPage/>}></Route>
         </Routes>
         <Footer></Footer>
     </BrowserRouter>

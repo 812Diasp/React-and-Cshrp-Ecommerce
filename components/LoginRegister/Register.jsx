@@ -7,6 +7,7 @@ import {useTranslation} from "react-i18next";
 import {setAuth} from "../../src/store/features/auth/authSlice.js";
 import {reset} from "../../src/store/features/auth/authSlice";
 import axios from "axios";
+import {API_URL} from "../../src/Constants.js";
 const Register = () => {
     const [LOGINED, setLOGINED] = useState(false);
     const [error, setError] = useState(null);
@@ -112,19 +113,18 @@ const Register = () => {
             const formData = new FormData(form);
             const data = Object.fromEntries(formData.entries());
 
-            const response =  await axios.post("http://localhost:5248/api/auth/login/confirm", {
+            const response =  await axios.post(`${API_URL}/api/auth/login/confirm`, {
                 email: data.email,
                 confirmationCode: data.confirmationCode
             });
 
             const token = response.data.token;
-            const user = response.data.user;
 
             sessionStorage.setItem('token', token);
             dispatch(setAuth({ isAuthenticated: true }));
             dispatch(reset());
             navigate('/', { replace: true });
-            window.location.reload();
+            window.location.reload()
             setLoading(false);
         } catch (err) {
             setError('Login confirm failed, try again.');

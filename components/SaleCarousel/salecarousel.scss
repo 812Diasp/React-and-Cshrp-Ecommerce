@@ -11,9 +11,9 @@
   margin-bottom: 40px;
 }
 .sale-card a{
-  color: white;
+
   a:hover{
-    color: white;
+    color: #ffc107;
     text-decoration: none;
   }
 }
@@ -121,7 +121,11 @@
 
 
 
-
+.sale-product-title{
+  white-space: nowrap; // Запрещаем перенос текста на новую строку
+  overflow: hidden; // Скрываем лишний текст
+  text-overflow: ellipsis; // Добавляем многоточие
+}
 
 
 .hover-overlay {
@@ -140,12 +144,19 @@
 .hover-overlay .hover-text {
   padding: 10px;
   text-align: center;
+
 }
 .hover-text:hover{
   background-color: #121a48;
 
   color: white;
   transition: 0.2s;
+}
+.hover-text{
+  color: white;
+}
+.hover-text-card{
+  color: white;
 }
 .hover-text-added{
   background-color: #00afaf;

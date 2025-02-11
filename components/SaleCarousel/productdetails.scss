@@ -5,8 +5,15 @@
 .side-detail-image{
 
   display: flex;
-
+}
+.side-image-group{
+  display: flex;
   flex-direction: column;
+}
+.side-image-group img{
+  border: 1px solid #cbcbcb;
+  border-radius: 10px;
+  padding: 5px;
 }
 .side-detail-image img{
   margin-top: 50px;
@@ -47,5 +54,6 @@
 .related-product-container-1{
   display: flex;
   flex-wrap: wrap;
-  justify-content: space-between;
+  justify-content: left;
+  gap: 30px;
 }
