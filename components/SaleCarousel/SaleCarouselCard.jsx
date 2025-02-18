@@ -142,14 +142,14 @@ const SaleCarouselCard = ({cardInfo}) => {
                     )}
                 </div>
                 <div className="card-controls">
-                    <div>
+                    <div >
                         <FontAwesomeIcon
                             className={`card-control-item ${tempIsTracking ? 'active' : 'inactive'}`}
                             icon={faEye}
                             onClick={handleToggleTracking}
                         />
                     </div>
-                    <div>
+                    <div >
                         <FontAwesomeIcon
                             className={`card-control-item ${tempIsFavorite ? 'active' : 'inactive'}`}
                             icon={faHeart}

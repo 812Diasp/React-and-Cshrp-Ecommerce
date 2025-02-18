@@ -72,9 +72,10 @@
   width: 270px;
   height: 250px;
 }
-.card-controls img{
-  width: 38px;
-  height: 38px;
+.card-controls svg{
+  width: 25px;
+  height: 25px;
+  border-radius: 50%;
   margin-top: 5px;
 }
 .card-discont-badge{
@@ -168,7 +169,10 @@
 
 
 
-
+.control-card-icon{
+  width: 30px;
+  height: 30px;
+}
 
 .categoryCard{
   width: 175px;

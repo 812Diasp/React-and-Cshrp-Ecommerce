@@ -3,11 +3,10 @@ import './flashsalestyle.scss'
 import FlashSaleCounter from "./FlashSaleCounter.jsx";
 import SaleSlider from "../SaleCarousel/SaleSlider.jsx";
 import Skeleton from "../Skeleton/Skeleton.jsx";
-import {useTranslation} from "react-i18next";
 
 // eslint-disable-next-line react/prop-types
 const FlashSale = ({ HasCountdown, Text, DisplayTitle, Title, hasSlider, ViewAll, products, loading }) => {
-    const targetDate = '2025-2-13 00:00:00';
+    const targetDate = '2025-2-20 00:18:30';
 
     if (loading) {
         return (

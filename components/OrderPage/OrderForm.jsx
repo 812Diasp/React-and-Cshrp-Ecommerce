@@ -30,7 +30,7 @@ const OrderForm = () => {
 
     const fetchCsrfToken = useCallback(async () => {
         try {
-            const response = await axios.get('http://localhost:5248/api/csrf', {withCredentials: true});
+            const response = await axios.get(`${API_URL}/api/csrf`, {withCredentials: true});
             setCsrfToken(response.data.token);
             return response.data.token;
         } catch (error) {

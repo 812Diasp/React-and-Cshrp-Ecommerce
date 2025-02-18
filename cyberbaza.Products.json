@@ -1,0 +1,1940 @@
+[{
+  "_id": {
+    "$oid": "67a326c1f8786f477c5c1d28"
+  },
+  "brand": "Samsung",
+  "category": "Smartphones",
+  "mainImage": "https://i.ebayimg.com/images/g/0-MAAOSwR7lj3TSg/s-l1600.jpg",
+  "additionalImages": [
+    "https://repairmyapple.ru/assets/images/products/6244/frame-1853.png",
+    "https://assets.chakana.uz/product/main_image/desktop/6438002150b31.png"
+  ],
+  "name": "Samsung Galaxy S23 Ultra",
+  "description": "The Samsung Galaxy S23 Ultra offers top-tier performance with a stunning AMOLED display and powerful camera capabilities.",
+  "characteristics": {
+    "Display": "6.8 inches, QHD+",
+    "Processor": "Snapdragon 8 Gen 2",
+    "Battery": "5000mAh"
+  },
+  "price": {
+    "$numberDecimal": "1199"
+  },
+  "originalPrice": {
+    "$numberDecimal": "1299"
+  },
+  "discountPercentage": {
+    "$numberDecimal": "8"
+  },
+  "discountedPrice": {
+    "$numberDecimal": "1199"
+  },
+  "discountStartDate": {
+    "$date": "2023-11-10T00:00:00.000Z"
+  },
+  "discountEndDate": {
+    "$date": "2023-12-10T00:00:00.000Z"
+  },
+  "vatRate": {
+    "$numberDecimal": "21"
+  },
+  "reviews": [
+    {
+      "_id": {
+        "$oid": "67a75419062cb330051d87d3"
+      },
+      "userId": "6799e9261a4559ebee2337b0",
+      "productId": "67a326c1f8786f477c5c1d28",
+      "title": "90",
+      "pros": "0",
+      "cons": "12",
+      "comment": "12412",
+      "rating": 5,
+      "date": {
+        "$date": "2025-02-08T12:54:49.521Z"
+      }
+    }
+  ],
+  "reviewCount": 1,
+  "ratingCount": 0,
+  "fiveStarRatingCount": 1,
+  "fourStarRatingCount": 0,
+  "threeStarRatingCount": 0,
+  "twoStarRatingCount": 0,
+  "oneStarRatingCount": 0,
+  "averageRating": 5,
+  "stockQuantity": 150,
+  "weight": {
+    "$numberDecimal": "228"
+  },
+  "dimensions": {
+    "Length": {
+      "$numberDecimal": "163"
+    },
+    "Width": {
+      "$numberDecimal": "78"
+    },
+    "Height": {
+      "$numberDecimal": "9"
+    },
+    "Unit": "mm"
+  },
+  "tags": [
+    "smartphone",
+    "5G",
+    "AMOLED"
+  ],
+  "isAvailable": true,
+  "createdAt": {
+    "$date": "2025-02-05T08:52:17.681Z"
+  },
+  "updatedAt": {
+    "$date": "2025-02-05T08:52:17.681Z"
+  },
+  "variants": [],
+  "metaTitle": null,
+  "metaDescription": null,
+  "urlSlug": null,
+  "manufacturer": "Samsung Electronics",
+  "shippingCost": {
+    "$numberDecimal": "15"
+  },
+  "vendor": "BestTech",
+  "warrantyPeriod": "1 year",
+  "colors": [
+    "Black",
+    "Green",
+    "White"
+  ],
+  "options": [
+    {
+      "name": "Storage",
+      "values": [
+        "128GB",
+        "256GB",
+        "512GB"
+      ]
+    }
+  ]
+},
+{
+  "_id": {
+    "$oid": "67a326c1f8786f477c5c1d29"
+  },
+  "brand": "Dell",
+  "category": "Laptops",
+  "mainImage": "https://m.media-amazon.com/images/I/614ld4ttTcL.jpg",
+  "additionalImages": [
+    "https://m.media-amazon.com/images/I/614ld4ttTcL.jpg",
+    "https://m.media-amazon.com/images/I/614ld4ttTcL.jpg"
+  ],
+  "name": "Dell XPS 15",
+  "description": "Experience the ultimate in portable computing with the Dell XPS 15, featuring a 4K InfinityEdge display and Intel Core i7 processor.",
+  "characteristics": {
+    "Display": "15.6 inches, 4K UHD",
+    "Processor": "Intel Core i7-12700H",
+    "RAM": "16GB"
+  },
+  "price": {
+    "$numberDecimal": "1499"
+  },
+  "originalPrice": {
+    "$numberDecimal": "1699"
+  },
+  "discountPercentage": {
+    "$numberDecimal": "12"
+  },
+  "discountedPrice": {
+    "$numberDecimal": "1499"
+  },
+  "discountStartDate": {
+    "$date": "2023-11-01T00:00:00.000Z"
+  },
+  "discountEndDate": {
+    "$date": "2023-12-01T00:00:00.000Z"
+  },
+  "vatRate": {
+    "$numberDecimal": "21"
+  },
+  "reviews": [
+    {
+      "_id": {
+        "$oid": "67a4f8391e49b0223bc6066c"
+      },
+      "userId": "6799e9261a4559ebee2337b0",
+      "productId": "67a326c1f8786f477c5c1d29",
+      "title": "Хорош",
+      "pros": "+",
+      "cons": "-",
+      "comment": "коммент",
+      "rating": 5,
+      "date": {
+        "$date": "2025-02-06T17:58:17.875Z"
+      }
+    }
+  ],
+  "reviewCount": 1,
+  "ratingCount": 0,
+  "fiveStarRatingCount": 1,
+  "fourStarRatingCount": 0,
+  "threeStarRatingCount": 0,
+  "twoStarRatingCount": 0,
+  "oneStarRatingCount": 0,
+  "averageRating": 5,
+  "stockQuantity": 100,
+  "weight": {
+    "$numberDecimal": "1900"
+  },
+  "dimensions": {
+    "Length": {
+      "$numberDecimal": "357"
+    },
+    "Width": {
+      "$numberDecimal": "236"
+    },
+    "Height": {
+      "$numberDecimal": "11"
+    },
+    "Unit": "mm"
+  },
+  "tags": [
+    "laptop",
+    "gaming",
+    "ultrabook"
+  ],
+  "isAvailable": true,
+  "createdAt": {
+    "$date": "2025-02-05T08:52:17.681Z"
+  },
+  "updatedAt": {
+    "$date": "2025-02-05T08:52:17.681Z"
+  },
+  "variants": [],
+  "metaTitle": null,
+  "metaDescription": null,
+  "urlSlug": null,
+  "manufacturer": "Dell Technologies",
+  "shippingCost": {
+    "$numberDecimal": "25"
+  },
+  "vendor": "TechWorld",
+  "warrantyPeriod": "2 years",
+  "colors": [
+    "Platinum Silver",
+    "Graphite Gray"
+  ],
+  "options": [
+    {
+      "name": "Storage",
+      "values": [
+        "512GB SSD",
+        "1TB SSD"
+      ]
+    }
+  ]
+},
+{
+  "_id": {
+    "$oid": "67a326c1f8786f477c5c1d2a"
+  },
+  "brand": "Sony",
+  "category": "Headphones",
+  "mainImage": "https://megaobzor.com/uploads/stories/182272/gsmarena_001.webp",
+  "additionalImages": [
+    "https://avatars.mds.yandex.net/i?id=4bb8a5307a4d08f320e749825f32b1fe_l-10637439-images-thumbs&n=13",
+    "https://avatars.mds.yandex.net/get-mpic/4353087/2a0000018a850eba3af0389b80355b9d768e/orig"
+  ],
+  "name": "Sony WH-1000XM5",
+  "description": "Enjoy immersive sound with industry-leading noise cancellation in the Sony WH-1000XM5 wireless headphones.",
+  "characteristics": {
+    "NoiseCancellation": "Advanced",
+    "BatteryLife": "30 hours",
+    "Connectivity": "Bluetooth 5.2"
+  },
+  "price": {
+    "$numberDecimal": "349"
+  },
+  "originalPrice": {
+    "$numberDecimal": "399"
+  },
+  "discountPercentage": {
+    "$numberDecimal": "12.5"
+  },
+  "discountedPrice": {
+    "$numberDecimal": "349"
+  },
+  "discountStartDate": {
+    "$date": "2023-10-20T00:00:00.000Z"
+  },
+  "discountEndDate": {
+    "$date": "2023-11-20T00:00:00.000Z"
+  },
+  "vatRate": {
+    "$numberDecimal": "21"
+  },
+  "reviews": [
+    {
+      "_id": {
+        "$oid": "67ae201b0949734e599322b7"
+      },
+      "userId": "6799e9261a4559ebee2337b0",
+      "productId": "67a326c1f8786f477c5c1d2a",
+      "title": "ыаф",
+      "pros": "аф",
+      "cons": "фыа",
+      "comment": "1афаыф",
+      "rating": 3,
+      "date": {
+        "$date": "2025-02-13T16:38:51.579Z"
+      }
+    }
+  ],
+  "reviewCount": 1,
+  "ratingCount": 0,
+  "fiveStarRatingCount": 0,
+  "fourStarRatingCount": 0,
+  "threeStarRatingCount": 1,
+  "twoStarRatingCount": 0,
+  "oneStarRatingCount": 0,
+  "averageRating": 3,
+  "stockQuantity": 200,
+  "weight": {
+    "$numberDecimal": "250"
+  },
+  "dimensions": {
+    "Length": {
+      "$numberDecimal": "185"
+    },
+    "Width": {
+      "$numberDecimal": "165"
+    },
+    "Height": {
+      "$numberDecimal": "75"
+    },
+    "Unit": "mm"
+  },
+  "tags": [
+    "wireless",
+    "noise-cancellation",
+    "headphones"
+  ],
+  "isAvailable": true,
+  "createdAt": {
+    "$date": "2025-02-05T08:52:17.681Z"
+  },
+  "updatedAt": {
+    "$date": "2025-02-05T08:52:17.681Z"
+  },
+  "variants": [],
+  "metaTitle": null,
+  "metaDescription": null,
+  "urlSlug": null,
+  "manufacturer": "Sony Corporation",
+  "shippingCost": {
+    "$numberDecimal": "10"
+  },
+  "vendor": "AudioGear",
+  "warrantyPeriod": "1 year",
+  "colors": [
+    "Black",
+    "Silver"
+  ],
+  "options": []
+},
+{
+  "_id": {
+    "$oid": "67a326c1f8786f477c5c1d2b"
+  },
+  "brand": "LG",
+  "category": "Televisions",
+  "mainImage": "https://kaliningrad.pult.ru/upload/iblock/dac/dac50d716abac3a2e1cf9bddbc248000.jpg",
+  "additionalImages": [
+    "https://avatars.mds.yandex.net/get-mpic/5320264/img_id3597747374536359095.jpeg/orig",
+    "https://shop.by/images/lg_c2_oled48c21la_4.webp"
+  ],
+  "name": "LG OLED C2 Series",
+  "description": "LG's OLED C2 series delivers perfect black levels and infinite contrast for an unparalleled viewing experience.",
+  "characteristics": {
+    "Resolution": "4K UHD",
+    "ScreenSize": "65 inches",
+    "SmartTV": "WebOS"
+  },
+  "price": {
+    "$numberDecimal": "1999"
+  },
+  "originalPrice": {
+    "$numberDecimal": "2299"
+  },
+  "discountPercentage": {
+    "$numberDecimal": "13.1"
+  },
+  "discountedPrice": {
+    "$numberDecimal": "1999"
+  },
+  "discountStartDate": {
+    "$date": "2023-11-15T00:00:00.000Z"
+  },
+  "discountEndDate": {
+    "$date": "2023-12-15T00:00:00.000Z"
+  },
+  "vatRate": {
+    "$numberDecimal": "21"
+  },
+  "reviews": [],
+  "reviewCount": 0,
+  "ratingCount": 0,
+  "fiveStarRatingCount": 0,
+  "fourStarRatingCount": 0,
+  "threeStarRatingCount": 0,
+  "twoStarRatingCount": 0,
+  "oneStarRatingCount": 0,
+  "averageRating": 0,
+  "stockQuantity": 75,
+  "weight": {
+    "$numberDecimal": "18000"
+  },
+  "dimensions": {
+    "Length": {
+      "$numberDecimal": "1450"
+    },
+    "Width": {
+      "$numberDecimal": "850"
+    },
+    "Height": {
+      "$numberDecimal": "50"
+    },
+    "Unit": "mm"
+  },
+  "tags": [
+    "4K",
+    "HDR",
+    "smart-tv"
+  ],
+  "isAvailable": true,
+  "createdAt": {
+    "$date": "2025-02-05T08:52:17.681Z"
+  },
+  "updatedAt": {
+    "$date": "2025-02-05T08:52:17.681Z"
+  },
+  "variants": [],
+  "metaTitle": null,
+  "metaDescription": null,
+  "urlSlug": null,
+  "manufacturer": "LG Electronics",
+  "shippingCost": {
+    "$numberDecimal": "50"
+  },
+  "vendor": "HomeVision",
+  "warrantyPeriod": "3 years",
+  "colors": [
+    "Black"
+  ],
+  "options": []
+},
+{
+  "_id": {
+    "$oid": "67a326c1f8786f477c5c1d2c"
+  },
+  "brand": "Apple",
+  "category": "Tablets",
+  "mainImage": "https://istore.pw/wp-content/uploads/2024/07/Screenshot_1021.png",
+  "additionalImages": [
+    "https://halykmarket.kz/s3/product/pim/sku-variations/1208976959/1208976959-019.jpg"
+  ],
+  "name": "iPad Pro (2023)",
+  "description": "The iPad Pro features a Liquid Retina XDR display, M2 chip, and support for the latest Apple Pencil.",
+  "characteristics": {
+    "Display": "12.9 inches, Liquid Retina XDR",
+    "Processor": "M2 Chip",
+    "Storage": "128GB"
+  },
+  "price": {
+    "$numberDecimal": "1099"
+  },
+  "originalPrice": {
+    "$numberDecimal": "1199"
+  },
+  "discountPercentage": {
+    "$numberDecimal": "8.4"
+  },
+  "discountedPrice": {
+    "$numberDecimal": "1099"
+  },
+  "discountStartDate": {
+    "$date": "2023-11-05T00:00:00.000Z"
+  },
+  "discountEndDate": {
+    "$date": "2023-12-05T00:00:00.000Z"
+  },
+  "vatRate": {
+    "$numberDecimal": "21"
+  },
+  "reviews": [],
+  "reviewCount": 0,
+  "ratingCount": 0,
+  "fiveStarRatingCount": 0,
+  "fourStarRatingCount": 0,
+  "threeStarRatingCount": 0,
+  "twoStarRatingCount": 0,
+  "oneStarRatingCount": 0,
+  "averageRating": 0,
+  "stockQuantity": 120,
+  "weight": {
+    "$numberDecimal": "685"
+  },
+  "dimensions": {
+    "Length": {
+      "$numberDecimal": "280"
+    },
+    "Width": {
+      "$numberDecimal": "215"
+    },
+    "Height": {
+      "$numberDecimal": "6"
+    },
+    "Unit": "mm"
+  },
+  "tags": [
+    "tablet",
+    "ios",
+    "apple-pencil"
+  ],
+  "isAvailable": true,
+  "createdAt": {
+    "$date": "2025-02-05T08:52:17.681Z"
+  },
+  "updatedAt": {
+    "$date": "2025-02-05T08:52:17.681Z"
+  },
+  "variants": [],
+  "metaTitle": null,
+  "metaDescription": null,
+  "urlSlug": null,
+  "manufacturer": "Apple Inc.",
+  "shippingCost": {
+    "$numberDecimal": "20"
+  },
+  "vendor": "iStore",
+  "warrantyPeriod": "1 year",
+  "colors": [
+    "Space Gray",
+    "Silver"
+  ],
+  "options": [
+    {
+      "name": "Storage",
+      "values": [
+        "128GB",
+        "256GB",
+        "512GB",
+        "1TB"
+      ]
+    }
+  ]
+},
+{
+  "_id": {
+    "$oid": "67a326c1f8786f477c5c1d2d"
+  },
+  "brand": "Bose",
+  "category": "Speakers",
+  "mainImage": "https://i.ebayimg.com/images/g/SVEAAOSwuyVlEjvO/s-l1600.jpg",
+  "additionalImages": [
+    "https://m.media-amazon.com/images/I/61pi9kBwJ0L.jpg"
+  ],
+  "name": "Bose SoundTouch 300 Soundbar",
+  "description": "Experience immersive audio with the Bose SoundTouch 300 soundbar, featuring built-in Alexa voice control.",
+  "characteristics": {
+    "PowerOutput": "165W",
+    "Connectivity": "Wi-Fi, Bluetooth",
+    "Compatibility": "Dolby Atmos"
+  },
+  "price": {
+    "$numberDecimal": "799"
+  },
+  "originalPrice": {
+    "$numberDecimal": "899"
+  },
+  "discountPercentage": {
+    "$numberDecimal": "11.1"
+  },
+  "discountedPrice": {
+    "$numberDecimal": "799"
+  },
+  "discountStartDate": {
+    "$date": "2023-10-25T00:00:00.000Z"
+  },
+  "discountEndDate": {
+    "$date": "2023-11-25T00:00:00.000Z"
+  },
+  "vatRate": {
+    "$numberDecimal": "21"
+  },
+  "reviews": [
+    {
+      "_id": {
+        "$oid": "67aa35c20a4fff6166c4a699"
+      },
+      "userId": "6799e9261a4559ebee2337b0",
+      "productId": "67a326c1f8786f477c5c1d2d",
+      "title": "Привет я мита",
+      "pros": "мита",
+      "cons": "не мита",
+      "comment": "кепочка ыыы",
+      "rating": 5,
+      "date": {
+        "$date": "2025-02-10T17:22:10.193Z"
+      }
+    }
+  ],
+  "reviewCount": 1,
+  "ratingCount": 0,
+  "fiveStarRatingCount": 1,
+  "fourStarRatingCount": 0,
+  "threeStarRatingCount": 0,
+  "twoStarRatingCount": 0,
+  "oneStarRatingCount": 0,
+  "averageRating": 5,
+  "stockQuantity": 90,
+  "weight": {
+    "$numberDecimal": "3200"
+  },
+  "dimensions": {
+    "Length": {
+      "$numberDecimal": "1200"
+    },
+    "Width": {
+      "$numberDecimal": "100"
+    },
+    "Height": {
+      "$numberDecimal": "100"
+    },
+    "Unit": "mm"
+  },
+  "tags": [
+    "soundbar",
+    "wireless",
+    "home-theater"
+  ],
+  "isAvailable": true,
+  "createdAt": {
+    "$date": "2025-02-05T08:52:17.681Z"
+  },
+  "updatedAt": {
+    "$date": "2025-02-05T08:52:17.681Z"
+  },
+  "variants": [],
+  "metaTitle": null,
+  "metaDescription": null,
+  "urlSlug": null,
+  "manufacturer": "Bose Corporation",
+  "shippingCost": {
+    "$numberDecimal": "30"
+  },
+  "vendor": "SoundWave",
+  "warrantyPeriod": "1 year",
+  "colors": [
+    "Black"
+  ],
+  "options": []
+},
+{
+  "_id": {
+    "$oid": "67a326c1f8786f477c5c1d2e"
+  },
+  "brand": "Canon",
+  "category": "Cameras",
+  "mainImage": "https://avatars.mds.yandex.net/i?id=c16ba825ce9e9a77e0450b036c7d4696_l-10135049-images-thumbs&n=13",
+  "additionalImages": [
+    "https://static.cdek.shopping/images/shopping/af55db40fd334b00bf0fd1f53b67b525.jpg",
+    "https://static.insales-cdn.com/files/1/4691/27071059/original/eos_r7_01.jpg?1679582741"
+  ],
+  "name": "Canon EOS R6",
+  "description": "The Canon EOS R6 is a full-frame mirrorless camera designed for professional photographers and videographers.",
+  "characteristics": {
+    "Sensor": "Full Frame CMOS",
+    "Resolution": "20.1 MP",
+    "Video": "4K UHD"
+  },
+  "price": {
+    "$numberDecimal": "2499"
+  },
+  "originalPrice": {
+    "$numberDecimal": "2699"
+  },
+  "discountPercentage": {
+    "$numberDecimal": "7.4"
+  },
+  "discountedPrice": {
+    "$numberDecimal": "2499"
+  },
+  "discountStartDate": {
+    "$date": "2023-11-10T00:00:00.000Z"
+  },
+  "discountEndDate": {
+    "$date": "2023-12-10T00:00:00.000Z"
+  },
+  "vatRate": {
+    "$numberDecimal": "21"
+  },
+  "reviews": [],
+  "reviewCount": 0,
+  "ratingCount": 0,
+  "fiveStarRatingCount": 0,
+  "fourStarRatingCount": 0,
+  "threeStarRatingCount": 0,
+  "twoStarRatingCount": 0,
+  "oneStarRatingCount": 0,
+  "averageRating": 0,
+  "stockQuantity": 50,
+  "weight": {
+    "$numberDecimal": "680"
+  },
+  "dimensions": {
+    "Length": {
+      "$numberDecimal": "138"
+    },
+    "Width": {
+      "$numberDecimal": "98"
+    },
+    "Height": {
+      "$numberDecimal": "88"
+    },
+    "Unit": "mm"
+  },
+  "tags": [
+    "mirrorless",
+    "dslr",
+    "full-frame"
+  ],
+  "isAvailable": true,
+  "createdAt": {
+    "$date": "2025-02-05T08:52:17.681Z"
+  },
+  "updatedAt": {
+    "$date": "2025-02-05T08:52:17.681Z"
+  },
+  "variants": [],
+  "metaTitle": null,
+  "metaDescription": null,
+  "urlSlug": null,
+  "manufacturer": "Canon Inc.",
+  "shippingCost": {
+    "$numberDecimal": "25"
+  },
+  "vendor": "PhotoPro",
+  "warrantyPeriod": "1 year",
+  "colors": [
+    "Black"
+  ],
+  "options": []
+},
+{
+  "_id": {
+    "$oid": "67a326c1f8786f477c5c1d2f"
+  },
+  "brand": "NVIDIA",
+  "category": "Graphics Cards",
+  "mainImage": "https://ir.ozone.ru/s3/multimedia-1-v/c1000/6947525947.jpg",
+  "additionalImages": [
+    "https://sun1-96.userapi.com/impf/wDNFtQv5EhD7Okzm0AoeIkzxvnCJzvt2AOz3Uw/Y6xjfauqeOM.jpg?quality=95&as=32x31,48x47,72x71,108x106,160x157,240x236,360x354,480x472,540x530,640x629,720x707,964x947&sign=58fb6314dc89f712e0209e71e94c3b80&from=bu&u=3_VTahHFCoOQbxMltJXTYU7eqfyCj-D7NEBl55N1aGs&cs=964x947",
+    "https://preview.free3d.com/img/2022/11/3190255099800716671/t7qeu7j1.jpg"
+  ],
+  "name": "NVIDIA GeForce RTX 4090",
+  "description": "The NVIDIA GeForce RTX 4090 is the flagship graphics card for high-end gaming and content creation.",
+  "characteristics": {
+    "CUDA_Cores": "16384",
+    "Memory": "24GB GDDR6X",
+    "Boost_Clock": "2520 MHz"
+  },
+  "price": {
+    "$numberDecimal": "1599"
+  },
+  "originalPrice": {
+    "$numberDecimal": "1699"
+  },
+  "discountPercentage": {
+    "$numberDecimal": "5.9"
+  },
+  "discountedPrice": {
+    "$numberDecimal": "1599"
+  },
+  "discountStartDate": {
+    "$date": "2023-11-01T00:00:00.000Z"
+  },
+  "discountEndDate": {
+    "$date": "2023-12-01T00:00:00.000Z"
+  },
+  "vatRate": {
+    "$numberDecimal": "21"
+  },
+  "reviews": [],
+  "reviewCount": 0,
+  "ratingCount": 0,
+  "fiveStarRatingCount": 0,
+  "fourStarRatingCount": 0,
+  "threeStarRatingCount": 0,
+  "twoStarRatingCount": 0,
+  "oneStarRatingCount": 0,
+  "averageRating": 0,
+  "stockQuantity": 30,
+  "weight": {
+    "$numberDecimal": "2000"
+  },
+  "dimensions": {
+    "Length": {
+      "$numberDecimal": "310"
+    },
+    "Width": {
+      "$numberDecimal": "130"
+    },
+    "Height": {
+      "$numberDecimal": "55"
+    },
+    "Unit": "mm"
+  },
+  "tags": [
+    "gpu",
+    "gaming",
+    "ray-tracing"
+  ],
+  "isAvailable": true,
+  "createdAt": {
+    "$date": "2025-02-05T08:52:17.681Z"
+  },
+  "updatedAt": {
+    "$date": "2025-02-05T08:52:17.681Z"
+  },
+  "variants": [],
+  "metaTitle": null,
+  "metaDescription": null,
+  "urlSlug": null,
+  "manufacturer": "NVIDIA Corporation",
+  "shippingCost": {
+    "$numberDecimal": "35"
+  },
+  "vendor": "PCParts",
+  "warrantyPeriod": "3 years",
+  "colors": [
+    "Black"
+  ],
+  "options": []
+},
+{
+  "_id": {
+    "$oid": "67a326c1f8786f477c5c1d30"
+  },
+  "brand": "Philips",
+  "category": "Air Purifiers",
+  "mainImage": "https://cdn.staticans.com/image/tr:h-1500,w-1500,cm-pad_resize/catalog/brandstore/philips/251-2022_03_16-ac3059_11.png",
+  "additionalImages": [
+    "https://avatars.mds.yandex.net/i?id=bbd6664950a67245d580cf30972768944c746f21-10611483-images-thumbs&n=13"
+  ],
+  "name": "Philips AC3858 Air Purifier",
+  "description": "Improve indoor air quality with the Philips AC3858 air purifier, featuring advanced filtration and smart sensors.",
+  "characteristics": {
+    "CADR": "350 m³/h",
+    "Filter_Type": "HEPA",
+    "Room_Size": "up to 45m²"
+  },
+  "price": {
+    "$numberDecimal": "299"
+  },
+  "originalPrice": {
+    "$numberDecimal": "349"
+  },
+  "discountPercentage": {
+    "$numberDecimal": "14.3"
+  },
+  "discountedPrice": {
+    "$numberDecimal": "299"
+  },
+  "discountStartDate": {
+    "$date": "2023-10-15T00:00:00.000Z"
+  },
+  "discountEndDate": {
+    "$date": "2023-11-15T00:00:00.000Z"
+  },
+  "vatRate": {
+    "$numberDecimal": "21"
+  },
+  "reviews": [],
+  "reviewCount": 0,
+  "ratingCount": 0,
+  "fiveStarRatingCount": 0,
+  "fourStarRatingCount": 0,
+  "threeStarRatingCount": 0,
+  "twoStarRatingCount": 0,
+  "oneStarRatingCount": 0,
+  "averageRating": 0,
+  "stockQuantity": 100,
+  "weight": {
+    "$numberDecimal": "7500"
+  },
+  "dimensions": {
+    "Length": {
+      "$numberDecimal": "300"
+    },
+    "Width": {
+      "$numberDecimal": "300"
+    },
+    "Height": {
+      "$numberDecimal": "600"
+    },
+    "Unit": "mm"
+  },
+  "tags": [
+    "air-purifier",
+    "hepa",
+    "smart-home"
+  ],
+  "isAvailable": true,
+  "createdAt": {
+    "$date": "2025-02-05T08:52:17.681Z"
+  },
+  "updatedAt": {
+    "$date": "2025-02-05T08:52:17.681Z"
+  },
+  "variants": [],
+  "metaTitle": null,
+  "metaDescription": null,
+  "urlSlug": null,
+  "manufacturer": "Royal Philips",
+  "shippingCost": {
+    "$numberDecimal": "20"
+  },
+  "vendor": "HealthTech",
+  "warrantyPeriod": "1 year",
+  "colors": [
+    "White",
+    "Gray"
+  ],
+  "options": []
+},
+{
+  "_id": {
+    "$oid": "67a326c1f8786f477c5c1d31"
+  },
+  "brand": "Garmin",
+  "category": "Wearables",
+  "mainImage": "https://avatars.mds.yandex.net/i?id=55c1bfbe03580111181eb5fc0b2db3ef7fded6eb-10814666-images-thumbs&n=13",
+  "additionalImages": [
+    "https://cdn1.ozone.ru/s3/multimedia-1/6475594993.jpg",
+    "https://1begovoy.ru/image/cache/catalog/demo/syncms/GxuxRzBHh0-wMX98HyvGr2_1-auto_width_1000.jpg"
+  ],
+  "name": "Garmin Forerunner 955",
+  "description": "The Garmin Forerunner 955 is a premium GPS running watch with advanced training metrics and health monitoring.",
+  "characteristics": {
+    "Battery_Life": "2 weeks",
+    "GPS": "Multi-band",
+    "Water_Resistance": "5 ATM"
+  },
+  "price": {
+    "$numberDecimal": "549"
+  },
+  "originalPrice": {
+    "$numberDecimal": "599"
+  },
+  "discountPercentage": {
+    "$numberDecimal": "8.3"
+  },
+  "discountedPrice": {
+    "$numberDecimal": "549"
+  },
+  "discountStartDate": {
+    "$date": "2023-11-01T00:00:00.000Z"
+  },
+  "discountEndDate": {
+    "$date": "2023-12-01T00:00:00.000Z"
+  },
+  "vatRate": {
+    "$numberDecimal": "21"
+  },
+  "reviews": [],
+  "reviewCount": 0,
+  "ratingCount": 0,
+  "fiveStarRatingCount": 0,
+  "fourStarRatingCount": 0,
+  "threeStarRatingCount": 0,
+  "twoStarRatingCount": 0,
+  "oneStarRatingCount": 0,
+  "averageRating": 0,
+  "stockQuantity": 80,
+  "weight": {
+    "$numberDecimal": "61"
+  },
+  "dimensions": {
+    "Length": {
+      "$numberDecimal": "51"
+    },
+    "Width": {
+      "$numberDecimal": "51"
+    },
+    "Height": {
+      "$numberDecimal": "14"
+    },
+    "Unit": "mm"
+  },
+  "tags": [
+    "gps-watch",
+    "fitness",
+    "health"
+  ],
+  "isAvailable": true,
+  "createdAt": {
+    "$date": "2025-02-05T08:52:17.681Z"
+  },
+  "updatedAt": {
+    "$date": "2025-02-05T08:52:17.681Z"
+  },
+  "variants": [],
+  "metaTitle": null,
+  "metaDescription": null,
+  "urlSlug": null,
+  "manufacturer": "Garmin Ltd.",
+  "shippingCost": {
+    "$numberDecimal": "15"
+  },
+  "vendor": "FitLife",
+  "warrantyPeriod": "1 year",
+  "colors": [
+    "Black",
+    "Gray"
+  ],
+  "options": []
+},
+{
+  "_id": {
+    "$oid": "67a7858b1c37584e4973e378"
+  },
+  "brand": "Apple",
+  "category": "Smartphones",
+  "mainImage": "https://media.extra.com/s/aurora/100350419_800/Apple-iPhone-15-Pro-Max%2C-5G%2C-1TB%2C-6-7-Inch%2C-Natural-Titanium?locale=en-GB,en-*,*",
+  "additionalImages": [
+    "https://hi-stores.ru/upload/iblock/53d/berj1dubnq66opv9i2umtfuyqcuqak42.jpg",
+    "https://avatars.mds.yandex.net/i?id=abf759cbd59b0b667c85ffc24ec39ffe068512dd9f2d14f0-10246546-images-thumbs&n=13"
+  ],
+  "name": "iPhone 15 Pro Max",
+  "description": "The latest iPhone with A17 Pro chip, 48MP camera, and dynamic island.",
+  "characteristics": {
+    "processor": "A17 Pro",
+    "camera": "48MP Triple Lens",
+    "batteryLife": "Up to 25 hours"
+  },
+  "price": {
+    "$numberDecimal": "1099"
+  },
+  "originalPrice": {
+    "$numberDecimal": "1199"
+  },
+  "discountPercentage": {
+    "$numberDecimal": "8.35"
+  },
+  "discountedPrice": {
+    "$numberDecimal": "1099"
+  },
+  "discountStartDate": {
+    "$date": "2023-11-01T00:00:00.000Z"
+  },
+  "discountEndDate": {
+    "$date": "2023-11-30T23:59:59.000Z"
+  },
+  "vatRate": {
+    "$numberDecimal": "21"
+  },
+  "reviews": [],
+  "reviewCount": 0,
+  "ratingCount": 0,
+  "fiveStarRatingCount": 0,
+  "fourStarRatingCount": 0,
+  "threeStarRatingCount": 0,
+  "twoStarRatingCount": 0,
+  "oneStarRatingCount": 0,
+  "averageRating": 0,
+  "stockQuantity": 50,
+  "weight": {
+    "$numberDecimal": "206"
+  },
+  "dimensions": {
+    "Length": {
+      "$numberDecimal": "160.7"
+    },
+    "Width": {
+      "$numberDecimal": "76.7"
+    },
+    "Height": {
+      "$numberDecimal": "7.65"
+    },
+    "Unit": "mm"
+  },
+  "tags": [
+    "ios",
+    "apple",
+    "smartphone"
+  ],
+  "isAvailable": true,
+  "createdAt": {
+    "$date": "2025-02-08T16:25:47.279Z"
+  },
+  "updatedAt": {
+    "$date": "2025-02-08T16:25:47.279Z"
+  },
+  "variants": [],
+  "metaTitle": null,
+  "metaDescription": null,
+  "urlSlug": null,
+  "manufacturer": "Apple Inc.",
+  "shippingCost": {
+    "$numberDecimal": "10"
+  },
+  "vendor": "Apple Store",
+  "warrantyPeriod": "1 year",
+  "colors": [
+    "Space Black",
+    "Silver",
+    "Gold"
+  ],
+  "options": [
+    {
+      "name": "Storage",
+      "values": [
+        "128GB",
+        "256GB",
+        "512GB",
+        "1TB"
+      ]
+    }
+  ]
+},
+{
+  "_id": {
+    "$oid": "67a7858b1c37584e4973e379"
+  },
+  "brand": "Sony",
+  "category": "Cameras",
+  "mainImage": "https://m.media-amazon.com/images/I/619rgHYeqrL.jpg",
+  "additionalImages": [
+    "https://avatars.mds.yandex.net/i?id=132207261fb398ded9d971e84a7be8719495fb77-10130119-images-thumbs&n=13",
+    "https://avatars.mds.yandex.net/i?id=74cf7a5219741ebb34a17273135905f884aa3603035ca59e-5220772-images-thumbs&n=13"
+  ],
+  "name": "Sony Alpha 7 IV",
+  "description": "Full-frame mirrorless camera with 33MP resolution and advanced autofocus.",
+  "characteristics": {
+    "sensor": "33MP Full-frame",
+    "video": "4K at 60fps",
+    "autofocusPoints": "759"
+  },
+  "price": {
+    "$numberDecimal": "2499"
+  },
+  "originalPrice": {
+    "$numberDecimal": "2699"
+  },
+  "discountPercentage": {
+    "$numberDecimal": "7.4"
+  },
+  "discountedPrice": {
+    "$numberDecimal": "2499"
+  },
+  "discountStartDate": {
+    "$date": "2023-11-01T00:00:00.000Z"
+  },
+  "discountEndDate": {
+    "$date": "2023-11-30T23:59:59.000Z"
+  },
+  "vatRate": {
+    "$numberDecimal": "21"
+  },
+  "reviews": [],
+  "reviewCount": 0,
+  "ratingCount": 0,
+  "fiveStarRatingCount": 0,
+  "fourStarRatingCount": 0,
+  "threeStarRatingCount": 0,
+  "twoStarRatingCount": 0,
+  "oneStarRatingCount": 0,
+  "averageRating": 0,
+  "stockQuantity": 30,
+  "weight": {
+    "$numberDecimal": "669"
+  },
+  "dimensions": {
+    "Length": {
+      "$numberDecimal": "128.9"
+    },
+    "Width": {
+      "$numberDecimal": "96.5"
+    },
+    "Height": {
+      "$numberDecimal": "87.5"
+    },
+    "Unit": "mm"
+  },
+  "tags": [
+    "camera",
+    "mirrorless",
+    "professional"
+  ],
+  "isAvailable": true,
+  "createdAt": {
+    "$date": "2025-02-08T16:25:47.279Z"
+  },
+  "updatedAt": {
+    "$date": "2025-02-08T16:25:47.279Z"
+  },
+  "variants": [],
+  "metaTitle": null,
+  "metaDescription": null,
+  "urlSlug": null,
+  "manufacturer": "Sony Corporation",
+  "shippingCost": {
+    "$numberDecimal": "20"
+  },
+  "vendor": "Sony Store",
+  "warrantyPeriod": "1 year",
+  "colors": [
+    "Black"
+  ],
+  "options": [
+    {
+      "name": "Kit Lens",
+      "values": [
+        "None",
+        "28-70mm f/3.5-5.6"
+      ]
+    }
+  ]
+},
+{
+  "_id": {
+    "$oid": "67a7858b1c37584e4973e37a"
+  },
+  "brand": "Samsung",
+  "category": "smart-tv",
+  "mainImage": "https://cdn.4stand.com/huge/db/1f/db1f59a4eb1970ed0d5ca462162baf8972c84c1a.jpg",
+  "additionalImages": [
+    "https://avatars.mds.yandex.net/i?id=10b95ab34fdf558e569d600e569326f61a61358b-10697157-images-thumbs&n=13",
+    "https://m.media-amazon.com/images/I/61rqSG9r6RL._AC_UF1000,1000_QL80_.jpg"
+  ],
+  "name": "Samsung QN90C Neo QLED TV",
+  "description": "4K smart TV with Quantum Mini LED technology and AI upscaling.",
+  "characteristics": {
+    "resolution": "4K UHD",
+    "screenSize": "65 inches",
+    "smartFeatures": "Bixby, Alexa, Google Assistant"
+  },
+  "price": {
+    "$numberDecimal": "1499"
+  },
+  "originalPrice": {
+    "$numberDecimal": "1699"
+  },
+  "discountPercentage": {
+    "$numberDecimal": "11.7"
+  },
+  "discountedPrice": {
+    "$numberDecimal": "1499"
+  },
+  "discountStartDate": {
+    "$date": "2023-11-01T00:00:00.000Z"
+  },
+  "discountEndDate": {
+    "$date": "2023-11-30T23:59:59.000Z"
+  },
+  "vatRate": {
+    "$numberDecimal": "21"
+  },
+  "reviews": [],
+  "reviewCount": 0,
+  "ratingCount": 0,
+  "fiveStarRatingCount": 0,
+  "fourStarRatingCount": 0,
+  "threeStarRatingCount": 0,
+  "twoStarRatingCount": 0,
+  "oneStarRatingCount": 0,
+  "averageRating": 0,
+  "stockQuantity": 20,
+  "weight": {
+    "$numberDecimal": "22"
+  },
+  "dimensions": {
+    "Length": {
+      "$numberDecimal": "144.5"
+    },
+    "Width": {
+      "$numberDecimal": "84.5"
+    },
+    "Height": {
+      "$numberDecimal": "2.5"
+    },
+    "Unit": "cm"
+  },
+  "tags": [
+    "electronics",
+    "smart-tv"
+  ],
+  "isAvailable": true,
+  "createdAt": {
+    "$date": "2025-02-08T16:25:47.279Z"
+  },
+  "updatedAt": {
+    "$date": "2025-02-08T16:25:47.279Z"
+  },
+  "variants": [],
+  "metaTitle": null,
+  "metaDescription": null,
+  "urlSlug": null,
+  "manufacturer": "Samsung Electronics",
+  "shippingCost": {
+    "$numberDecimal": "50"
+  },
+  "vendor": "Samsung Store",
+  "warrantyPeriod": "2 years",
+  "colors": [
+    "Black"
+  ],
+  "options": [
+    {
+      "name": "Screen Size",
+      "values": [
+        "55 inches",
+        "65 inches",
+        "75 inches"
+      ]
+    }
+  ]
+},
+{
+  "_id": {
+    "$oid": "67a7858b1c37584e4973e37b"
+  },
+  "brand": "Logitech",
+  "category": "gaming",
+  "mainImage": "https://img.mvideo.ru/Big/50176251bb.jpg",
+  "additionalImages": [
+    "https://topcomputer.ru/upload/resize_cache/images/3a/1024_768_140cd750bba9870f18aada2478b24840a/3a88a0edaa5a12801cc0ec0d906cb20b.jpg",
+    "https://avatars.mds.yandex.net/i?id=8396fad89be7ed891fa7882e95742fee386838b5e5a3c1b9-12497467-images-thumbs&n=13"
+  ],
+  "name": "Logitech G Pro X Superlight",
+  "description": "Ultra-lightweight gaming mouse with HERO 25K sensor and customizable buttons.",
+  "characteristics": {
+    "sensor": "HERO 25K",
+    "weight": "58g",
+    "dpiRange": "100-25600"
+  },
+  "price": {
+    "$numberDecimal": "99"
+  },
+  "originalPrice": {
+    "$numberDecimal": "119"
+  },
+  "discountPercentage": {
+    "$numberDecimal": "16.7"
+  },
+  "discountedPrice": {
+    "$numberDecimal": "99"
+  },
+  "discountStartDate": {
+    "$date": "2023-11-01T00:00:00.000Z"
+  },
+  "discountEndDate": {
+    "$date": "2023-11-30T23:59:59.000Z"
+  },
+  "vatRate": {
+    "$numberDecimal": "21"
+  },
+  "reviews": [],
+  "reviewCount": 0,
+  "ratingCount": 0,
+  "fiveStarRatingCount": 0,
+  "fourStarRatingCount": 0,
+  "threeStarRatingCount": 0,
+  "twoStarRatingCount": 0,
+  "oneStarRatingCount": 0,
+  "averageRating": 0,
+  "stockQuantity": 100,
+  "weight": {
+    "$numberDecimal": "58"
+  },
+  "dimensions": {
+    "Length": {
+      "$numberDecimal": "12"
+    },
+    "Width": {
+      "$numberDecimal": "6.5"
+    },
+    "Height": {
+      "$numberDecimal": "4"
+    },
+    "Unit": "cm"
+  },
+  "tags": [
+    "gaming",
+    "electronics"
+  ],
+  "isAvailable": true,
+  "createdAt": {
+    "$date": "2025-02-08T16:25:47.279Z"
+  },
+  "updatedAt": {
+    "$date": "2025-02-08T16:25:47.279Z"
+  },
+  "variants": [],
+  "metaTitle": null,
+  "metaDescription": null,
+  "urlSlug": null,
+  "manufacturer": "Logitech International",
+  "shippingCost": {
+    "$numberDecimal": "5"
+  },
+  "vendor": "Logitech Store",
+  "warrantyPeriod": "2 years",
+  "colors": [
+    "Black",
+    "White"
+  ],
+  "options": []
+},
+{
+  "_id": {
+    "$oid": "67a7858b1c37584e4973e37c"
+  },
+  "brand": "Bose",
+  "category": "Sound",
+  "mainImage": "https://www.on-off-on.ru/upload/iblock/644/6449a1809175736f09fd65825136b36c.jpg",
+  "additionalImages": [],
+  "name": "Bose Home Speaker 900",
+  "description": "Smart soundbar with Alexa built-in and deep bass performance.",
+  "characteristics": {
+    "outputPower": "14 drivers",
+    "connectivity": "Wi-Fi, Bluetooth",
+    "voiceAssistant": "Alexa"
+  },
+  "price": {
+    "$numberDecimal": "799"
+  },
+  "originalPrice": {
+    "$numberDecimal": "899"
+  },
+  "discountPercentage": {
+    "$numberDecimal": "11.1"
+  },
+  "discountedPrice": {
+    "$numberDecimal": "799"
+  },
+  "discountStartDate": {
+    "$date": "2023-11-01T00:00:00.000Z"
+  },
+  "discountEndDate": {
+    "$date": "2023-11-30T23:59:59.000Z"
+  },
+  "vatRate": {
+    "$numberDecimal": "21"
+  },
+  "reviews": [],
+  "reviewCount": 0,
+  "ratingCount": 0,
+  "fiveStarRatingCount": 0,
+  "fourStarRatingCount": 0,
+  "threeStarRatingCount": 0,
+  "twoStarRatingCount": 0,
+  "oneStarRatingCount": 0,
+  "averageRating": 0,
+  "stockQuantity": 40,
+  "weight": {
+    "$numberDecimal": "4.2"
+  },
+  "dimensions": {
+    "Length": {
+      "$numberDecimal": "77"
+    },
+    "Width": {
+      "$numberDecimal": "11"
+    },
+    "Height": {
+      "$numberDecimal": "6.4"
+    },
+    "Unit": "cm"
+  },
+  "tags": [
+    "electronics",
+    "soundbar"
+  ],
+  "isAvailable": true,
+  "createdAt": {
+    "$date": "2025-02-08T16:25:47.279Z"
+  },
+  "updatedAt": {
+    "$date": "2025-02-08T16:25:47.279Z"
+  },
+  "variants": [],
+  "metaTitle": null,
+  "metaDescription": null,
+  "urlSlug": null,
+  "manufacturer": "Bose Corporation",
+  "shippingCost": {
+    "$numberDecimal": "20"
+  },
+  "vendor": "Bose Store",
+  "warrantyPeriod": "1 year",
+  "colors": [
+    "Black",
+    "Silver"
+  ],
+  "options": []
+},
+{
+  "_id": {
+    "$oid": "67a7858b1c37584e4973e37d"
+  },
+  "brand": "Microsoft",
+  "category": "gaming",
+  "mainImage": "https://avatars.mds.yandex.net/get-mpic/11552111/2a0000018c0130756c94901a2c1903c60d87/orig",
+  "additionalImages": [
+    "https://goods-photos.static1-sima-land.com/items/8018410/0/1600.jpg?v=1720675755",
+    "https://avatars.mds.yandex.net/i?id=93d321e577a60e738f247f21aec9d9a3_l-6598906-images-thumbs&n=13"
+  ],
+  "name": "Xbox Series S",
+  "description": "Compact next-gen console with 1440p gaming and lightning-fast load times.",
+  "characteristics": {
+    "gpuPerformance": "4 TFLOPs",
+    "storage": "512GB SSD",
+    "resolution": "1440p"
+  },
+  "price": {
+    "$numberDecimal": "299"
+  },
+  "originalPrice": {
+    "$numberDecimal": "349"
+  },
+  "discountPercentage": {
+    "$numberDecimal": "14.3"
+  },
+  "discountedPrice": {
+    "$numberDecimal": "299"
+  },
+  "discountStartDate": {
+    "$date": "2023-11-01T00:00:00.000Z"
+  },
+  "discountEndDate": {
+    "$date": "2023-11-30T23:59:59.000Z"
+  },
+  "vatRate": {
+    "$numberDecimal": "21"
+  },
+  "reviews": [],
+  "reviewCount": 0,
+  "ratingCount": 0,
+  "fiveStarRatingCount": 0,
+  "fourStarRatingCount": 0,
+  "threeStarRatingCount": 0,
+  "twoStarRatingCount": 0,
+  "oneStarRatingCount": 0,
+  "averageRating": 0,
+  "stockQuantity": 60,
+  "weight": {
+    "$numberDecimal": "1.6"
+  },
+  "dimensions": {
+    "Length": {
+      "$numberDecimal": "15.1"
+    },
+    "Width": {
+      "$numberDecimal": "15.1"
+    },
+    "Height": {
+      "$numberDecimal": "7.5"
+    },
+    "Unit": "cm"
+  },
+  "tags": [
+    "electronics",
+    "gaming"
+  ],
+  "isAvailable": true,
+  "createdAt": {
+    "$date": "2025-02-08T16:25:47.279Z"
+  },
+  "updatedAt": {
+    "$date": "2025-02-08T16:25:47.279Z"
+  },
+  "variants": [],
+  "metaTitle": null,
+  "metaDescription": null,
+  "urlSlug": null,
+  "manufacturer": "Microsoft Corporation",
+  "shippingCost": {
+    "$numberDecimal": "15"
+  },
+  "vendor": "Microsoft Store",
+  "warrantyPeriod": "1 year",
+  "colors": [
+    "White"
+  ],
+  "options": []
+},
+{
+  "_id": {
+    "$oid": "67a7858b1c37584e4973e37e"
+  },
+  "brand": "Dyson",
+  "category": "smart-home",
+  "mainImage": "https://avatars.mds.yandex.net/i?id=dedb57fe9a11bf7494f82bd10090c9b9_l-10608704-images-thumbs&n=13",
+  "additionalImages": [
+    "https://avatars.mds.yandex.net/get-mpic/5142344/img_id5660031886711360653.jpeg/orig",
+    "https://shop.gadgetufa.ru/images/upload/60024-in-stajler-dyson-airwrap-complete-long-hs05-limited-edition-sinij-rozovyj_1024.jpg"
+  ],
+  "name": "Dyson Airwrap Complete",
+  "description": "Styling tool that uses airflow to style hair without extreme heat.",
+  "characteristics": {
+    "technology": "Air Multiplier",
+    "attachments": "12 accessories",
+    "power": "1600W"
+  },
+  "price": {
+    "$numberDecimal": "599"
+  },
+  "originalPrice": {
+    "$numberDecimal": "699"
+  },
+  "discountPercentage": {
+    "$numberDecimal": "14.3"
+  },
+  "discountedPrice": {
+    "$numberDecimal": "599"
+  },
+  "discountStartDate": {
+    "$date": "2023-11-01T00:00:00.000Z"
+  },
+  "discountEndDate": {
+    "$date": "2023-11-30T23:59:59.000Z"
+  },
+  "vatRate": {
+    "$numberDecimal": "21"
+  },
+  "reviews": [],
+  "reviewCount": 0,
+  "ratingCount": 0,
+  "fiveStarRatingCount": 0,
+  "fourStarRatingCount": 0,
+  "threeStarRatingCount": 0,
+  "twoStarRatingCount": 0,
+  "oneStarRatingCount": 0,
+  "averageRating": 0,
+  "stockQuantity": 30,
+  "weight": {
+    "$numberDecimal": "1.7"
+  },
+  "dimensions": {
+    "Length": {
+      "$numberDecimal": "27"
+    },
+    "Width": {
+      "$numberDecimal": "13"
+    },
+    "Height": {
+      "$numberDecimal": "13"
+    },
+    "Unit": "cm"
+  },
+  "tags": [
+    "fitness",
+    "electronics"
+  ],
+  "isAvailable": true,
+  "createdAt": {
+    "$date": "2025-02-08T16:25:47.279Z"
+  },
+  "updatedAt": {
+    "$date": "2025-02-08T16:25:47.279Z"
+  },
+  "variants": [],
+  "metaTitle": null,
+  "metaDescription": null,
+  "urlSlug": null,
+  "manufacturer": "Dyson Ltd.",
+  "shippingCost": {
+    "$numberDecimal": "20"
+  },
+  "vendor": "Dyson Store",
+  "warrantyPeriod": "2 years",
+  "colors": [
+    "Red",
+    "Copper blue"
+  ],
+  "options": []
+},
+{
+  "_id": {
+    "$oid": "67a7858b1c37584e4973e37f"
+  },
+  "brand": "Google",
+  "category": "smart-home",
+  "mainImage": "https://avatars.mds.yandex.net/i?id=bcef4a8e42ec00564bdd9b8aebe9d44e_l-5220363-images-thumbs&n=13",
+  "additionalImages": [],
+  "name": "Google Nest Hub (2nd Gen)",
+  "description": "Smart display with Google Assistant for controlling your smart home.",
+  "characteristics": {
+    "displaySize": "7 inches",
+    "resolution": "1024x600",
+    "voiceAssistant": "Google Assistant"
+  },
+  "price": {
+    "$numberDecimal": "99"
+  },
+  "originalPrice": {
+    "$numberDecimal": "129"
+  },
+  "discountPercentage": {
+    "$numberDecimal": "23.3"
+  },
+  "discountedPrice": {
+    "$numberDecimal": "99"
+  },
+  "discountStartDate": {
+    "$date": "2023-11-01T00:00:00.000Z"
+  },
+  "discountEndDate": {
+    "$date": "2023-11-30T23:59:59.000Z"
+  },
+  "vatRate": {
+    "$numberDecimal": "21"
+  },
+  "reviews": [],
+  "reviewCount": 0,
+  "ratingCount": 0,
+  "fiveStarRatingCount": 0,
+  "fourStarRatingCount": 0,
+  "threeStarRatingCount": 0,
+  "twoStarRatingCount": 0,
+  "oneStarRatingCount": 0,
+  "averageRating": 0,
+  "stockQuantity": 70,
+  "weight": {
+    "$numberDecimal": "0.5"
+  },
+  "dimensions": {
+    "Length": {
+      "$numberDecimal": "18.4"
+    },
+    "Width": {
+      "$numberDecimal": "11.4"
+    },
+    "Height": {
+      "$numberDecimal": "7.6"
+    },
+    "Unit": "cm"
+  },
+  "tags": [
+    "smart-home",
+    "electronics"
+  ],
+  "isAvailable": true,
+  "createdAt": {
+    "$date": "2025-02-08T16:25:47.279Z"
+  },
+  "updatedAt": {
+    "$date": "2025-02-08T16:25:47.279Z"
+  },
+  "variants": [],
+  "metaTitle": null,
+  "metaDescription": null,
+  "urlSlug": null,
+  "manufacturer": "Google LLC",
+  "shippingCost": {
+    "$numberDecimal": "10"
+  },
+  "vendor": "Google Store",
+  "warrantyPeriod": "1 year",
+  "colors": [
+    "Chalk"
+  ],
+  "options": []
+},
+{
+  "_id": {
+    "$oid": "67a7858b1c37584e4973e380"
+  },
+  "brand": "ASUS",
+  "category": "laptop",
+  "mainImage": "https://avatars.mds.yandex.net/i?id=0f48420b0bf2e407a61a814978314a68_l-9234614-images-thumbs&n=13",
+  "additionalImages": [
+    "https://avatars.mds.yandex.net/i?id=dcea6d224cf453fe2d1345a2faeb36b5_l-9231626-images-thumbs&n=13"
+  ],
+  "name": "ASUS ROG Zephyrus G14",
+  "description": "High-performance gaming laptop with AMD Ryzen 9 and RTX 3060.",
+  "characteristics": {
+    "processor": "AMD Ryzen 9",
+    "graphics": "NVIDIA RTX 3060",
+    "memory": "16GB DDR5"
+  },
+  "price": {
+    "$numberDecimal": "1499"
+  },
+  "originalPrice": {
+    "$numberDecimal": "1699"
+  },
+  "discountPercentage": {
+    "$numberDecimal": "11.7"
+  },
+  "discountedPrice": {
+    "$numberDecimal": "1499"
+  },
+  "discountStartDate": {
+    "$date": "2023-11-01T00:00:00.000Z"
+  },
+  "discountEndDate": {
+    "$date": "2023-11-30T23:59:59.000Z"
+  },
+  "vatRate": {
+    "$numberDecimal": "21"
+  },
+  "reviews": [],
+  "reviewCount": 0,
+  "ratingCount": 0,
+  "fiveStarRatingCount": 0,
+  "fourStarRatingCount": 0,
+  "threeStarRatingCount": 0,
+  "twoStarRatingCount": 0,
+  "oneStarRatingCount": 0,
+  "averageRating": 0,
+  "stockQuantity": 25,
+  "weight": {
+    "$numberDecimal": "1.65"
+  },
+  "dimensions": {
+    "Length": {
+      "$numberDecimal": "30.4"
+    },
+    "Width": {
+      "$numberDecimal": "22.8"
+    },
+    "Height": {
+      "$numberDecimal": "1.95"
+    },
+    "Unit": "cm"
+  },
+  "tags": [
+    "electronics",
+    "gaming",
+    "laptop"
+  ],
+  "isAvailable": true,
+  "createdAt": {
+    "$date": "2025-02-08T16:25:47.279Z"
+  },
+  "updatedAt": {
+    "$date": "2025-02-08T16:25:47.279Z"
+  },
+  "variants": [],
+  "metaTitle": null,
+  "metaDescription": null,
+  "urlSlug": null,
+  "manufacturer": "ASUSTeK Computer Inc.",
+  "shippingCost": {
+    "$numberDecimal": "30"
+  },
+  "vendor": "ASUS Store",
+  "warrantyPeriod": "1 year",
+  "colors": [
+    "Eclipse Gray",
+    "Moonlight White"
+  ],
+  "options": [
+    {
+      "name": "Storage",
+      "values": [
+        "512GB",
+        "1TB"
+      ]
+    }
+  ]
+},
+{
+  "_id": {
+    "$oid": "67a7858b1c37584e4973e381"
+  },
+  "brand": "Plantronics",
+  "category": "Sound",
+  "mainImage": "https://plantrussia.ru/image/cache/catalog/produkts/besprovodnaya-garnitura-plantronics-voyager-6200-uc-208748-101-2-680x680.jpg",
+  "additionalImages": [],
+  "name": "Plantronics Voyager 6200 UC",
+  "description": "Wireless headphones designed for professional use with noise-canceling mic.",
+  "characteristics": {
+    "batteryLife": "18 hours",
+    "connectivity": "Bluetooth 5.1",
+    "micType": "Noise-canceling"
+  },
+  "price": {
+    "$numberDecimal": "199"
+  },
+  "originalPrice": {
+    "$numberDecimal": "249"
+  },
+  "discountPercentage": {
+    "$numberDecimal": "20"
+  },
+  "discountedPrice": {
+    "$numberDecimal": "199"
+  },
+  "discountStartDate": {
+    "$date": "2023-11-01T00:00:00.000Z"
+  },
+  "discountEndDate": {
+    "$date": "2023-11-30T23:59:59.000Z"
+  },
+  "vatRate": {
+    "$numberDecimal": "21"
+  },
+  "reviews": [],
+  "reviewCount": 0,
+  "ratingCount": 0,
+  "fiveStarRatingCount": 0,
+  "fourStarRatingCount": 0,
+  "threeStarRatingCount": 0,
+  "twoStarRatingCount": 0,
+  "oneStarRatingCount": 0,
+  "averageRating": 0,
+  "stockQuantity": 50,
+  "weight": {
+    "$numberDecimal": "0.25"
+  },
+  "dimensions": {
+    "Length": {
+      "$numberDecimal": "18"
+    },
+    "Width": {
+      "$numberDecimal": "15"
+    },
+    "Height": {
+      "$numberDecimal": "6"
+    },
+    "Unit": "cm"
+  },
+  "tags": [
+    "electronics",
+    "headphones"
+  ],
+  "isAvailable": true,
+  "createdAt": {
+    "$date": "2025-02-08T16:25:47.279Z"
+  },
+  "updatedAt": {
+    "$date": "2025-02-08T16:25:47.279Z"
+  },
+  "variants": [],
+  "metaTitle": null,
+  "metaDescription": null,
+  "urlSlug": null,
+  "manufacturer": "Poly by Plantronics",
+  "shippingCost": {
+    "$numberDecimal": "10"
+  },
+  "vendor": "Plantronics Store",
+  "warrantyPeriod": "1 year",
+  "colors": [
+    "Black",
+    "Gray"
+  ],
+  "options": []
+}]

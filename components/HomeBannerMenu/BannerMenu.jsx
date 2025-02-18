@@ -1,6 +1,7 @@
 import './menubaner.scss'
 import Carousel from "../BannerMenuCarousel/Carousel.jsx";
 import {useTranslation} from "react-i18next";
+import {Link} from "react-router-dom";
 
 const BannerMenu = () => {
     const images = [
@@ -9,7 +10,7 @@ const BannerMenu = () => {
         "https://avatars.mds.yandex.net/i?id=2de975ebf8b171d2a7493dbd4d94cc42_l-4944748-images-thumbs&n=13",
         "https://indexiq.ru/storage/tiny/Xiaomi/14/XiaoMi-14-01.jpg"
     ];
-    let current_year = new Date().getFullYear();
+
     const {t} = useTranslation();
     return (
         <div className={'app-1200 banner-menu'}>
@@ -17,25 +18,29 @@ const BannerMenu = () => {
                 <ul className={'sidebar-categories'}>
                     <li>
                         <div className="dropend">
-                            <a className="nav-link" >
+                            <Link to={"/products/category/Smartphones"} className="nav-link">
                                 <p>{t("smartphone")}</p>
-                            </a>
+                            </Link>
 
                         </div>
 
                     </li>
                     <li>
                         <div className="dropend">
-                            <a className="nav-link">
-                                <p>{t("computers")}</p>
+                            <Link to={"/products/category/Cameras"} className="nav-link">
+                                <p>{t("Cameras")}</p>
 
-                            </a>
+                            </Link>
 
                         </div>
                     </li>
-                    <li><p>{t("electronics")}</p></li>
-                    <li><p>{t("homehygiene")}</p></li>
-                    <li><p>{t("sound")}</p></li>
+                    <li>
+                        <div className="dropend">
+                            <Link to={"/products/category/Sound"} className="nav-link">
+                                <p>{t("sound")}</p>
+                            </Link>
+                        </div>
+                    </li>
 
                 </ul>
             </div>

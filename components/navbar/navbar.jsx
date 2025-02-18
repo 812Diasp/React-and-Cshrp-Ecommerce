@@ -55,6 +55,7 @@ const Navbar = () => {
         navigate('/cart')
 
     };
+
     return (
         <div className={'nabpx'}>
             <div className={'main-navbar-wrapper'}>
@@ -84,8 +85,13 @@ const Navbar = () => {
                         <div className={'navbar-wishlist-cart'}>
 
                             {isAuthenticated ? (<>
-                                    <img className={'wishlist-icon'} src={'/Wishlist.png'} width={32} height={32}
-                                         alt="Wishlist"/>
+                                    <Link to={'/fav'}>
+                                        <div>
+                                        <img className={'wishlist-icon'} src={'/Wishlist.png'} width={32} height={32}
+                                             alt="Wishlist"/>
+                                        </div>
+                                    </Link>
+
 
                                     <Link to={'/cart'}>
                                         <div onClick={handleGoCart}>

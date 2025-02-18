@@ -1,0 +1,14 @@
+.about-first-section{
+  display: flex;
+  justify-content: space-evenly;
+}
+.about-first-section-img{
+  width: 500px;
+  height: 500px;
+  border-radius: 5%;
+}
+.about-first-section-text{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}

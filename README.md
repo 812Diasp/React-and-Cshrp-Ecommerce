@@ -1,12 +1,19 @@
-# React + Vite
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+# как запустить
+# 1)```npm i``` займет некоторое количество памяти хыхы
+# 2)```npm run dev```
+ запустить в reactecommerce папке и перейти по ссылке которую выдает vite
 
-Currently, two official plugins are available:
+# нужно перейти в файл Constants.js запустить сервер asp net
+# сервер запустить на https и подредактировать строчку в файле js если у вас другой порт
+# обычно строчка такая если вы запустили в https  
+# ```export const API_URL = "https://localhost:7183";```
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+# в монго дб создать бд ```cyberbaza``` именно в таком регистре и в ней создать Products коллекцию, найти add Data и добавить ```cyberbaza.Products.json```
+# файл с обьектами для того чтобы видеть товары 
 
-# TODO BACKEND
-- сделать API card для SaleSlider и SaleCarouselCard
-- 
+
+
+
+
+
