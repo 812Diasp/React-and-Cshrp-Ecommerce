@@ -3,12 +3,12 @@ import React, {useState, useEffect, useCallback} from 'react';
 import LocationStripe from "../UserProfile/LocationStripe.jsx";
 import axios from 'axios';
 import './CartPage.scss'; // Import your CSS file
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faXmark, faCaretUp, faCaretDown } from '@fortawesome/free-solid-svg-icons';
+
 import {Link, useNavigate} from "react-router-dom";
 import {useTranslation} from "react-i18next";
 import {useSelector} from "react-redux";
-import {API_URL} from "../../src/Constants.js";
+import {API_URL,fetchCsrfToken} from "../../src/Constants.js";
+// Fetch CSRF token
 const CartPage = () => {
     const [cartItems, setCartItems] = useState([]);
     const [loading, setLoading] = useState(true);
@@ -21,19 +21,10 @@ const CartPage = () => {
     const [totalPrice, setTotalPrice] = useState(0);
     const { t } = useTranslation();
 
-// Fetch CSRF token
-    const fetchCsrfToken = useCallback(async () => {
-        try {
-            const response = await axios.get(`${API_URL}/api/csrf`, { withCredentials: true });
-            return response.data.token;
-        } catch (error) {
-            console.error("Error fetching CSRF token:", error);
-            setError("Error fetching CSRF token");
-            throw error;
-        }
-    }, []);
+
 
 // Fetch cart data
+    // Fetch cart data
     const fetchCartData = useCallback(async (token) => {
         try {
             const response = await axios.get(`${API_URL}/api/users/userCart`, {
@@ -65,12 +56,15 @@ const CartPage = () => {
             setQuantities(initialQuantities);
             setLoading(false);
         } catch (error) {
-            setError(error);
+            if (error.response && error.response.status === 401) {
+                setError("Unauthorized: 401"); // Устанавливаем сообщение для 401
+            } else {
+                setError("Error fetching cart"); // Общее сообщение об ошибке
+            }
             setLoading(false);
             console.error("Error fetching cart", error);
         }
     }, []);
-
     useEffect(() => {
         const getTokensAndCart = async () => {
             setLoading(true);
@@ -202,7 +196,7 @@ const CartPage = () => {
 
     if (loading) {
         return (
-            <div className="container mt-5 cart-container">
+            <div className="container mt-5 cart-container min-80-container">
                 <LocationStripe location={"Home / Cart"} isGreet={false}></LocationStripe>
                 <h2>Loading cart...</h2>
             </div>
@@ -211,7 +205,7 @@ const CartPage = () => {
 
     if (error) {
         return (
-            <div className="container mt-5 cart-container">
+            <div className="container mt-5 cart-container min-80-container">
                 <LocationStripe location={"Home / Cart"} isGreet={false}></LocationStripe>
                 <h2>{typeof error === 'string' ? error : "Error fetching cart."}</h2>
             </div>
@@ -227,7 +221,7 @@ const CartPage = () => {
         );
     }
     return (
-        <div className="container mt-5 cart-container">
+        <div className="container mt-5 min-80-container">
             <LocationStripe location={"Home / Cart"} isGreet={false}></LocationStripe>
             <table className="cart-table">
                 <thead>
@@ -243,11 +237,13 @@ const CartPage = () => {
                     <tr key={`${item.productId}_${item.color}_${item.variant || ''}`}>
                         <td>
                             <div className="cart-item-product">
-                                <FontAwesomeIcon
+                                <img
                                     onClick={() => handleRemoveItem(item.productId, item.color, item.variant)}
                                     className="cart-item-product-remove"
-                                    icon={faXmark}
+                                    width={16} height={16}
+                                    src={'/cross.svg'}
                                 />
+
                                 <img
                                     width={64}
                                     height={64}
@@ -277,7 +273,7 @@ const CartPage = () => {
                                         handleQuantityChange(item.productId, item.color, item.variant, -1)
                                     }
                                 >
-                                    <FontAwesomeIcon icon={faCaretDown} />
+                                    <img width={32} height={32} src={'/down.svg'}/>
                                 </button>
                                 <span className="quantity-value">
                                 {quantities[`${item.productId}_${item.color}_${item.variant || ''}`] ||
@@ -289,7 +285,7 @@ const CartPage = () => {
                                         handleQuantityChange(item.productId, item.color, item.variant, 1)
                                     }
                                 >
-                                    <FontAwesomeIcon icon={faCaretUp} />
+                                    <img width={32} height={32} src={'/up.svg'}/>
                                 </button>
                             </div>
                         </td>

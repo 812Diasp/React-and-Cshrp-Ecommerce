@@ -5,10 +5,10 @@ import {Link} from "react-router-dom";
 
 const BannerMenu = () => {
     const images = [
-        "bannerIphone.png",
-        "https://mir-s3-cdn-cf.behance.net/project_modules/1400/71622d80849069.5ced519ae4235.png",
+        "https://cdn.salla.sa/aganz/design/qfhw27KU3Dml0g8mlX80OnE4ecdu9k9576hyjCmq.jpg?rand=0.7038505553084533?rand=0.38573032712791866",
+        "https://www.asus.com/ca-en/site/White-Edition/assets/images/hero/hero.jpg",
         "https://avatars.mds.yandex.net/i?id=2de975ebf8b171d2a7493dbd4d94cc42_l-4944748-images-thumbs&n=13",
-        "https://indexiq.ru/storage/tiny/Xiaomi/14/XiaoMi-14-01.jpg"
+        "https://www.asus.com/ca-en/site/White-Edition/assets/images/hero/hero.jpg"
     ];
 
     const {t} = useTranslation();

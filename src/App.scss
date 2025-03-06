@@ -8,7 +8,17 @@
 .gray{
   color: #808080;
 }
+.min-80-container{
+  min-height: 80vh;
+}
+body {
+  text-rendering: optimizeSpeed; /* Оптимизация для скорости отображения */
+  -webkit-font-smoothing: none; /* Отключение сглаживания шрифтов в WebKit */
 
+}
+.center{
+  text-align: center;
+}
 .bold{
   font-weight: bold;
 }

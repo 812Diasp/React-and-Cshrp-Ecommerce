@@ -1,11 +1,9 @@
-import  {useCallback, useState} from 'react';
+import  {useState} from 'react';
 import './AddCartComponent.scss'; // Создадим стили позже
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faHeart, faMinus, faPlus } from '@fortawesome/free-solid-svg-icons';
+
 import {useTranslation} from "react-i18next";
 import axios from "axios";
-import {API_URL} from "../../src/Constants.js";
-
+import {API_URL,fetchCsrfToken} from "../../src/Constants.js";
 // eslint-disable-next-line react/prop-types
 const AddCartComponent = ({ Product }) => {
     const [quantity, setQuantity] = useState(1);
@@ -24,15 +22,7 @@ const AddCartComponent = ({ Product }) => {
         }
     };
 
-    const fetchCsrfToken = useCallback(async () => {
-        try {
-            const response = await axios.get(`${API_URL}/api/csrf`, { withCredentials: true });
-            return response.data.token;
-        } catch (error) {
-            console.error("Error fetching CSRF token:", error);
-            throw error;
-        }
-    }, []);
+
 
     const handleAddToCart = async () => {
         // eslint-disable-next-line react/prop-types
@@ -87,11 +77,12 @@ const AddCartComponent = ({ Product }) => {
             </div>
             <div className="quantity-selector">
                 <button className={"quantity-button"} onClick={handleDecrement}>
-                    <FontAwesomeIcon icon={faMinus}/>
+                    <img width={16} height={16} src={'/minus-svgrepo-com.svg'}/>
+
                 </button>
                 <span className="quantity-value">{quantity}</span>
                 <button className={"quantity-button"} onClick={handleIncrement}>
-                    <FontAwesomeIcon icon={faPlus}/>
+                    <img width={16} height={16} src={'/plus-svgrepo-com.svg'}/>
                 </button>
             </div>
             {isAdded ? (
@@ -103,9 +94,7 @@ const AddCartComponent = ({ Product }) => {
                     {t("addcart")}
                 </button>
             )}
-            <button className="add-to-favorites-button">
-                <FontAwesomeIcon icon={faHeart}/>
-            </button>
+
         </div>
     );
 };

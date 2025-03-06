@@ -1,17 +1,17 @@
-import React, {useState, useEffect, useCallback, useMemo} from 'react';
-import {useDispatch, useSelector} from 'react-redux';
-import {useTranslation} from 'react-i18next';
-import {Link} from 'react-router-dom';
+import React, { useState, useEffect, useCallback, useMemo } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { useTranslation } from 'react-i18next';
+import { Link } from 'react-router-dom';
 import axios from 'axios';
-import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
-import {faHeart, faEye} from '@fortawesome/free-solid-svg-icons';
 import StarRatingSaleCard from './StarRatingSaleCard';
 import PropTypes from "prop-types";
-import {API_URL} from "../../src/Constants.js";
-import {updateFavorites, updateTracking} from "../../src/store/actions/authActions.js";
+import { API_URL, fetchCsrfToken } from "../../src/Constants.js";
+import { updateFavorites, updateTracking } from "../../src/store/actions/authActions.js";
+import { FaEye, FaHeart } from 'react-icons/fa'; // Импортируем иконки
+
 // eslint-disable-next-line react/prop-types
-const SaleCarouselCard = ({cardInfo}) => {
-    const {t} = useTranslation();
+const SaleCarouselCard = ({ cardInfo }) => {
+    const { t } = useTranslation();
 
     const dispatch = useDispatch();
     const user = useSelector((state) => state.auth.user);
@@ -26,22 +26,14 @@ const SaleCarouselCard = ({cardInfo}) => {
     const [tempIsFavorite, setTempIsFavorite] = React.useState(isFavorite);
     const [tempIsTracking, setTempIsTracking] = React.useState(isTracking);
 
-    // function colorRating() {
-    //     const allstars = document.querySelectorAll('.star');
-    //     for (let i = 0; i < allstars.length; i++) {
-    //         let elem = allstars[i].children[0];
-    //         elem.setAttribute('fill', '#ffad33');
-    //     }
-    // }
-    // ОЧЕНЬ ВАЖНАЯ СТРОЧКА ДЛЯ ЦВЕТА ЗВЕЗДОЧЕК!!!!!!!
     useEffect(() => {
         if (isAuthenticated && user) {
             setTempIsFavorite(user?.favorites?.includes(cardInfo.id) || false);
             setTempIsTracking(user?.tracking?.includes(cardInfo.id) || false);
         }
     }, [isAuthenticated, user, cardInfo.id]);
+
     const handleAddToCart = async () => {
-        // eslint-disable-next-line react/prop-types
         const productId = cardInfo.id;
         const token = sessionStorage.getItem('token');
         try {
@@ -64,65 +56,47 @@ const SaleCarouselCard = ({cardInfo}) => {
         }
     };
 
-
-    // Получение CSRF-токена
-    const fetchCsrfToken = useCallback(async () => {
-        try {
-            const response = await axios.get(`${API_URL}/api/csrf`, {withCredentials: true});
-            return response.data.token;
-        } catch (error) {
-            console.error("Error fetching CSRF token:", error);
-            throw error;
-        }
-    }, []);
-
     // Обработчик переключения избранного
     const handleToggleFavorite = useCallback(() => {
-        if (!isAuthenticated || !user) {
-            return;
-        }else{
+        if (!isAuthenticated || !user) return;
+
+        setTempIsFavorite(!tempIsFavorite);
+
+        try {
+            dispatch(updateFavorites(cardInfo.id));
+        } catch (error) {
             setTempIsFavorite(!tempIsFavorite);
-
-            try {
-                // Вызываем thunk из Redux
-                dispatch(updateFavorites(cardInfo.id));
-            } catch (error) {
-                // Если запрос не удался, откатываем изменения
-                setTempIsFavorite(!tempIsFavorite);
-                console.error("Error toggling favorite", error);
-            }
+            console.error("Error toggling favorite", error);
         }
-
-        // Оптимистический подход: обновляем локальное состояние сразу
-
     }, [isAuthenticated, user, cardInfo.id, tempIsFavorite, dispatch]);
 
     // Обработчик переключения отслеживания
     const handleToggleTracking = useCallback(() => {
-        if (!isAuthenticated || !user) {
-            return;
-        }else{
+        if (!isAuthenticated || !user) return;
+
+        setTempIsTracking(!tempIsTracking);
+
+        try {
+            dispatch(updateTracking(cardInfo.id));
+        } catch (error) {
             setTempIsTracking(!tempIsTracking);
-
-            try {
-                // Вызываем thunk из Redux
-                dispatch(updateTracking(cardInfo.id));
-            } catch (error) {
-                // Если запрос не удался, откатываем изменения
-                setTempIsTracking(!tempIsTracking);
-                console.error("Error toggling tracking", error);
-            }
+            console.error("Error toggling tracking", error);
         }
-
-        // Оптимистический подход: обновляем локальное состояние сразу
-
     }, [isAuthenticated, user, cardInfo.id, tempIsTracking, dispatch]);
+
     return (
-        <div className={'sale-card'} key={cardInfo.id}>
+        <div className="sale-card" key={cardInfo.id}>
             <div className="card-sale-image">
-                <img className={'card-image'} src={cardInfo.mainImage} alt={'saleCard'} width={'270px'}
-                     height={'250px'}/>
-                <div><span className={'card-discont-badge'}>{Math.round(Number(cardInfo.discountPercentage))}%</span>
+                <img
+                    loading="lazy"
+                    className="card-image"
+                    src={cardInfo.mainImage}
+                    alt="saleCard"
+                    width="270px"
+                    height="250px"
+                />
+                <div>
+                    <span className="card-discont-badge">{Math.round(Number(cardInfo.discountPercentage))}%</span>
                 </div>
                 <div className="hover-overlay">
                     {isAuthenticated ? (
@@ -136,41 +110,44 @@ const SaleCarouselCard = ({cardInfo}) => {
                             </div>
                         )
                     ) : (
-                        <div className="hover-text ">
-                            <Link to={'/register'} className={"hover-text-card"}>{t("registerToBuy")}</Link>
+                        <div className="hover-text">
+                            <Link to="/register" className="hover-text-card">
+                                {t("registerToBuy")}
+                            </Link>
                         </div>
                     )}
                 </div>
                 <div className="card-controls">
-                    <div >
-                        <FontAwesomeIcon
+                    {/* Контрол для "Глаза" */}
+                    <div>
+                        <FaEye
                             className={`card-control-item ${tempIsTracking ? 'active' : 'inactive'}`}
-                            icon={faEye}
+                            size={32}
                             onClick={handleToggleTracking}
                         />
                     </div>
-                    <div >
-                        <FontAwesomeIcon
+                    {/* Контрол для "Сердца" */}
+                    <div>
+                        <FaHeart
                             className={`card-control-item ${tempIsFavorite ? 'active' : 'inactive'}`}
-                            icon={faHeart}
+                            size={32}
                             onClick={handleToggleFavorite}
                         />
                     </div>
                 </div>
             </div>
-            <Link to={`/products/${cardInfo.id}`} className={'color-text-link'}>
-                <p className={'sale-product-title'}>{cardInfo.name}</p>
-                <p className={'sale-product-price'}>
+            <Link to={`/products/${cardInfo.id}`} className="color-text-link">
+                <p className="sale-product-title">{cardInfo.name}</p>
+                <p className="sale-product-price">
                     {cardInfo.price}$
-                    <span className={'gray-sale-product-price'}>{cardInfo.originalPrice}$</span>
+                    <span className="gray-sale-product-price">{cardInfo.originalPrice}$</span>
                 </p>
             </Link>
-            <StarRatingSaleCard rating={cardInfo.averageRating} quantity={cardInfo.reviewCount}/>
-
-
+            {/*<StarRatingSaleCard rating={cardInfo.averageRating} quantity={cardInfo.reviewCount} />*/}
         </div>
     );
 };
+
 SaleCarouselCard.propTypes = {
     cardInfo: PropTypes.shape({
         id: PropTypes.string.isRequired,
@@ -202,7 +179,7 @@ SaleCarouselCard.propTypes = {
         dimensions: PropTypes.shape({
             Length: PropTypes.number,
             Width: PropTypes.number,
-            Height: PropTypes.number,
+            Height:PropTypes.number,
             Unit: PropTypes.string
         }),
         tags: PropTypes.arrayOf(PropTypes.string),
@@ -221,4 +198,5 @@ SaleCarouselCard.propTypes = {
         options: PropTypes.array
     }).isRequired
 };
+
 export default SaleCarouselCard;

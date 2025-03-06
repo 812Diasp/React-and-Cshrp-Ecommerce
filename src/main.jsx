@@ -17,6 +17,7 @@ import OrderForm from "../components/OrderPage/OrderForm.jsx";
 import CategoryPage from "../components/categoryPage/CategoryPage.jsx";
 import About from "./Pages/AboutPage/About.jsx";
 import FavouritesPage from "./FavouritesPage.jsx";
+import Orders from "./Pages/OrdersPage/Orders.jsx";
 ReactDOM.createRoot(document.getElementById('root')).render(
     <Provider store={store}>
     <BrowserRouter>
@@ -33,6 +34,7 @@ ReactDOM.createRoot(document.getElementById('root')).render(
             <Route path={"/products/category/:category"} element={<CategoryPage/>}></Route>
             <Route path={"/about"} element={<About/>}></Route>
             <Route path={"/fav"} element={<FavouritesPage/>}></Route>
+            <Route path={"/orders"} element={<Orders/>}></Route>
         </Routes>
         <Footer></Footer>
     </BrowserRouter>

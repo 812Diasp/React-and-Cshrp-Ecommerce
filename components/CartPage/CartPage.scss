@@ -4,7 +4,7 @@
   margin-bottom: 20px;
   border-spacing: 0;
 }
-.cart-container{
+.min-80-container{
   min-height: 80vh;
 }
 .cart-table th, .cart-table td {
@@ -58,7 +58,7 @@
   width: fit-content;
 }
 .quantity-button{
-  background: var(--maincolor);
+  //background: var(--maincolor);
   cursor: pointer;
   border: none;
   padding: 5px;

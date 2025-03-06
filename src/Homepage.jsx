@@ -1,78 +1,111 @@
+import React, {useEffect, useMemo, useState} from "react";
+import { useDispatch, useSelector } from 'react-redux';
+import {
+    setProducts,
+    setError
+} from './store/reducer/productReducer.js';
+import axios from "axios";
 import './App.scss'
-
 import BannerMenu from "../components/HomeBannerMenu/BannerMenu.jsx";
 import FlashSale from "../components/FlashSaleComponent/FlashSale.jsx";
 import CategorySlider from "../components/SaleCarousel/CategorySlider.jsx";
-import {useEffect, useState} from "react";
-import axios from "axios";
-import {useTranslation} from "react-i18next";
-import {API_URL} from "./Constants.js";
+import { useTranslation } from "react-i18next";
+import { API_URL } from "./Constants.js";
+
 const HomePage = () => {
-    const [saleProducts, setSaleProducts] = useState([]);
-    const [topProducts, setTopProducts] = useState([]);
-    const [loading, setLoading] = useState(true);
+    const dispatch = useDispatch();
+    const { products} = useSelector((state) => state.products);
+
+    const [saleProducts, setSaleProducts] = React.useState([]);
+    const [topProducts, setTopProducts] = React.useState([]);
+    const [loading, setLoading] = useState(true)
+    // Категории товаров
+    const categories = useMemo(() => [
+        { name: "Smartphones", image: "Category-CellPhone.svg" },
+        { name: "Computer", image: "Category-Computer.svg" },
+        { name: "Cameras", image: "Category-Camera.svg" },
+        { name: "Gamepad", image: "Category-Gamepad.svg" },
+        { name: "Headphones", image: "Category-Headphone.svg" },
+        { name: "Wearables", image: "Category-SmartWatch.svg" },
+    ], []);
+
+    // Функция для получения данных о продуктах
     useEffect(() => {
-        // eslint-disable-next-line react-hooks/rules-of-hooks
+        try {
+            if (!products.length && loading) {
 
-        const fetchSaleProducts = async () => {
-            try {
-                const response = await axios.get(`${API_URL}/api/products`, {withCredentials:true});
+                const fetchProducts = async () => {
+                    try {
+                        const response = await axios.get(`${API_URL}/api/products`, { withCredentials: true });
+                        dispatch(setProducts(response.data));
+                    } catch (error) {
+                        console.error('Error fetching products:', error);
+                        dispatch(setError(error.message));
+                    }
+                };
 
-                const productsWithDiscount = response.data.filter(
-                    (product) => product.discountedPrice !== null && product.discountedPrice > 0
-                );
-                const sortedProducts = response.data.sort((a, b) => b.reviewCount - a.reviewCount);
-                setTopProducts(sortedProducts.slice(0, 15));
-                setSaleProducts(productsWithDiscount.slice(0, 10));
-            } catch (error) {
-                console.error('Error fetching products:', error);
-            }finally {
-                setLoading(false)
+                fetchProducts();
             }
-        };
 
+            // Если продукты уже загружены из Redux, выполняем фильтрацию
+            if (products.length) {
+                // Фильтрация продуктов с учетом скидок
+                const productsWithDiscount = products.filter(
+                    product => product.discountedPrice !== null && product.discountedPrice > 0
+                );
 
-        fetchSaleProducts();
-    }, []);
+                // Сортировка продуктов по количеству отзывов
+                const sortedProducts = [...products].sort((a, b) => b.reviewCount - a.reviewCount);
 
-    let categories = [
-        {
-            name:"Smartphones",
-            image:"Category-CellPhone.svg"
-        },
-        {
-            name:"Computer",
-            image:"Category-Computer.svg"
-        },
-        {
-            name:"Cameras",
-            image:"Category-Camera.svg"
-        },
-        {
-            name:"Gamepad",
-            image:"Category-Gamepad.svg"
-        },
-        {
-            name:"Headphones",
-            image:"Category-Headphone.svg"
-        },
-        {
-            name:"Wearables",
-            image:"Category-SmartWatch.svg"
-        },];
+                // Установка первых 10 продуктов со скидкой и первых 15 самых популярных продуктов
+                setSaleProducts(productsWithDiscount.slice(0, 6));
+                setTopProducts(sortedProducts.slice(0, 6));
+            }
+
+        }catch (ex){
+            console.log(ex);
+        }
+        finally {
+           setLoading(false);
+        }
+
+    }, [products, loading]);
+
     const { t } = useTranslation();
+
     return (
-        <div className={'homepage'}>
-            <div className={'app-container'}>
-                <BannerMenu></BannerMenu>
-                <FlashSale HasCountdown={true} products={saleProducts} hasSlider={true} Text={t("todays")} loading={loading}></FlashSale>
-
-                {/*<ProductList/>*/}
-                <FlashSale HasCountdown={false} DisplayTitle={true} Title={t('browseByCategory')} Text={t("categories")} products={saleProducts} hasSlider={false} loading={loading}></FlashSale>
-                <CategorySlider categories={categories}></CategorySlider>
-
-                <FlashSale HasCountdown={false} DisplayTitle={true} hasSlider={true} Title={t("mostRated")} products={topProducts} ViewAll={true} Text={t("thisMonth")} loading={loading}></FlashSale>
-                <img src={"/Frame 600.png"}></img>
+        <div className="homepage">
+            <div className="app-container">
+                <BannerMenu />
+                <FlashSale
+                    HasCountdown={true}
+                    products={saleProducts}
+                    hasSlider={true}
+                    Text={t("todays")}
+                    loading={loading}
+                />
+                {/* Другие секции */}
+                <FlashSale
+                    HasCountdown={false}
+                    DisplayTitle={true}
+                    Title={t('browseByCategory')}
+                    Text={t("categories")}
+                    products={saleProducts}
+                    hasSlider={false}
+                    loading={loading}
+                />
+                <CategorySlider categories={categories} />
+                <FlashSale
+                    HasCountdown={false}
+                    DisplayTitle={true}
+                    hasSlider={true}
+                    Title={t("mostRated")}
+                    products={topProducts}
+                    ViewAll={true}
+                    Text={t("thisMonth")}
+                    loading={loading}
+                />
+                <img loading={'lazy'}  src="https://st.weblancer.net/download/4800822_935xp.png" alt="decorative" />
             </div>
         </div>
     )

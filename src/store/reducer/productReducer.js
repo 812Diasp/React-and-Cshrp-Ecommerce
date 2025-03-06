@@ -1,32 +1,29 @@
+import { createSlice } from '@reduxjs/toolkit';
+
 const initialState = {
     products: [],
-    loading: false,
+    loading: true,
     error: null,
 };
 
-const productReducer = (state = initialState, action) => {
-    switch (action.type) {
-        case 'FETCH_PRODUCTS_START':
-            return {
-                ...state,
-                loading: true,
-                error: null,
-            };
-        case 'FETCH_PRODUCTS_SUCCESS':
-            return {
-                ...state,
-                loading: false,
-                products: action.payload,
-            };
-        case 'FETCH_PRODUCTS_ERROR':
-            return {
-                ...state,
-                loading: false,
-                error: action.payload,
-            };
-        default:
-            return state;
-    }
-};
+export const productsSlice = createSlice({
+    name: 'products',
+    initialState,
+    reducers: {
+        setProducts: (state, action) => {
+            state.products = action.payload;
+            state.loading = false;
+        },
+        setLoading: (state, action) => {
+            state.loading = action.payload;
+        },
+        setError: (state, action) => {
+            state.error = action.payload;
+            state.loading = false;
+        },
+    },
+});
 
-export default productReducer;
+export const { setProducts, setLoading, setError } = productsSlice.actions;
+
+export default productsSlice.reducer;

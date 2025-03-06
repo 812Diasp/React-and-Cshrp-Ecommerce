@@ -1,38 +1,49 @@
 .star-rating {
   display: flex;
 --starcolor: #ffad33;
-  align-items: baseline;
+  margin-bottom: 10px;
+  font-size: 24px;
 }
+.star-rating {
+  display: flex;
+  align-items: center;
+  font-size: 24px; // Размер звезд
+  color: #ccc; // Цвет пустых звезд
 
-.fas {
-  font-size: 24px; /* Размер звезд */
-  color: gray; /* Цвет пустых звезд */
-  margin-right: 2px; /* Расстояние между звездами */
-}
+  .star {
+    display: inline-block;
+    position: relative;
+    width: 1em;
+    height: 1em;
+    line-height: 1;
+  }
 
-.full-star {
-  color: var(--starcolor); /* Цвет полных звезд */
-}
+  .filled {
+    color: #facc15; // Цвет полных звезд
+  }
 
-.half-star {
-  color: var(--starcolor); /* Цвет половины звезды */
-  text-shadow: 0 0 1px rgba(0,0,0,0.5); /* Немного тени для резкости */
-  mask: linear-gradient(to right, black 50%, transparent 50%);
-  /* Маска для создания половины звезды
-  -webkit-mask: linear-gradient(to right, black 50%, transparent 50%);*/
-}
-.empty-star {
-  color: gray; /* Цвет пустых звезд */
-}
-.star{
-  color: var(--starcolor);
-}
-.star-rating .star{
-    path{
-      fill: var(--starcolor);
-      color: var(--starcolor);
+  .half {
+    color: #facc15; // Цвет дробной звезды
+    overflow: hidden;
+
+    &::after {
+      content: '★';
+      position: absolute;
+      left: 0;
+      top: 0;
+      width: calc(var(--fraction) * 100%);
+      overflow: hidden;
+      white-space: nowrap;
     }
-    fill: var(--starcolor);
-    color: var(--starcolor);
+  }
 
+  .empty {
+    color: #ccc; // Цвет пустых звезд
+  }
+
+  .gray {
+    margin-left: 8px;
+    font-size: 20px;
+    color: #6b7280;
+  }
 }

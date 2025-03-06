@@ -9,7 +9,7 @@ const CategoryCard = ({categoryImage,categoryName}) => {
         <div>
             <Link to={`/products/category/${encodeURIComponent(categoryName)}`}>
             <div className={"categoryCard"}>
-                <img className={'categoryCard-image'} src={`category/${categoryImage}`} alt="img"/>
+                <img loading="lazy" className={'categoryCard-image'} src={`category/${categoryImage}`} alt="img"/>
                 <h3 className={'categoryCard-label'}>{t(categoryName)}</h3>
             </div>
             </Link>

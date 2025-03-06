@@ -57,88 +57,89 @@ const Navbar = () => {
     };
 
     return (
-        <div className={'nabpx'}>
-            <div className={'main-navbar-wrapper'}>
-                <div className="main-navbar">
-                    <div className="navbar-logo">
-                        <img src={'/APP_LOGO.png'}/>
-                    </div>
-                    <div id={'navigation-links'} className="nav col-12 col-md-auto mb-2 justify-content-center mb-md-0">
-                        <li>
-                            <Link to="/" className="nav-link px-2 link-current">
-                                {t('home')}
-                            </Link>
-                        </li>
-                        <li>
-                            <Link to="/catalog" className="nav-link px-2 link-current">
-                                {t('catalog')}
-                            </Link>
-                        </li>
-                        <li>
-                            <Link to="/about" className="nav-link px-2 link-current">
-                                {t('contact')}
-                            </Link>
-                        </li>
-                    </div>
-                    <div className={'utilities'}>
-                        <SearchBar></SearchBar>
-                        <div className={'navbar-wishlist-cart'}>
 
-                            {isAuthenticated ? (<>
-                                    <Link to={'/fav'}>
-                                        <div>
-                                        <img className={'wishlist-icon'} src={'/Wishlist.png'} width={32} height={32}
+        <div className={'main-navbar-wrapper'}>
+            <div className="main-navbar">
+                <div className="navbar-logo">
+                    {/*<img src={'/APP_LOGO.png'}/>*/}
+                    <h3>CYBERBAZA</h3>
+                </div>
+                <div id={'navigation-links'} className="nav col-12 col-md-auto mb-2 justify-content-center mb-md-0">
+                    <li>
+                        <Link to="/" className="nav-link px-2 link-current">
+                            {t('home')}
+                        </Link>
+                    </li>
+                    <li>
+                        <Link to="/catalog" className="nav-link px-2 link-current">
+                            {t('catalog')}
+                        </Link>
+                    </li>
+                    <li>
+                        <Link to="/about" className="nav-link px-2 link-current">
+                            {t('contact')}
+                        </Link>
+                    </li>
+                </div>
+                <div className={'utilities'}>
+                    <SearchBar></SearchBar>
+                    <div className={'navbar-wishlist-cart'}>
+
+                        {isAuthenticated ? (<>
+                                <Link to={'/fav'}>
+                                    <div>
+                                        <img loading="lazy" className={'wishlist-icon'} src={'/Wishlist.png'} width={32} height={32}
                                              alt="Wishlist"/>
-                                        </div>
-                                    </Link>
-
-
-                                    <Link to={'/cart'}>
-                                        <div onClick={handleGoCart}>
-                                            <img className={'cart-icon'} width={32} height={32} src={'/CartBuy.png'}
-                                                 alt="Cart"/>
-                                        </div>
-                                    </Link>
-                                    <div className="dropdown">
-                                        <img
-                                            data-bs-toggle="dropdown"
-                                            aria-expanded="false"
-                                            id="dropdownMenu2"
-                                            className={'dropdown-toggle'}
-                                            src={'/user.png'}
-                                            alt="User"
-                                        />
-                                        <ul className="dropdown-menu" aria-labelledby="dropdownMenu2">
-                                            <li>
-                                                <Link className="dropdown-item" to="/profile">
-                                                    {t('profile')}
-                                                </Link>
-                                            </li>
-                                            <li>
-                                                <Link className="dropdown-item" to="/orders">
-                                                    {t('orders')}
-                                                </Link>
-                                            </li>
-                                            <hr/>
-                                            <li>
-                                                <button className="dropdown-item log-out" onClick={handleLogout}>
-                                                    {t('log out')}
-                                                </button>
-                                            </li>
-                                        </ul>
                                     </div>
-                                </>
-                            ) : (
-                                <Link to={'/register'}>
-                                    <button className={'button-form-submit-1'}> {t('login')} / {t('register')}</button>
                                 </Link>
-                            )}
-                        </div>
+
+
+                                <Link to={'/cart'}>
+                                    <div onClick={handleGoCart}>
+                                        <img loading="lazy" className={'cart-icon'} width={32} height={32} src={'/CartBuy.png'}
+                                             alt="Cart"/>
+                                    </div>
+                                </Link>
+                                <div className="dropdown">
+                                    <img
+                                        data-bs-toggle="dropdown"
+                                        aria-expanded="false"
+                                        id="dropdownMenu2"
+                                        className={'dropdown-toggle'}
+                                        src={'/user.png'}
+                                        alt="User"
+                                    />
+                                    <ul className="dropdown-menu" aria-labelledby="dropdownMenu2">
+                                        <li>
+                                            <Link className="dropdown-item" to="/profile">
+                                                {t('profile')}
+                                            </Link>
+                                        </li>
+                                        <li>
+                                            <Link className="dropdown-item" to="/orders">
+                                                {t('orders')}
+                                            </Link>
+                                        </li>
+                                        <hr/>
+                                        <li>
+                                            <button className="dropdown-item log-out" onClick={handleLogout}>
+                                                {t('log out')}
+                                            </button>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </>
+                        ) : (
+                            <Link to={'/register'}>
+                                <button className={'button-form-submit-1'}> {t('login')} / {t('register')}</button>
+                            </Link>
+                        )}
                     </div>
                 </div>
             </div>
-
         </div>
+
+
     );
 };
 

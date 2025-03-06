@@ -5,7 +5,7 @@ import {useSelector} from "react-redux";
 import {useNavigate} from "react-router-dom";
 import {useTranslation} from "react-i18next";
 import './OrderForm.scss'
-import {API_URL} from "../../src/Constants.js";
+import {API_URL,fetchCsrfToken} from "../../src/Constants.js";
 
 const OrderForm = () => {
     const [orderItems, setOrderItems] = useState([]);
@@ -28,16 +28,6 @@ const OrderForm = () => {
         'ETH'
     ];
 
-    const fetchCsrfToken = useCallback(async () => {
-        try {
-            const response = await axios.get(`${API_URL}/api/csrf`, {withCredentials: true});
-            setCsrfToken(response.data.token);
-            return response.data.token;
-        } catch (error) {
-            console.error("Error fetching CSRF token:", error);
-            throw error;
-        }
-    }, []);
 
 
     useEffect(() => {

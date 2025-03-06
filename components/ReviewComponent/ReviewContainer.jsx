@@ -76,32 +76,37 @@ const ReviewContainer = ({ Reviews, averageRating, ProductId }) => {
                     {t("avgrating")} {averageRating}
                 </div>
                 <div className="rating-bars">
-                    <RatingBar rating={5} count={getRatingCount(5)} />
-                    <RatingBar rating={4} count={getRatingCount(4)} />
-                    <RatingBar rating={3} count={getRatingCount(3)} />
-                    <RatingBar rating={2} count={getRatingCount(2)} />
-                    <RatingBar rating={1} count={getRatingCount(1)} />
+                    <RatingBar rating={5} count={getRatingCount(5)}/>
+                    <RatingBar rating={4} count={getRatingCount(4)}/>
+                    <RatingBar rating={3} count={getRatingCount(3)}/>
+                    <RatingBar rating={2} count={getRatingCount(2)}/>
+                    <RatingBar rating={1} count={getRatingCount(1)}/>
                 </div>
                 {isAuthenticated ?
-                    <button onClick={handleAddReviewClick} className={"add-review-button"}>{t("addreview")}</button> : <p> </p>}
+                    <button onClick={handleAddReviewClick} className={"add-review-button"}>{t("addreview")}</button> :
+                    <p></p>}
 
             </div>
             <div className={'reviews-text'}>
-                {updatedReviews && updatedReviews.map((review, index) => (
-                    <div key={index} className="review">
-                        <div className="review-header">
-                            <span className="review-title">{review.title}</span>
-                            <div className="review-rating">
-                                <RatingBar rating={review.rating} count={""} />
+                {updatedReviews.length > 0 ? (
+                    updatedReviews.map((review, index) => (
+                        <div key={index} className="review">
+                            <div className="review-header">
+                                <span className="review-title">{review.title}</span>
+                                <div className="review-rating">
+                                    <RatingBar rating={review.rating} count={""}/>
+                                </div>
+                            </div>
+                            <div className="review-content">
+                                <p className="review-comment">&#34;{review.comment}&#34;</p>
+                                {review.pros && <p><strong>{t("pros")}</strong> {review.pros}</p>}
+                                {review.cons && <p><strong>{t("cons")}</strong> {review.cons}</p>}
                             </div>
                         </div>
-                        <div className="review-content">
-                            <p className="review-comment">&#34;{review.comment}&#34;</p>
-                            {review.pros && <p><strong>{t("pros")}</strong> {review.pros}</p>}
-                            {review.cons && <p><strong>{t("cons")}</strong> {review.cons}</p>}
-                        </div>
-                    </div>
-                ))}
+                    ))
+                ) : (
+                    <p className="no-reviews-message">{t("noReviews")}</p>
+                )}
             </div>
 
             {showForm && (
@@ -112,19 +117,23 @@ const ReviewContainer = ({ Reviews, averageRating, ProductId }) => {
                         <form onSubmit={handleSubmit}>
                             <div className="form-group">
                                 <label htmlFor="title">{t("title")}</label>
-                                <input type="text" id="title" name="title" value={newReview.title} onChange={handleInputChange} required />
+                                <input type="text" id="title" name="title" value={newReview.title}
+                                       onChange={handleInputChange} required/>
                             </div>
                             <div className="form-group">
                                 <label htmlFor="pros">{t("pros")}</label>
-                                <input type="text" id="pros" name="pros" value={newReview.pros} onChange={handleInputChange} />
+                                <input type="text" id="pros" name="pros" value={newReview.pros}
+                                       onChange={handleInputChange}/>
                             </div>
                             <div className="form-group">
                                 <label htmlFor="cons">{t("cons")}</label>
-                                <input type="text" id="cons" name="cons" value={newReview.cons} onChange={handleInputChange} />
+                                <input type="text" id="cons" name="cons" value={newReview.cons}
+                                       onChange={handleInputChange}/>
                             </div>
                             <div className="form-group">
                                 <label htmlFor="comment">{t("comment")}</label>
-                                <textarea id="comment" name="comment" value={newReview.comment} onChange={handleInputChange} required />
+                                <textarea id="comment" name="comment" value={newReview.comment}
+                                          onChange={handleInputChange} required/>
                             </div>
                             <div className="form-group">
                                 <label htmlFor="rating">{t("rating")}</label>

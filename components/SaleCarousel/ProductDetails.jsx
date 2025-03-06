@@ -41,7 +41,34 @@ function ProductDetails() {
             [array[i], array[j]] = [array[j], array[i]];
         }
     }
+// Обновляем currentImage, когда загружается новый продукт
+    useEffect(() => {
+        if (product) {
+            setCurrentImage(product.mainImage);
+            setImages(product.additionalImages ? [product.mainImage, ...product.additionalImages] : [product.mainImage]);
+        }
+    }, [product]);
 
+// Добавьте этот useEffect ниже предыдущего
+    useEffect(() => {
+        const handleKeyDown = (event) => {
+            if (event.key === 'ArrowLeft') {
+                const currentIndex = images.indexOf(currentImage);
+                const newIndex = currentIndex > 0 ? currentIndex - 1 : images.length - 1;
+                setCurrentImage(images[newIndex]);
+            } else if (event.key === 'ArrowRight') {
+                const currentIndex = images.indexOf(currentImage);
+                const newIndex = currentIndex < images.length - 1 ? currentIndex + 1 : 0;
+                setCurrentImage(images[newIndex]);
+            }
+        };
+
+        window.addEventListener('keydown', handleKeyDown);
+
+        return () => {
+            window.removeEventListener('keydown', handleKeyDown);
+        };
+    }, [currentImage, images]);
     useEffect(() => {
         const fetchProduct = async () => {
             try {
@@ -133,7 +160,7 @@ function ProductDetails() {
                             </button>
                         </Link>
                     )}
-                    <h2>{t("characteristics")}</h2>
+                    <h2 className={'mt-3'}>{t("characteristics")}</h2>
                     <ul>
                         {product.characteristics &&
                             Object.entries(product.characteristics).map(([key, value]) => (

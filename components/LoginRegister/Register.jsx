@@ -124,7 +124,6 @@ const Register = () => {
             dispatch(setAuth({ isAuthenticated: true }));
             dispatch(reset());
             navigate('/', { replace: true });
-            window.location.reload()
             setLoading(false);
         } catch (err) {
             setError('Login confirm failed, try again.');
@@ -155,7 +154,7 @@ const Register = () => {
 
 
         try {
-            const response = await axios.post("http://localhost:5248/api/auth/forgot-password/reset", {
+            const response = await axios.post(`${API_URL}/api/auth/forgot-password/reset`, {
                 email: email,
                 resetCode: resetCode,
                 newPassword: newPassword
@@ -250,7 +249,7 @@ const Register = () => {
 
                                             <button type="submit" className="button-form-submit" disabled={loading}>{t("login")}</button>
                                             <p onClick={handleToForgotPassword} className={"forgot-password"}>Forgot password?</p>
-                                            <button type={"button"} onClick={handleToRegister} className="button-form-submit-1 mt-5">{t("toLogin")}
+                                            <button type={"button"} onClick={handleToRegister} className="button-form-submit-1 mt-5">{t("toRegister")}
                                             </button>
                                         </form>
                                     )

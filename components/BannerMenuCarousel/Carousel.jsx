@@ -23,7 +23,7 @@ const Carousel = ({ images }) => {
 
     return (
         <div className="main-content">
-            <img src={images[activeIndex]} className={'banner-slide'} alt={`Slide ${activeIndex + 1}`} />
+            <img loading="lazy" src={images[activeIndex]} className={'banner-slide'} alt={`Slide ${activeIndex + 1}`} />
 
             <div className="pagination">
                 {/* eslint-disable-next-line react/prop-types */}
