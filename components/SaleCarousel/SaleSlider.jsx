@@ -15,7 +15,8 @@ function SaleSlider({products}) {
         slidesToShow: 4,
         slidesToScroll: 2,
         autoplay: true,
-        autoplaySpeed: 20000
+        autoplaySpeed: 20000,
+        lazyLoad: 'ondemand'
     };
     //сдесь будут fetch даные для карточек
 

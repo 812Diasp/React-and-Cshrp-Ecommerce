@@ -3,11 +3,13 @@ import { useDispatch, useSelector } from 'react-redux';
 import { useTranslation } from 'react-i18next';
 import { Link } from 'react-router-dom';
 import axios from 'axios';
-import StarRatingSaleCard from './StarRatingSaleCard';
+// import StarRatingSaleCard from './StarRatingSaleCard';
 import PropTypes from "prop-types";
 import { API_URL, fetchCsrfToken } from "../../src/Constants.js";
 import { updateFavorites, updateTracking } from "../../src/store/actions/authActions.js";
-import { FaEye, FaHeart } from 'react-icons/fa'; // Импортируем иконки
+
+
+// import { FaEye, FaHeart } from 'react-icons/fa'; // Импортируем иконки
 
 // eslint-disable-next-line react/prop-types
 const SaleCarouselCard = ({ cardInfo }) => {
@@ -95,6 +97,8 @@ const SaleCarouselCard = ({ cardInfo }) => {
                     width="270px"
                     height="250px"
                 />
+
+
                 <div>
                     <span className="card-discont-badge">{Math.round(Number(cardInfo.discountPercentage))}%</span>
                 </div>
@@ -120,19 +124,54 @@ const SaleCarouselCard = ({ cardInfo }) => {
                 <div className="card-controls">
                     {/* Контрол для "Глаза" */}
                     <div>
-                        <FaEye
-                            className={`card-control-item ${tempIsTracking ? 'active' : 'inactive'}`}
-                            size={32}
-                            onClick={handleToggleTracking}
-                        />
+                        {/*<FaEye*/}
+                        {/*   */}
+                        {/*    size={32}*/}
+                        {/*  */}
+                        {/*/>*/}
+                        <svg className={`card-control-item ${tempIsTracking ? 'active' : 'inactive'}`}
+                             onClick={handleToggleTracking}
+                              width="32px" height="32px" viewBox="0 0 24 24" fill="none"
+                             xmlns="http://www.w3.org/2000/svg">
+
+                            <g id="SVGRepo_bgCarrier" strokeWidth="0"/>
+
+                            <g id="SVGRepo_tracerCarrier" strokeLinecap="round" strokeLinejoin="round"/>
+
+                            <g id="SVGRepo_iconCarrier">
+                                <path
+                                    d="M9.75 12C9.75 10.7574 10.7574 9.75 12 9.75C13.2426 9.75 14.25 10.7574 14.25 12C14.25 13.2426 13.2426 14.25 12 14.25C10.7574 14.25 9.75 13.2426 9.75 12Z"
+                                    fill="#000000"/>
+                                <path fillRule="evenodd" clipRule="evenodd"
+                                      d="M2 12C2 13.6394 2.42496 14.1915 3.27489 15.2957C4.97196 17.5004 7.81811 20 12 20C16.1819 20 19.028 17.5004 20.7251 15.2957C21.575 14.1915 22 13.6394 22 12C22 10.3606 21.575 9.80853 20.7251 8.70433C19.028 6.49956 16.1819 4 12 4C7.81811 4 4.97196 6.49956 3.27489 8.70433C2.42496 9.80853 2 10.3606 2 12ZM12 8.25C9.92893 8.25 8.25 9.92893 8.25 12C8.25 14.0711 9.92893 15.75 12 15.75C14.0711 15.75 15.75 14.0711 15.75 12C15.75 9.92893 14.0711 8.25 12 8.25Z"
+                                      fill="#000000"/>
+                            </g>
+
+                        </svg>
                     </div>
                     {/* Контрол для "Сердца" */}
                     <div>
-                        <FaHeart
-                            className={`card-control-item ${tempIsFavorite ? 'active' : 'inactive'}`}
-                            size={32}
-                            onClick={handleToggleFavorite}
-                        />
+
+                        <svg width="32px" height="32px" viewBox="0 0 24 24" fill="none"
+                             xmlns="http://www.w3.org/2000/svg"  onClick={handleToggleFavorite}
+                             className={`card-control-item ${tempIsFavorite ? 'active' : 'inactive'}`}>
+
+                            <g id="SVGRepo_bgCarrier" strokeWidth="0"/>
+
+                            <g id="SVGRepo_tracerCarrier" strokeLinecap="round" strokeLinejoin="round"/>
+
+                            <g id="SVGRepo_iconCarrier">
+                                <path
+                                    d="M2 9.1371C2 14 6.01943 16.5914 8.96173 18.9109C10 19.7294 11 20.5 12 20.5C13 20.5 14 19.7294 15.0383 18.9109C17.9806 16.5914 22 14 22 9.1371C22 4.27416 16.4998 0.825464 12 5.50063C7.50016 0.825464 2 4.27416 2 9.1371Z"
+                                    fill="#000000"/>
+                            </g>
+
+                        </svg>
+                        {/*<FaHeart*/}
+                        {/*    className={`card-control-item ${tempIsFavorite ? 'active' : 'inactive'}`}*/}
+                        {/*    size={32}*/}
+                        {/*    onClick={handleToggleFavorite}*/}
+                        {/*/>*/}
                     </div>
                 </div>
             </div>
